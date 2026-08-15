@@ -77,14 +77,11 @@ ${cbPages.map(b => `    <img src="${b}" alt="From Elsewhere page">`).join('\n')}
 `;
 
 // --- Massing Model ---
-const massingFinals = [
-  readB64(join(B64, 'massing-model/finals/IMG_8083.txt')),
-  readB64(join(B64, 'massing-model/finals/IMG_8084.txt')),
-  readB64(join(B64, 'massing-model/finals/IMG_8093.txt')),
-  readB64(join(B64, 'massing-model/finals/IMG_8092.txt')),
-  readB64(join(B64, 'massing-model/finals/IMG_8098.txt')),
-  readB64(join(B64, 'massing-model/finals/IMG_8097.txt')),
-];
+// User's 4 picks: 1=IMG_8083, 2=IMG_8101, 3=IMG_8095, 4=IMG_8088
+const massingPick1 = readB64(join(B64, 'massing-model/finals/pick-1.txt'));
+const massingPick2 = readB64(join(B64, 'massing-model/finals/pick-2.txt'));
+const massingPick3 = readB64(join(B64, 'massing-model/finals/pick-3.txt'));
+const massingPick4 = readB64(join(B64, 'massing-model/finals/pick-4.txt'));
 const massingProcess = readAllB64(join(B64, 'massing-model/process'));
 
 const massingModel = `
@@ -103,16 +100,14 @@ const massingModel = `
   </div>
   <div style="padding:0 60px">
     <div class="pp-reveal" style="margin-bottom:32px">
-      <img src="${massingFinals[0]}" alt="Massing model plan view" style="width:100%;max-width:900px;display:block;margin:0 auto;background:none !important">
+      <img src="${massingPick1}" alt="Massing model plan view" style="width:100%;max-width:900px;display:block;margin:0 auto;background:none !important">
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:1200px;margin:0 auto">
-      <div class="pp-reveal"><img src="${massingFinals[1]}" alt="Massing model front view" style="width:100%;aspect-ratio:4/3;object-fit:cover;background:none !important"></div>
-      <div class="pp-reveal"><img src="${massingFinals[2]}" alt="Massing model side view" style="width:100%;aspect-ratio:4/3;object-fit:cover;background:none !important"></div>
-      <div class="pp-reveal"><img src="${massingFinals[3]}" alt="Massing model angle view" style="width:100%;aspect-ratio:4/3;object-fit:cover;background:none !important"></div>
-      <div class="pp-reveal"><img src="${massingFinals[4]}" alt="Massing model detail" style="width:100%;aspect-ratio:4/3;object-fit:cover;background:none !important"></div>
+      <div class="pp-reveal"><img src="${massingPick2}" alt="Massing model front elevation" style="width:100%;object-fit:cover;background:none !important"></div>
+      <div class="pp-reveal"><img src="${massingPick3}" alt="Massing model overhead view" style="width:100%;object-fit:cover;background:none !important"></div>
     </div>
     <div class="pp-reveal" style="margin-top:32px">
-      <img src="${massingFinals[5]}" alt="Massing model front elevation" style="width:100%;max-width:900px;display:block;margin:0 auto;background:none !important">
+      <img src="${massingPick4}" alt="Massing model front view" style="width:100%;max-width:900px;display:block;margin:0 auto;background:none !important">
     </div>
   </div>
   <div style="padding:40px 60px;text-align:center">
@@ -173,7 +168,6 @@ ${sectionProcess.map(b => `    <img src="${b}" alt="Section model process">`).jo
 `;
 
 // --- Write output ---
-// massingModel excluded for now (in progress)
-const allOverlays = virtuousBook + cookbook + sectionModel;
+const allOverlays = massingModel + sectionModel + virtuousBook + cookbook;
 writeFileSync('C:/KHUSHI/Claude/Portfolio-Website/scripts/overlays.html', allOverlays);
 console.log(`Generated overlays.html (${(allOverlays.length / 1024 / 1024).toFixed(1)} MB)`);

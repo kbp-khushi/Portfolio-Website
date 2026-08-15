@@ -33,7 +33,7 @@ http.createServer((req, res) => {
 
   fs.readFile(fileToServe, (err, data) => {
     if (err) { res.writeHead(500); res.end('Error'); return; }
-    res.writeHead(200, { 'Content-Type': contentType });
+    res.writeHead(200, { 'Content-Type': contentType, 'Cache-Control': 'no-store' });
     res.end(data);
   });
 }).listen(8080);

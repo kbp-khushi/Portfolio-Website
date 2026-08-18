@@ -3,16 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Khushi Patel — Resume</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.typekit.net/rqn0qpl.css">
 <style>
   :root{
     --text:#000000;
     --bg:#FFFFFF;
     --line:#E5E5E5;
     --text-light:#666666;
-    --font:'Urbanist', sans-serif;
+    --font:'neue-haas-grotesk-display', sans-serif;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   html,body{
@@ -25,14 +23,14 @@
   body{
     width:8.5in;
     margin:0 auto;
-    padding:0.6in;
+    padding:0.55in 0.6in;
     font-size:10.5px;
     line-height:1.5;
   }
 
   /* ---- Header ---- */
   .name{
-    font-size:38pt;
+    font-size:30pt;
     font-weight:700;
     letter-spacing:-0.5px;
     line-height:1;
@@ -40,13 +38,13 @@
   .tagline{
     font-style:italic;
     font-weight:400;
-    font-size:12.5pt;
+    font-size:11.5pt;
     margin-top:5px;
-    color:var(--text);
+    color:var(--text-light);
   }
   .contact-row{
-    margin-top:10px;
-    font-size:9.8pt;
+    margin-top:12px;
+    font-size:9.5pt;
     color:var(--text-light);
     display:flex;
     flex-wrap:wrap;
@@ -60,80 +58,63 @@
     color:var(--line);
   }
   .rule-thick{
-    height:4px;
+    height:2px;
     background:#000;
     border:none;
-    margin:14px 0 18px;
+    margin:14px 0 22px;
   }
 
-  /* ---- Layout ---- */
-  .layout{
-    display:flex;
-    flex-direction:column;
-    gap:28px;
-  }
-  .col-left{
-    min-width:0;
-  }
-  .col-right{
-    min-width:0;
-  }
+  /* ---- Layout: sidebar (left) + main (right), floats paginate more reliably than grid ---- */
+  .layout{ overflow:hidden; }
+  .col-side{ float:left; width:190px; }
+  .col-main{ float:left; width:calc(100% - 226px); margin-left:36px; }
 
-  .section{
-    margin-bottom:10px;
-  }
-  .section:last-child{
-    margin-bottom:0;
-  }
+  .section{ margin-bottom:16px; }
+  .section:last-child{ margin-bottom:0; }
   .section-label{
-    font-size:10pt;
+    font-size:9.5pt;
     font-weight:700;
     letter-spacing:1.5px;
     text-transform:uppercase;
-    margin-bottom:6px;
+    margin-bottom:7px;
   }
   .hairline{
     border:none;
     border-top:1px solid var(--line);
-    margin:0 0 6px;
+    margin:0 0 8px;
+  }
+
+  /* ---- Profile ---- */
+  .profile-text{
+    font-size:10pt;
+    line-height:1.65;
+    color:var(--text);
   }
 
   /* ---- Experience ---- */
-  .exp-item{
-    margin-bottom:11px;
-  }
-  .exp-item:last-child{
-    margin-bottom:0;
-  }
+  .exp-item{ margin-bottom:13px; }
+  .exp-item:last-child{ margin-bottom:0; }
   .exp-head{
     display:flex;
     justify-content:space-between;
     align-items:baseline;
     gap:10px;
   }
-  .exp-role{
-    font-weight:700;
-    font-size:11pt;
-  }
-  .exp-company{
-    font-weight:400;
-  }
+  .exp-role{ font-weight:700; font-size:10.8pt; }
+  .exp-company{ font-weight:400; color:var(--text-light); }
   .exp-date{
     font-style:italic;
-    font-size:9.5pt;
+    font-size:9.2pt;
     color:var(--text-light);
     white-space:nowrap;
   }
-  .exp-points{
-    list-style:none;
-    margin-top:5px;
-  }
+  .exp-points{ list-style:none; margin-top:5px; }
   .exp-points li{
     position:relative;
     padding-left:12px;
     margin-bottom:2px;
-    font-size:9.6pt;
-    line-height:1.4;
+    font-size:9.4pt;
+    line-height:1.45;
   }
   .exp-points li::before{
     content:"–";
@@ -141,90 +122,47 @@
     left:0;
   }
 
-  /* ---- Education ---- */
-  .edu-item{
-    margin-bottom:6px;
-  }
-  .edu-item:last-child{
-    margin-bottom:0;
-  }
-  .edu-degree{
-    font-weight:700;
-    font-size:10.3pt;
-  }
-  .edu-school{
-    font-size:9.8pt;
-  }
-  .edu-meta{
-    font-size:9pt;
-    color:var(--text-light);
-    margin-top:1px;
-  }
-  .edu-sub{
-    font-size:9pt;
-    font-style:italic;
-    color:var(--text-light);
-    margin-top:4px;
-  }
-
-  /* ---- Software (flowing line) ---- */
-  .flow-line{
-    font-size:9.8pt;
-    line-height:1.6;
-  }
-
-  /* ---- AI-Assisted Design ---- */
-  .ai-list{
-    list-style:none;
-  }
-  .ai-list li{
+  /* ---- Sidebar: Contact ---- */
+  .contact-list{ list-style:none; }
+  .contact-list li{
     font-size:9.3pt;
-    line-height:1.4;
-    margin-bottom:3px;
+    line-height:1.6;
+    margin-bottom:2px;
+    word-break:break-word;
   }
-  .ai-list li:last-child{
-    margin-bottom:0;
-  }
-  .ai-list b{
-    font-weight:700;
-  }
+  .contact-list a{ color:var(--text); text-decoration:none; }
 
-  /* ---- Honors ---- */
-  .plain-list{
-    list-style:none;
-  }
-  .plain-list li{
-    font-size:9.8pt;
-    line-height:1.5;
-    margin-bottom:3px;
-  }
-  .plain-list li:last-child{
-    margin-bottom:0;
-  }
+  /* ---- Sidebar: Education ---- */
+  .edu-item{ margin-bottom:9px; }
+  .edu-item:last-child{ margin-bottom:0; }
+  .edu-degree{ font-weight:700; font-size:9.6pt; line-height:1.35; }
+  .edu-school{ font-size:9pt; color:var(--text-light); margin-top:1px; }
+  .edu-meta{ font-size:8.6pt; color:var(--text-light); margin-top:2px; }
+  .edu-sub{ font-size:8.6pt; font-style:italic; color:var(--text-light); margin-top:3px; }
 
-  /* ---- Licensure ---- */
-  .lic-item{
-    font-size:9.6pt;
-    margin-bottom:4px;
-  }
-  .lic-item:last-child{
-    margin-bottom:0;
-  }
-  .lic-item .lic-label{
-    font-weight:700;
-  }
+  /* ---- Sidebar: flowing tag lists (Software) ---- */
+  .flow-line{ font-size:9pt; line-height:1.7; color:var(--text); }
+
+  /* ---- Sidebar: AI-Assisted Design ---- */
+  .ai-list{ list-style:none; }
+  .ai-list li{ font-size:8.7pt; line-height:1.4; margin-bottom:4px; }
+  .ai-list li:last-child{ margin-bottom:0; }
+  .ai-list b{ font-weight:700; }
+
+  /* ---- Sidebar: Honors ---- */
+  .plain-list{ list-style:none; }
+  .plain-list li{ font-size:9pt; line-height:1.5; margin-bottom:3px; }
+  .plain-list li:last-child{ margin-bottom:0; }
+
+  /* ---- Sidebar: Licensure ---- */
+  .lic-item{ font-size:8.8pt; line-height:1.5; margin-bottom:4px; }
+  .lic-item:last-child{ margin-bottom:0; }
+  .lic-item .lic-label{ font-weight:700; display:block; }
 
   /* ---- Print ---- */
   @media print{
-    @page{
-      size: letter;
-      margin: 0.6in;
-    }
-    body{
-      width:auto;
-      margin:0;
-      padding:0;
-    }
+    @page{ size: letter; margin: 0.55in 0.6in; }
+    body{ width:auto; margin:0; padding:0; }
   }
 </style>
 </head>
@@ -242,8 +180,71 @@
   <hr class="rule-thick">
 
   <div class="layout">
-    <!-- LEFT COLUMN: EXPERIENCE -->
-    <div class="col-left">
+    <!-- LEFT SIDEBAR -->
+    <div class="col-side">
+
+      <div class="section">
+        <div class="section-label">Education</div>
+        <hr class="hairline">
+        <div class="edu-item">
+          <div class="edu-degree">Masters of Architecture</div>
+          <div class="edu-school">Savannah College of Art and Design</div>
+          <div class="edu-meta">2025&ndash;2027 &middot; GPA 4.0</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-degree">B.F.A. in Architecture, <i>Summa Cum Laude</i></div>
+          <div class="edu-school">Savannah College of Art and Design</div>
+          <div class="edu-meta">2021&ndash;2025 &middot; GPA 4.0<br>Minor: Electronic Design</div>
+          <div class="edu-sub">Study Abroad &mdash; SCAD Lacoste, France, Fall 2023</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Software</div>
+        <hr class="hairline">
+        <div class="flow-line">AutoCAD, Revit, Rhino, SketchUp, 3DS Max, Lumion, Enscape, Photoshop, Illustrator, InDesign, After Effects, Premiere Pro, Hand Drafting, Model Making, Microsoft Office</div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">AI-Assisted Design</div>
+        <hr class="hairline">
+        <ul class="ai-list">
+          <li><b>ComfyUI</b> &mdash; image generation</li>
+          <li><b>ChatGPT</b> &mdash; research &amp; writing</li>
+          <li><b>Claude Code</b> &mdash; built this site</li>
+          <li><b>Claude Design</b> &mdash; layout &amp; mockups</li>
+          <li><b>DALL-E</b> &mdash; visual studies</li>
+          <li><b>Gemini</b> &mdash; research &amp; ideation</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Honors</div>
+        <hr class="hairline">
+        <ul class="plain-list">
+          <li>Dean&rsquo;s List &mdash; SCAD, 2022&ndash;2025</li>
+          <li>Outstanding Student Award &mdash; SCAD, 2025</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Licensure</div>
+        <hr class="hairline">
+        <div class="lic-item"><span class="lic-label">AXP Hours</span>1,336.25 / 3,740 (35.7%)</div>
+        <div class="lic-item"><span class="lic-label">ARE Exams</span>0 / 6 divisions passed</div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT MAIN -->
+    <div class="col-main">
+
+      <div class="section">
+        <div class="section-label">Profile</div>
+        <hr class="hairline">
+        <div class="profile-text">M.Arch candidate at SCAD focused on how people move through, gather in, and experience space &mdash; from civic and ecological questions in studio to construction-ready documentation in practice. Comfortable moving between hand drafting and BIM, concept sketches and construction documents, with a growing focus on sustainable, community-driven design.</div>
+      </div>
+
       <div class="section">
         <div class="section-label">Experience</div>
         <hr class="hairline">
@@ -292,61 +293,6 @@
             <li>Coordinated directly with project managers across several assignments at once</li>
           </ul>
         </div>
-      </div>
-    </div>
-
-    <!-- RIGHT COLUMN -->
-    <div class="col-right">
-
-      <div class="section">
-        <div class="section-label">Education</div>
-        <hr class="hairline">
-        <div class="edu-item">
-          <div class="edu-degree">Masters of Architecture</div>
-          <div class="edu-school">Savannah College of Art and Design</div>
-          <div class="edu-meta">2025 &ndash; 2027 &middot; GPA 4.0</div>
-        </div>
-        <div class="edu-item">
-          <div class="edu-degree">B.F.A. in Architecture, <i>Summa Cum Laude</i></div>
-          <div class="edu-school">Savannah College of Art and Design</div>
-          <div class="edu-meta">2021 &ndash; 2025 &middot; GPA 4.0 &middot; Minor: Electronic Design</div>
-          <div class="edu-sub">Study Abroad &mdash; SCAD Lacoste, France, Fall 2023</div>
-        </div>
-      </div>
-
-      <div class="section">
-        <div class="section-label">Software</div>
-        <hr class="hairline">
-        <div class="flow-line">AutoCAD, Revit, Rhino, SketchUp, 3DS Max, Lumion, Enscape, Photoshop, Illustrator, InDesign, After Effects, Premiere Pro, Hand Drafting, Model Making, Microsoft Office</div>
-      </div>
-
-      <div class="section">
-        <div class="section-label">AI-Assisted Design</div>
-        <hr class="hairline">
-        <ul class="ai-list">
-          <li><b>ComfyUI</b> &mdash; Node-based tool for generating and refining images</li>
-          <li><b>ChatGPT</b> &mdash; Research, ideation, and writing support</li>
-          <li><b>Claude Code</b> &mdash; AI coding assistant used to build this site</li>
-          <li><b>Claude Design</b> &mdash; AI-assisted layout and visual mockups</li>
-          <li><b>DALL-E</b> &mdash; Text-to-image generation for visual studies</li>
-          <li><b>Gemini</b> &mdash; Research and ideation support</li>
-        </ul>
-      </div>
-
-      <div class="section">
-        <div class="section-label">Honors</div>
-        <hr class="hairline">
-        <ul class="plain-list">
-          <li>Dean&rsquo;s List &mdash; Savannah College of Art and Design, 2022&ndash;2025</li>
-          <li>Outstanding Student Award &mdash; SCAD, 2025</li>
-        </ul>
-      </div>
-
-      <div class="section">
-        <div class="section-label">Licensure</div>
-        <hr class="hairline">
-        <div class="lic-item"><span class="lic-label">AXP Hours:</span> 1,336.25 / 3,740 (35.7% complete)</div>
-        <div class="lic-item"><span class="lic-label">ARE Exams:</span> 0 / 6 divisions passed</div>
       </div>
 
     </div>

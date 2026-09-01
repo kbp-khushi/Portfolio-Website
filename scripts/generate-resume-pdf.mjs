@@ -72,12 +72,7 @@ async function main() {
       path: outputPdfPath,
       format: "Letter",
       printBackground: true,
-      margin: {
-        top: "0.6in",
-        bottom: "0.6in",
-        left: "0.6in",
-        right: "0.6in",
-      },
+      margin: { top: "0", bottom: "0", left: "0", right: "0" },
       preferCSSPageSize: false,
     });
 

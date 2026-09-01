@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.min.mjs" type="module"></script>
+<style>
+body { font-family: sans-serif; padding: 20px; }
+#status { white-space: pre-wrap; font-size: 14px; }
+canvas { display: none; }
+</style>
+</head>
+<body>
+<h2>PDF Page Renderer</h2>
+<div id="status">Ready. Call renderPdf() from console.</div>
+<canvas id="renderCanvas"></canvas>
+<script type="module">
+import * as pdfjsLib from 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.min.mjs';
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.worker.min.mjs';
+
+window.pdfPages = {};
+window.pdfPageCount = 0;
+
+window.renderPdf = async function(url, scale = 2.0) {
+  const status = document.getElementById('status');
+  status.textContent = 'Loading PDF...';
+
+  const pdf = await pdfjsLib.getDocument(url).promise;
+  window.pdfPageCount = pdf.numPages;
+  status.textContent = `Loaded: ${pdf.numPages} pages. Rendering...\n`;
+
+  const canvas = document.getElementById('renderCanvas');
+  const ctx = canvas.getContext('2d');
+
+  for (let i = 1; i <= pdf.numPages; i++) {
+    const page = await pdf.getPage(i);
+    const viewport = page.getViewport({ scale });
+    canvas.width = viewport.width;
+    canvas.height = viewport.height;
+
+    ctx.fillStyle = '#FFFFFF';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    await page.render({ canvasContext: ctx, viewport }).promise;
+
+    const dataUrl = canvas.toDataURL('image/jpeg', 0.80);
+    const key = `page-${String(i).padStart(2, '0')}`;
+    window.pdfPages[key] = dataUrl;
+
+    status.textContent += `Page ${i}/${pdf.numPages} rendered (${(dataUrl.length / 1024).toFixed(0)} KB)\n`;
+  }
+
+  status.textContent += '\nDone! Access pages via window.pdfPages';
+  return pdf.numPages;
+};
+
+window.getPage = function(num) {
+  const key = `page-${String(num).padStart(2, '0')}`;
+  return window.pdfPages[key] || null;
+};
+
+window.getPageCount = function() {
+  return window.pdfPageCount;
+};
+</script>
+</body>
+</html>

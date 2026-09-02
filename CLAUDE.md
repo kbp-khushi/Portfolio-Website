@@ -6,7 +6,7 @@ This is Khushi Patel's architecture portfolio website. Single-page HTML file (an
 ## File
 - Main file: `index.html`
 - Single HTML file, all CSS/JS/images inline
-- `resume.html` — standalone page used only to generate the downloadable resume PDF (see below), not part of the live site's nav
+- `resume.html` was retired (commit `160bfdb`) — the downloadable resume is now just `Khushi_Patel_Resume.pdf`, replaced directly whenever Khushi has an updated version, not regenerated from HTML
 
 ## Design System
 
@@ -57,15 +57,14 @@ The file is ~30MB. It truncates at the flipbook popup when written in one pass. 
 - Project order: The Pause → Woven Edge → Beacon → Fluke → Dreamscape → Lakër → Drodel
 
 ## Resume
-- Two things share this content and should be kept in sync if it changes: the About page's Experience/Education/Software/AI-Assisted Design/Honors/Licensure lists in `index.html`, and the standalone `resume.html`.
-- `resume.html` → `Khushi_Patel_Resume.pdf` via `node scripts/generate-resume-pdf.mjs` (uses `puppeteer-core` against the machine's installed Chrome, not a bundled download). Re-run this script after editing `resume.html`. The About page's "Download Resume" button links directly to the generated PDF.
+- Two things share this content and should be kept in sync if it changes: the About page's Experience/Education/Software/AI-Assisted Design/Honors/Licensure lists in `index.html`, and `Khushi_Patel_Resume.pdf`.
+- The PDF is not generated from HTML anymore (`resume.html` and `scripts/generate-resume-pdf.mjs` are dead — see File section above) — when Khushi has a new resume version, replace `Khushi_Patel_Resume.pdf` directly with the file she supplies, keeping that exact filename since the About page's "Download Resume" button links to it by name.
 - SCAD M.Arch 2025-2027 (GPA 4.0), B.F.A. Architecture 2021-2025 Summa Cum Laude (GPA 4.0), Minor: Electronic Design, Study Abroad — SCAD Lacoste, France
 - Experience: The Johnson Studio at Cooper Carry, Rose Architects, Staging By Design, MRP Design
 - AXP: 955/3740 (26%), ARE: 0/6
-- Email: kbp.khushi@gmail.com | Location: Savannah, GA
+- Email: kbp.khushi@gmail.com | Phone: (706) 308-5889 | Location: Savannah, GA
 
 ## Known gaps / open items
 - Landing hero photo (Monet's water lily painting, Met) and About-page portrait: hero photo is in place (`monet painting/IMG_7057.HEIC`, cropped to just the painting); the About portrait is still a placeholder (`.about-portrait-placeholder`) — swap in a real `<img>` when Khushi supplies one.
 - DALL-E / Gemini one-line descriptions in AI-Assisted Design were written to match the style of the other 4 tools, not dictated verbatim — worth a review pass.
-- Rose Architects end date on the resume is a placeholder ("Jun 2026") — confirm with Khushi.
 - "AI-Assisted Design" being included on the printed resume (not just the About page) was a judgment call carried over from the source planning chat — worth a gut-check before using it for actual job applications.

@@ -1,93 +1,53 @@
-// Caesura revision pass 8 — match the Economy map and legend to one width so
-// they compose as a single figure, and scale the Equitable group down ~20%.
-
 import { readFileSync, writeFileSync } from 'fs';
-import { join } from 'path';
+const P = 'C:/KHUSHI/Claude/1-Projects/Portfolio-Website/index.html';
+let html = readFileSync(P, 'utf8');
+const before = html.length;
 
-const BASE = 'C:/KHUSHI/Claude/1-Projects/Portfolio-Website';
-const B64 = join(BASE, 'base64/caesura');
-const FILE = join(BASE, 'index.html');
-let html = readFileSync(FILE, 'utf8');
-const startLen = html.length;
+// ---- locate the Well-Being edit-row -------------------------------------
+const START = '<!-- WELL-BEING (louver full width, matching exterior library) -->';
+const END = '<!-- ECOSYSTEMS + WATER -->';
+const s = html.indexOf(START), e = html.indexOf(END);
+if (s === -1 || e === -1 || e < s) throw new Error('well-being section not found');
+let seg = html.slice(s, e);
 
-function b64(name) {
-  const s = readFileSync(join(B64, `${name}.txt`), 'utf8').trim();
-  if (!s.startsWith('data:image/jpeg;base64,')) throw new Error(`bad blob: ${name}`);
-  return s;
+// ---- 1) new paragraph ---------------------------------------------------
+const oldPara = 'Every occupied space opens to the forest or the river. Movement through the pavilions provides a physical connection with the landscape, with moments of enclosure and exposure alternating along the path as the blend of indoor and outdoor space shapes the sense of comfort inside a public building.';
+if (seg.split(oldPara).length - 1 !== 1) throw new Error('paragraph match count wrong');
+const newPara = 'Every occupied space opens to the forest or the river, and moments of enclosure and exposure alternate along the path through the pavilions. The plans map daylight factor across all three, averaging 3.7%, which keeps the reading rooms and work areas in the range that supports sustained use without glare. Three louver studies tested how to get there: a solid panel darkened the interior, straight louvers admitted too much direct sun, and the angled profile filtered daylight while blocking the high summer sun. The section carries that through, drawing light in above the louvers and moving air across the plan and beneath the raised floor, so comfort comes from the section itself before any mechanical system.';
+seg = seg.replace(oldPara, () => newPara);
+
+// ---- 2) shrink louvers + narrow their caption boxes ---------------------
+const louverImg = 'style="height:210px;width:auto;max-width:100%"';
+if (seg.split(louverImg).length - 1 !== 3) throw new Error('expected 3 louver images');
+seg = seg.split(louverImg).join('style="height:160px;width:auto;max-width:100%"');
+
+const capOpen = '<div style="text-align:center;font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:8px">';
+if (seg.split(capOpen).length - 1 !== 3) throw new Error('expected 3 louver captions');
+seg = seg.split(capOpen).join('<div style="text-align:center;font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:8px;max-width:165px">');
+
+// ---- 3) reorder: floor plan first, louvers, then daylight+ventilation ----
+const louverRowStart = seg.indexOf('<div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">');
+const planStart = seg.indexOf('<div style="width:100%;margin-top:32px">');
+const dvStart = seg.indexOf('<div style="width:100%;margin-top:24px">');
+const dvEnd = seg.indexOf('</div>', seg.indexOf('alt="Daylight and Ventilation Diagram"')) + 6;
+if ([louverRowStart, planStart, dvStart].some(i => i === -1) || !(louverRowStart < planStart && planStart < dvStart)) {
+  throw new Error('unexpected well-being image order');
 }
-function count(str) { let n = 0, i = 0; while ((i = html.indexOf(str, i)) !== -1) { n++; i += str.length; } return n; }
-function must(str, label) {
-  const n = count(str);
-  if (n !== 1) throw new Error(`ANCHOR "${label}" matched ${n} times, expected exactly 1`);
-  return str;
-}
-function replaceOnce(oldStr, newStr, label) {
-  must(oldStr, label);
-  html = html.replace(oldStr, () => newStr);
-  console.log(`[ok] ${label}`);
-}
-function swapBlob(altMarker, newBlob, label) {
-  must(altMarker, `${label} (src lookup)`);
-  const a = html.indexOf(altMarker);
-  const s = html.lastIndexOf('src="', a) + 5;
-  const to = html.indexOf('"', s);
-  const old = html.slice(s, to);
-  if (!old.startsWith('data:image/')) throw new Error(`src before ${label} is not a data URI`);
-  html = html.slice(0, s) + newBlob + html.slice(to);
-  console.log(`[ok] ${label} — blob swapped (${(old.length / 1024).toFixed(0)}KB -> ${(newBlob.length / 1024).toFixed(0)}KB)`);
-}
+const louverRow = seg.slice(louverRowStart, planStart).trimEnd();
+const planBlock = seg.slice(planStart, dvStart).trimEnd();
+const dvBlock = seg.slice(dvStart, dvEnd).trimEnd();
 
-// ── 1. Economy — full extent map, map and legend matched at 760px ────────────
-swapBlob(
-  'alt="Regional Sourcing" style="width:100%;max-width:700px;display:block;margin:0 auto"',
-  b64('economy-map'),
-  '1. economy map restored to full natural extent'
-);
-replaceOnce(
-  'alt="Regional Sourcing" style="width:100%;max-width:700px;display:block;margin:0 auto"',
-  'alt="Regional Sourcing" style="width:100%;max-width:760px;display:block;margin:0 auto"',
-  '1. economy map -> 760px'
-);
-replaceOnce(
-  'alt="Regional sourcing supplier legend" style="width:100%;max-width:900px;display:block;margin:28px auto 0"',
-  'alt="Regional sourcing supplier legend" style="width:100%;max-width:760px;display:block;margin:28px auto 0"',
-  '1. economy legend -> 760px, matching the map'
-);
+const reordered = [
+  planBlock.replace('margin-top:32px', 'margin-top:0'),
+  '\n      ' + louverRow.replace('<div style="display:flex;gap:16px', '<div style="margin-top:36px;display:flex;gap:16px'),
+  '\n      ' + dvBlock,
+  '\n    '
+].join('');
+seg = seg.slice(0, louverRowStart) + reordered + seg.slice(dvEnd);
 
-// ── 2. Equitable — scale the whole group down ~20% ───────────────────────────
-replaceOnce(
-  '<div class="pause-usergroups" style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px;align-items:end">',
-  '<div class="pause-usergroups" style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px;align-items:end;max-width:760px;margin:0 auto">',
-  '2. icon row 952 -> 760px'
-);
-replaceOnce(
-  '<div class="pause-charts" style="display:grid;grid-template-columns:repeat(2,1fr);gap:24px;align-items:center;margin-top:28px">',
-  '<div class="pause-charts" style="display:grid;grid-template-columns:repeat(2,1fr);gap:24px;align-items:center;max-width:760px;margin:28px auto 0">',
-  '2. chart pair 952 -> 760px'
-);
-replaceOnce(
-  'alt="Library Proximity Map" style="width:100%;max-width:780px;display:block;margin:40px auto 0"',
-  'alt="Library Proximity Map" style="width:100%;max-width:680px;display:block;margin:40px auto 0"',
-  '2. proximity map 780 -> 680px'
-);
-
-// ── sanity gates ─────────────────────────────────────────────────────────────
-for (const [needle, label] of [
-  ['</html>', 'closing html tag'],
-  ['boards-popup', 'boards popup'],
-  ['flipbook-popup', 'flipbook popup'],
-  ['id="page-the-pause"', 'caesura page'],
-  ['alt="Building Section"', 'building section image'],
-  // the double-class scoping is what beats the generic repeat(5,1fr) helper
-  ['.edit-images .pause-usergroups{grid-template-columns:repeat(2,1fr)!important}', 'usergroups mobile scoping'],
-  ['.pause-charts{grid-template-columns:1fr!important}', 'charts mobile stacking'],
-]) {
-  if (html.indexOf(needle) === -1) throw new Error(`SANITY FAIL: ${label} missing`);
-}
-if (html.indexOf('__cf_email__') !== -1) throw new Error('SANITY FAIL: __cf_email__ reappeared');
-if (html.indexOf('data-cfasync') !== -1) throw new Error('SANITY FAIL: data-cfasync reappeared');
-if (!html.trimEnd().endsWith('</html>')) throw new Error('SANITY FAIL: file does not end with </html>');
-if (html.length < 25_000_000) throw new Error(`SANITY FAIL: file shrank to ${html.length}`);
-
-writeFileSync(FILE, html);
-console.log(`\nwritten: ${(startLen / 1e6).toFixed(2)}MB -> ${(html.length / 1e6).toFixed(2)}MB`);
+html = html.slice(0, s) + seg + html.slice(e);
+writeFileSync(P, html);
+console.log('bytes', before, '->', html.length);
+console.log('ends html:', html.trimEnd().endsWith('</html>'), '| popups:', (html.match(/boards-popup/g) || []).length, (html.match(/flipbook-popup/g) || []).length);
+const order = [...html.slice(s, s + seg.length).matchAll(/alt="([^"]+)"/g)].map(m => m[1]);
+console.log('image order:', order.join(' | '));

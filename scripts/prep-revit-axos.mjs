@@ -49,8 +49,16 @@ for (const [name, cfg] of Object.entries(SETS)) {
     x0: Math.max(0, full.x0-pad), y0: Math.max(0, full.y0-pad),
     x1: Math.min(info.width-1, full.x1+pad), y1: Math.min(info.height-1, full.y1+pad),
   };
-  // leave room beneath the lowest callout so its number sits inside the frame
-  t.y1 = Math.min(info.height-1, t.y1 + Math.round((t.y1-t.y0) * 0.05));
+  // only the drawings whose lowest callout sits near the bottom need extra
+  // room for its number; adding it everywhere left Library and PDR floating high
+  const rawBoxes = cfg.items.map(([,fx0,fx1,fy0,fy1]) => inkBox(
+    Math.round(fx0*info.width), Math.round(fx1*info.width),
+    Math.round(fy0*info.height), Math.round(fy1*info.height)));
+  const lowest = Math.max(...rawBoxes.map(b => b.y1));
+  if (lowest > full.y1 - (full.y1-full.y0)*0.06) {
+    t.y1 = Math.min(info.height-1, t.y1 + Math.round((t.y1-t.y0) * 0.05));
+    console.log('   (bottom room added for the lowest callout)');
+  }
   // keep every drawing landscape so the four read as a set
   const MIN_RATIO = 1.4;
   let tw = t.x1-t.x0, th = t.y1-t.y0;

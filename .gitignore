@@ -2,3 +2,6 @@ node_modules/
 converted/
 base64/
 .claude/
+
+# source PDFs kept outside the repo (too large to version)
+Beacon/

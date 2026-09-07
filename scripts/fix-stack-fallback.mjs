@@ -1,0 +1,10 @@
+import { readFileSync, writeFileSync } from 'fs';
+const P='C:/KHUSHI/Claude/1-Projects/Portfolio-Website/index.html';
+let html=readFileSync(P,'utf8');
+const OLD = '  const source=document.querySelector(`.project-card[onclick*="\'${slug}\'"] .card-img`);\n  if(source)img.src=source.src;';
+if (html.split(OLD).length-1 !== 1) throw new Error('stack image script not found once');
+const NEW = '  let source=document.querySelector(`.project-card[onclick*="\'${slug}\'"] .card-img`);\n  // projects that live in a list rather than a card fall back to their page\'s first image\n  if(!source)source=document.querySelector(`#page-${slug} img`);\n  if(source)img.src=source.src;';
+html = html.replace(OLD, () => NEW);
+writeFileSync(P, html);
+console.log('[ok] stack image fallback added');
+console.log('ends html:', html.trimEnd().endsWith('</html>'));

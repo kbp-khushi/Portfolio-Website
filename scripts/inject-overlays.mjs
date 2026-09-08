@@ -1,6 +1,6 @@
 import { readFileSync, writeFileSync } from 'fs';
 
-const htmlPath = 'C:/KHUSHI/Claude/Portfolio-Website/index.html';
+const htmlPath = 'C:/KHUSHI/Claude/Portfolio-Website/site/index.html';
 const overlaysPath = 'C:/KHUSHI/Claude/Portfolio-Website/scripts/overlays.html';
 
 const html = readFileSync(htmlPath, 'utf-8');

@@ -29,7 +29,7 @@ await sharp(buf).resize({width:800}).jpeg({quality:80}).toFile(`${SP}/pv/floorpl
 writeFileSync(OUT, `data:image/jpeg;base64,${buf.toString('base64')}`);
 
 // ---- swap into index.html --------------------------------------------------
-const P='C:/KHUSHI/Claude/1-Projects/Portfolio-Website/index.html';
+const P='C:/KHUSHI/Claude/1-Projects/Portfolio-Website/site/index.html';
 let html=readFileSync(P,'utf8');
 const anchor='" alt="Floor Plan" style="width:100%;max-width:640px;display:block;margin:0 auto"';
 if (html.split(anchor).length-1 !== 1) throw new Error('floor plan anchor not unique');

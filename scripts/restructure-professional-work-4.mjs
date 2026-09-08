@@ -1,5 +1,5 @@
 import { readFileSync, writeFileSync } from 'fs';
-const P='C:/KHUSHI/Claude/1-Projects/Portfolio-Website/index.html';
+const P='C:/KHUSHI/Claude/1-Projects/Portfolio-Website/site/index.html';
 const RV='C:/KHUSHI/Claude/1-Projects/Portfolio-Website/base64/revit';
 const pos=JSON.parse(readFileSync(`${RV}/positions.json`,'utf8'));
 const b64=n=>readFileSync(`${RV}/${n}.txt`,'utf8').trim();

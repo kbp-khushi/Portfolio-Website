@@ -4,8 +4,9 @@
 This is Khushi Patel's architecture portfolio website. Single page HTML file (an SPA — nav links toggle views and project overlays, no real per page URLs) with images served from `images/`.
 
 ## File
-- Main file: `index.html` — about 170KB of markup, CSS and JS
-- Images are **separate files in `images/`**, referenced as `src="images/NNN-name.jpg"`. They were inlined as base64 until 2026-09-03, when the document had reached 39MB; extracting them dropped it to 171KB. Do not re-embed them.
+- **Everything the site serves lives in `site/`** — `site/index.html`, `site/images/`, both PDFs, `og-image.jpg`. That directory *is* the published root, so nothing else in the repo is publicly reachable. Do not put source material inside it.
+- Main file: `site/index.html` — about 170KB of markup, CSS and JS
+- Images are **separate files in `site/images/`**, referenced as `src="images/NNN-name.jpg"`. They were inlined as base64 until 2026-09-03, when the document had reached 39MB; extracting them dropped it to 171KB. Do not re-embed them.
 - `resume.html` was retired (commit `160bfdb`) — the downloadable resume is now just `Khushi_Patel_Resume.pdf`, replaced directly whenever Khushi has an updated version
 
 ## Design System
@@ -46,9 +47,9 @@ This is Khushi Patel's architecture portfolio website. Single page HTML file (an
 - Never patch a build script through nested shell quoting. Write the script with the Write tool instead; shell escaping mangled one and truncated index.html from 34MB to 2.3MB on 2026-09-03.
 
 ## Deploying
-- `_deploy/` (gitignored) is the publishable folder: `index.html`, `images/`, both PDFs, `og-image.jpg`. Rebuild it with `scripts/extract-images.mjs`.
-- Live site: https://archportfoliopatel.netlify.app/ — **not** connected to GitHub, so pushing does not deploy. Deploys are manual.
-- Khushi owns a Cloudflare domain and wants to move there. Cloudflare Pages caps a single file at 25 MiB, which the old 39MB index.html would have failed; after extraction nothing is over 25 MiB.
+- Target: **Cloudflare Pages, connected to this GitHub repo**, publishing the `site/` directory, on **imkhushi.com** (registered in Khushi's Cloudflare account). Pushing to `master` deploys.
+- Build settings: no build command, **output directory `site`**. Publishing the repo root instead would expose ~950MB of source boards and model photographs, and would fail anyway — 13 tracked source files exceed Cloudflare's 25 MiB per file cap. Nothing inside `site/` does.
+- The old https://archportfoliopatel.netlify.app/ was never connected to Git, which is why it sat months out of date. Retire it once Cloudflare is verified, but check first whether that URL was ever sent to anyone — a `_redirects` file with `/* https://imkhushi.com/:splat 301!` forwards old links instead of breaking them.
 
 ## Known Issues
 - Cloudflare email obfuscation tags reappear on edits — search for __cf_email__ and replace with kbp.khushi@gmail.com

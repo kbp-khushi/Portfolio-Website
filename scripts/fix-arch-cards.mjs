@@ -1,7 +1,7 @@
 import { readFileSync, writeFileSync } from 'fs';
 import { execFileSync } from 'child_process';
 
-const htmlPath = 'C:/KHUSHI/Claude/Portfolio-Website/index.html';
+const htmlPath = 'C:/KHUSHI/Claude/Portfolio-Website/site/index.html';
 let html = readFileSync(htmlPath, 'utf-8');
 
 // Get the original file from git

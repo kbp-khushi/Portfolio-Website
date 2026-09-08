@@ -1,6 +1,6 @@
 import sharp from 'sharp';
 import { readFileSync, writeFileSync } from 'fs';
-const P = 'C:/KHUSHI/Claude/1-Projects/Portfolio-Website/index.html';
+const P = 'C:/KHUSHI/Claude/1-Projects/Portfolio-Website/site/index.html';
 const OUT = 'C:/KHUSHI/Claude/1-Projects/Portfolio-Website/og-image.jpg';
 
 // pull the Caesura approach render straight out of the page

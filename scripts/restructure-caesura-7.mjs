@@ -7,7 +7,7 @@ import { join } from 'path';
 
 const BASE = 'C:/KHUSHI/Claude/1-Projects/Portfolio-Website';
 const B64 = join(BASE, 'base64/caesura');
-const FILE = join(BASE, 'index.html');
+const FILE = join(BASE, 'site/index.html');
 let html = readFileSync(FILE, 'utf8');
 const startLen = html.length;
 

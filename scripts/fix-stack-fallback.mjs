@@ -1,5 +1,5 @@
 import { readFileSync, writeFileSync } from 'fs';
-const P='C:/KHUSHI/Claude/1-Projects/Portfolio-Website/index.html';
+const P='C:/KHUSHI/Claude/1-Projects/Portfolio-Website/site/index.html';
 let html=readFileSync(P,'utf8');
 const OLD = '  const source=document.querySelector(`.project-card[onclick*="\'${slug}\'"] .card-img`);\n  if(source)img.src=source.src;';
 if (html.split(OLD).length-1 !== 1) throw new Error('stack image script not found once');

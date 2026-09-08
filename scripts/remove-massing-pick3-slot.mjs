@@ -1,6 +1,6 @@
 import { readFileSync, writeFileSync } from 'fs';
 
-const HTML = 'C:/KHUSHI/Claude/1-Projects/Portfolio-Website/index.html';
+const HTML = 'C:/KHUSHI/Claude/1-Projects/Portfolio-Website/site/index.html';
 const html = readFileSync(HTML, 'utf8');
 
 const gridMarker = '<div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:1200px;margin:0 auto">';

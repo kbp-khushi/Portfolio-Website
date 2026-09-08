@@ -1,7 +1,7 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
-const root = path.join(__dirname, '..');
+const root = path.join(__dirname, '..', 'site');
 const indexFile = path.join(root, 'index.html');
 
 const MIME = {

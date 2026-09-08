@@ -3,7 +3,7 @@ import sharp from 'sharp';
 import { readFileSync, writeFileSync } from 'fs';
 const SRC = 'C:/KHUSHI/Claude/1-Projects/Portfolio-Website/Facade Mask/Facade_Mask_Boards.pdf';
 const OUT = 'C:/KHUSHI/Claude/1-Projects/Portfolio-Website/base64/facade-mask/strategies.txt';
-const P = 'C:/KHUSHI/Claude/1-Projects/Portfolio-Website/index.html';
+const P = 'C:/KHUSHI/Claude/1-Projects/Portfolio-Website/site/index.html';
 
 const doc = mupdf.Document.openDocument(readFileSync(SRC), 'application/pdf');
 const pm = doc.loadPage(2).toPixmap(mupdf.Matrix.scale(3, 3), mupdf.ColorSpace.DeviceRGB, false, true);

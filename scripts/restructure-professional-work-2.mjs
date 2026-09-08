@@ -1,5 +1,5 @@
 import { readFileSync, writeFileSync } from 'fs';
-const P = 'C:/KHUSHI/Claude/1-Projects/Portfolio-Website/index.html';
+const P = 'C:/KHUSHI/Claude/1-Projects/Portfolio-Website/site/index.html';
 const B64 = 'C:/KHUSHI/Claude/1-Projects/Portfolio-Website/base64/revit';
 const b64 = n => readFileSync(`${B64}/${n}.txt`, 'utf8').trim();
 let html = readFileSync(P, 'utf8');

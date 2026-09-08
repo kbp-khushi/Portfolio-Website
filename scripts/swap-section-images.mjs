@@ -2,7 +2,7 @@ import { readFileSync, writeFileSync } from 'fs';
 import { join } from 'path';
 
 const BASE = 'C:/KHUSHI/Claude/Portfolio-Website';
-const HTML = join(BASE, 'index.html');
+const HTML = join(BASE, 'site/index.html');
 const B64 = join(BASE, 'base64/section-model/finals');
 
 // New base64 data (order: hero, then 4 grid images)

@@ -3,7 +3,7 @@ import { join } from 'path';
 
 const BASE = 'C:/KHUSHI/Claude/1-Projects/Portfolio-Website';
 const B64 = join(BASE, 'base64/caesura');
-let html = readFileSync(join(BASE, 'index.html'), 'utf8');
+let html = readFileSync(join(BASE, 'site/index.html'), 'utf8');
 
 function b64(name) { return readFileSync(join(B64, `${name}.txt`), 'utf8').trim(); }
 function must(str, label) { if (html.indexOf(str) === -1) throw new Error(`MISSING: ${label}`); return str; }
@@ -114,5 +114,5 @@ replaceOnce(
   replaceOnce(marker, replacement, 'library proximity map added');
 }
 
-writeFileSync(join(BASE, 'index.html'), html);
+writeFileSync(join(BASE, 'site/index.html'), html);
 console.log('checkpoint 1 written');

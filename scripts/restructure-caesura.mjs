@@ -3,7 +3,7 @@ import { join } from 'path';
 
 const BASE = 'C:/KHUSHI/Claude/1-Projects/Portfolio-Website';
 const B64 = join(BASE, 'base64/caesura');
-let html = readFileSync(join(BASE, 'index.html'), 'utf8');
+let html = readFileSync(join(BASE, 'site/index.html'), 'utf8');
 
 function b64(name) {
   return readFileSync(join(B64, `${name}.txt`), 'utf8').trim();
@@ -99,5 +99,5 @@ function imgCol(src, alt, height, title, desc) {
   console.log('[ok] site plan moved, old len', oldBlock.length, 'new len', newSitePlanBlock.length);
 }
 
-writeFileSync(join(BASE, 'index.html'), html);
+writeFileSync(join(BASE, 'site/index.html'), html);
 console.log('Step A (massing + site plan) written.');

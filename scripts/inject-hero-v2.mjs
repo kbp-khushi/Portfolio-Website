@@ -2,7 +2,7 @@ import { readFile, writeFile } from 'fs/promises';
 import { join } from 'path';
 
 const BASE = 'C:/KHUSHI/Claude/1-Projects/Portfolio-Website';
-const INDEX = join(BASE, 'index.html');
+const INDEX = join(BASE, 'site/index.html');
 const MONET_TXT = join(BASE, 'base64/hero/monet.txt');
 
 async function run() {

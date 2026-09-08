@@ -1,6 +1,6 @@
 import sharp from 'sharp';
 import { readFileSync, writeFileSync, mkdirSync, copyFileSync } from 'fs';
-const P = 'C:/KHUSHI/Claude/1-Projects/Portfolio-Website/index.html';
+const P = 'C:/KHUSHI/Claude/1-Projects/Portfolio-Website/site/index.html';
 const SRC = 'C:/Users/Khushi Patel/Downloads/D756F2BE-ABB7-4E15-B688-9639A870CC6C.PNG';
 const KEEP = 'C:/KHUSHI/Claude/1-Projects/Portfolio-Website/Portrait';
 mkdirSync(KEEP, { recursive: true });

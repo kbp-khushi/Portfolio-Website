@@ -2,7 +2,7 @@ import { readFileSync, writeFileSync } from 'fs';
 import { join } from 'path';
 
 const BASE = 'C:/KHUSHI/Claude/1-Projects/Portfolio-Website';
-const HTML = join(BASE, 'index.html');
+const HTML = join(BASE, 'site/index.html');
 const B64 = join(BASE, 'base64/massing-model/finals');
 
 // Slot 4 (front view, IMG_8088) is intentionally left untouched — its

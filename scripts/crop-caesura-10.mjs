@@ -33,7 +33,7 @@ await sharp(buf).resize({width:900}).jpeg({quality:80}).toFile(`${SP}/pv/site-ec
 writeFileSync(OUT, `data:image/jpeg;base64,${buf.toString('base64')}`);
 
 // ---- swap + shrink both ecosystems diagrams --------------------------------
-const P='C:/KHUSHI/Claude/1-Projects/Portfolio-Website/index.html';
+const P='C:/KHUSHI/Claude/1-Projects/Portfolio-Website/site/index.html';
 let html=readFileSync(P,'utf8');
 const before=html.length;
 

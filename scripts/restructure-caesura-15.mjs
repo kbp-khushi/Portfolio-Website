@@ -1,5 +1,5 @@
 import { readFileSync, writeFileSync } from 'fs';
-const P='C:/KHUSHI/Claude/1-Projects/Portfolio-Website/index.html';
+const P='C:/KHUSHI/Claude/1-Projects/Portfolio-Website/site/index.html';
 const CA='C:/KHUSHI/Claude/1-Projects/Portfolio-Website/base64/caesura';
 let html=readFileSync(P,'utf8');
 const before=html.length;

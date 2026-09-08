@@ -38,6 +38,14 @@ a,button,[onclick],.project-card,.skill-tag,.cote-link,.flipbook-nav,.pp-back,.n
 .nav-slash{color:var(--line);font-size:14px}
 .nav-credential{justify-self:end;font-family:var(--body);font-size:13px;letter-spacing:0.3px;color:var(--text-light)}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.mobile-tabbar{display:none}
+@media(max-width:768px){
+  .mobile-tabbar{display:grid;grid-template-columns:repeat(3,1fr);position:fixed;left:0;right:0;bottom:0;z-index:220;background:rgba(255,255,255,.97);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom)}
+  .mobile-tabbar a{font-family:var(--title);font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);text-decoration:none;text-align:center;padding:16px 4px;transition:color .3s}
+  .mobile-tabbar a.active,.mobile-tabbar a:active{color:var(--text)}
+  .hamburger{display:none!important}
+  #main-content,.project-page{padding-bottom:56px}
+}
 .hamburger span{width:24px;height:1.5px;background:var(--text)}
 
 /* HERO - whitespace, headline + since-tag row, then a full-bleed image below */
@@ -79,7 +87,7 @@ a,button,[onclick],.project-card,.skill-tag,.cote-link,.flipbook-nav,.pp-back,.n
 .work-teaser{padding:40px 60px 100px;scroll-margin-top:100px}
 .work-teaser .section-label{text-align:center;font-size:18px;font-weight:800;color:var(--text);text-transform:uppercase;letter-spacing:0.5px}
 .work-stack{display:flex;flex-direction:column;margin:40px auto 0;max-width:1100px}
-.stack-item{cursor:pointer;padding:36px 0;display:grid;grid-template-columns:580px minmax(0,320px);gap:40px;align-items:center;justify-content:center}
+.stack-item{cursor:pointer;padding:36px 0;display:grid;grid-template-columns:minmax(0,580px) minmax(290px,340px);gap:40px;align-items:center;justify-content:center}
 .stack-img{width:100%;height:380px;object-fit:cover;display:block}
 img[data-slug]:not([src]){opacity:0}
 .stack-info{display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
@@ -92,7 +100,7 @@ img[data-slug]:not([src]){opacity:0}
   .stack-item{grid-template-columns:1fr;gap:16px}
   .stack-img{height:auto;max-height:60vh}
 }
-.fact-label{flex:0 0 150px;color:var(--text-light)}
+.fact-label{flex:0 0 128px;white-space:nowrap;color:var(--text-light)}
 .fact-value{color:var(--text);font-weight:600}
 .teaser-viewall{display:block;width:fit-content;margin:40px auto 0;font-family:var(--title);font-size:13px;color:var(--text);text-decoration:none;padding-bottom:4px;position:relative}
 .teaser-viewall::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--text);transition:width .3s}
@@ -160,7 +168,7 @@ img[data-slug]:not([src]){opacity:0}
 .pp-word-def-text mark{background:none;color:var(--text);font-weight:500}
 .pp-subtitle{font-size:18px;color:var(--text-light);margin-bottom:8px}
 .pp-course{font-size:12px;letter-spacing:1.5px;color:var(--accent)}
-.pp-meta-list{display:flex;flex-direction:column;gap:9px;margin-top:16px;padding-top:20px;border-top:1px solid var(--line);max-width:440px}
+.pp-meta-list{display:flex;flex-direction:column;gap:9px;margin-top:16px;padding-top:20px;border-top:1px solid var(--line);max-width:760px}
 .pp-meta-row{display:flex;gap:16px;font-size:13px;line-height:1.5}
 .pp-meta-label{flex:0 0 130px;text-transform:uppercase;letter-spacing:1.5px;font-size:11px;color:var(--text-light)}
 .pp-meta-value{color:var(--text)}
@@ -413,7 +421,7 @@ img[data-slug]:not([src]){opacity:0}
 .pp-cta{padding:8px 60px 60px;text-align:center}
 .pp-cta.has-sub{padding-bottom:0}
 .model-links.pp-cta-sub{justify-content:center;padding:18px 60px 60px}
-@media(max-width:768px){.pp-cta{padding:8px 24px 48px}.pp-cta.has-sub{padding-bottom:0}.model-links.pp-cta-sub{padding:14px 24px 48px}}
+@media(max-width:768px){.pp-cta{padding:36px 24px 48px}.pp-cta.has-sub{padding-bottom:0}.model-links.pp-cta-sub{padding:14px 24px 48px}}
 .model-links{display:flex;flex-wrap:wrap;gap:12px 28px;padding:20px 60px 0;justify-content:center}
 .model-links a{font-family:var(--title);font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);cursor:pointer;text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:3px;transition:border-color .3s,color .3s}
 .model-links a:hover{color:var(--text);border-color:var(--accent)}
@@ -451,9 +459,9 @@ img[data-slug]:not([src]){opacity:0}
 .pp-aside-set p{font-size:13px;line-height:1.65;color:var(--text-light);margin:0}
 @media(max-width:900px){.pp-aside{position:static;width:auto;margin-top:24px}}
 @media(max-width:768px){.camber-photos{grid-template-columns:1fr;gap:14px}}
-.model-stack{display:flex;flex-direction:column;gap:26px;max-width:250px;align-self:start}
-.model-card{cursor:pointer}
-.model-img{height:137px;width:auto;max-width:100%;object-fit:contain;display:block;transition:transform .6s cubic-bezier(.22,1,.36,1)}
+.model-stack{display:flex;flex-direction:row;gap:18px;max-width:none;align-self:start}
+.model-card{cursor:pointer;flex:1 1 0;min-width:0}
+.model-img{height:130px;width:100%;object-fit:contain;display:block;transition:transform .6s cubic-bezier(.22,1,.36,1)}
 .model-card:hover .model-img{transform:scale(1.03)}
 .model-body{padding:10px 0 0;display:flex;flex-direction:column;gap:2px}
 .model-title{font-family:var(--title);font-size:13px;font-weight:700;position:relative;display:inline-block;width:fit-content}
@@ -537,6 +545,11 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
     <li><a href="#" data-view="about" onclick="showView('about');return false;">about</a></li>
   </ul>
   <div class="nav-credential">SCAD, M.Arch &rsquo;27</div>
+</nav>
+<nav class="mobile-tabbar" aria-label="Main">
+  <a href="#" data-view="work" onclick="showView('work');return false;">work</a>
+  <a href="#" data-view="about" onclick="showView('about');return false;">about</a>
+  <a href="#contact" onclick="showView('about');setTimeout(function(){var c=document.getElementById('contact');if(c)c.scrollIntoView({block:'start',behavior:'smooth'});},120);return false;">contact</a>
 </nav>
 
 <!-- MAIN CONTENT (hidden when project page open) -->
@@ -1783,7 +1796,7 @@ function showView(name){
   document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
   const target=document.getElementById('view-'+name);
   if(target)target.classList.add('active');
-  document.querySelectorAll('.nav-links a[data-view]').forEach(l=>{
+  document.querySelectorAll('.nav-links a[data-view],.mobile-tabbar a[data-view]').forEach(l=>{
     l.classList.toggle('active',l.getAttribute('data-view')===name);
   });
   document.querySelector('.nav-links').classList.remove('mobile-open');

@@ -421,6 +421,9 @@ img[data-slug]:not([src]){opacity:0}
 .ds-set-note p{font-size:15px;line-height:1.7;color:var(--text-light);margin:10px 0 14px}
 @media(max-width:768px){.drawing-set{padding:8px 24px 32px}}
 .pp-cta{padding:8px 60px 60px;text-align:center}
+.pp-cta-inline{text-align:center;padding:18px 60px 0}
+.pp-cta-inline.has-gap{padding-bottom:60px}
+@media(max-width:768px){.pp-cta-inline{padding:16px 24px 0}.pp-cta-inline.has-gap{padding-bottom:48px}}
 .pp-cta.has-sub{padding-bottom:0}
 .model-links.pp-cta-sub{justify-content:center;padding:18px 60px 60px}
 @media(max-width:768px){.pp-cta{padding:36px 24px 48px}.pp-cta.has-sub{padding-bottom:0}.model-links.pp-cta-sub{padding:14px 24px 48px}}
@@ -742,7 +745,7 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
   </div>
 
   <div class="about-wrap">
-  <div style="padding-bottom:56px"><a class="dl-link" href="Khushi_Patel_Resume.pdf" target="_blank" rel="noopener" style="text-transform:none">view resume</a></div>
+  <div style="padding-bottom:56px"><a class="we-boards-btn" style="position:static" href="Khushi_Patel_Resume.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 3h11l5 5v13H4z"/><path d="M15 3v5h5"/><path d="M8 13h8"/><path d="M8 17h5"/></svg>View Resume</a></div>
 
   <div class="resume-grid">
     <div>
@@ -953,7 +956,7 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
       <div style="display:flex;flex-direction:column;align-items:center"><img loading="lazy" src="images/015-raise.jpg" alt="Raise" style="width:100%;height:auto;display:block"><div style="text-align:center;font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:8px"><b style="color:var(--text)">Raise</b><br><span style="font-family:var(--body);text-transform:none;letter-spacing:0;font-size:10px;font-weight:400">Lift the structure clear of the floodplain.</span></div></div>
       <div style="display:flex;flex-direction:column;align-items:center"><img loading="lazy" src="images/016-hold.jpg" alt="Hold" style="width:100%;height:auto;display:block"><div style="text-align:center;font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:8px"><b style="color:var(--text)">Hold</b><br><span style="font-family:var(--body);text-transform:none;letter-spacing:0;font-size:10px;font-weight:400">Consolidate into distinct pavilions connected by boardwalk.</span></div></div>
     </div>
-    <div class="model-links"><a onclick="closeProject();setTimeout(function(){openProject('massing-model');},80)">View the massing model</a></div>
+    <div class="pp-cta-inline"><a class="we-boards-btn" style="position:static" onclick="closeProject();setTimeout(function(){openProject('massing-model');},80)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg>View the Massing Model</a></div>
   </div>
 
   <!-- SITE PLAN -->
@@ -1119,7 +1122,7 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
 
   <!-- VIEW BOARDS -->
   <div style="padding:48px 60px 0;text-align:center">
-    <a class="dl-link" onclick="document.getElementById('boards-popup').style.display='flex'" style="cursor:pointer">View Full Boards</a>
+    <a class="we-boards-btn" style="position:static" onclick="document.getElementById('boards-popup').style.display='flex'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>View Full Boards</a>
   </div>
 
   <div class="project-nav" style="display:flex;justify-content:space-between;padding:40px 60px 0">
@@ -1330,10 +1333,10 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
       <div class="ds-text">Once, the park served only a narrow slice of the city, an occasional elderly resident or waterfront visitor moving through a largely empty space. Its new range of program opens the waterfront to the whole community, drawing families, workers, shoppers, and neighbors to the same edge at every hour of the day. This steady, varied presence is what makes the park feel safe: a place kept alive by the people who use it rather than one left vacant. The result is a shared waterfront that belongs to everyone.</div>
     </div>
     <div class="edit-images">
-      <div><img loading="lazy" src="images/070-image.jpg" alt="Equitable Communities"></div>
+      <div><img loading="lazy" src="images/070-image-cropped.jpg" alt="Equitable Communities"></div>
     </div>
   </div>
-  <div class="edit-full"><img loading="lazy" src="images/071-image.jpg" alt="User Groups" style="max-width:850px;display:block;margin:0 auto"></div>
+  <div class="edit-full"><img loading="lazy" src="images/071-image-cropped.jpg" alt="User Groups" style="max-width:850px;display:block;margin:0 auto"></div>
 
   <!-- WELL-BEING -->
   <div class="ds-section" id="we-wellbeing">
@@ -1378,7 +1381,7 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
       <div class="ds-text">Water is treated as both a resource and a design driver throughout Brunswick Park. The caf&eacute; and restroom facilities integrate on-site water filtration and collection systems that capture rainwater for reuse in irrigation and maintenance. Across the landscape, bioswales and planted terraces manage runoff naturally, filtering pollutants and slowing the flow of stormwater before it reaches the river.</div>
     </div>
     <div class="edit-images">
-      <div><div style="max-width:600px"><img loading="lazy" src="images/075-image.jpg" alt="Bioswale" style="width:100%;display:block"><div class="dg-label-b">Bioswale Section</div></div></div>
+      <div><div style="max-width:600px"><img loading="lazy" src="images/075-image-cropped.jpg" alt="Bioswale" style="width:100%;display:block"><div class="dg-label-b">Bioswale Section</div></div></div>
     </div>
   </div>
 
@@ -1437,7 +1440,7 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
   <div class="edit-full"><img loading="lazy" src="images/081-image.jpg" alt="Bathroom Charette"></div>
 
 <div style="padding:48px 60px 0;text-align:center">
-    <a class="dl-link" onclick="document.getElementById('we-boards-popup').style.display='flex'" style="cursor:pointer">View Full Boards</a>
+    <a class="we-boards-btn" style="position:static" onclick="document.getElementById('we-boards-popup').style.display='flex'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>View Full Boards</a>
   </div>
 
   
@@ -1482,7 +1485,7 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
   <div class="pp-cta has-sub">
     <a class="we-boards-btn" style="position:static" onclick="openFlipbook('beacon')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>View Project</a>
   </div>
-  <div class="model-links pp-cta-sub"><a onclick="closeProject();setTimeout(function(){openProject('site-analysis');},80)">View the site analysis that chose this program</a></div>
+  <div class="pp-cta-inline has-gap"><a class="we-boards-btn" style="position:static" onclick="closeProject();setTimeout(function(){openProject('site-analysis');},80)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6l7-3 8 3 7-3v15l-7 3-8-3-7 3z"/><path d="M8 3v15"/><path d="M16 6v15"/></svg>View the Site Analysis</a></div>
   <div class="project-nav" style="display:flex;justify-content:space-between;padding:40px 60px 0">
     <a onclick="closeProject();setTimeout(function(){openProject('woven-edge');},100)" class="pnav-link pnav-prev"><span class="pnav-eyebrow">Previous Project</span><span class="pnav-name">The Woven Edge</span></a>
     <a onclick="closeProject();setTimeout(function(){openProject('fluke');},100)" class="pnav-link"><span class="pnav-eyebrow">Next Project</span><span class="pnav-name">Fluke</span></a>

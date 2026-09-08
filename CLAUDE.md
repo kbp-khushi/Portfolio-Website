@@ -22,10 +22,10 @@ This is Khushi Patel's architecture portfolio website. Single page HTML file (an
 - Black-and-white UI only. All imagery (hero, thumbnails, diagrams, portrait) stays full, unmodified color — never desaturated or filtered.
 
 ### Typography
-- One typeface for everything: **Neue Haas Grotesk**, loaded via Adobe Fonts kit — `<link rel="stylesheet" href="https://use.typekit.net/rqn0qpl.css">` in `<head>`.
-- CSS: `font-family:'neue-haas-grotesk-display',sans-serif;` — both `var(--title)` and `var(--body)` point to this same stack, so don't reintroduce a second font.
-- Weights loaded: 400/500/700 normal, 400/500 italic. Italic is used for accent lines and the resume tagline.
-- This is an Adobe (Typekit) dependency tied to Khushi's SCAD Creative Cloud account — if the kit ever stops resolving, that's why. The web project is named "Khushi Portfolio Site" in her Adobe Fonts account.
+- One typeface for everything: **Urbanist**, loaded from Google Fonts — `<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">` in `<head>`.
+- CSS: both `--title` and `--body` are `'Urbanist',sans-serif`, so there is only one stack. Don't reintroduce a second font.
+- Weights loaded: 300/400/500/600/700/800.
+- **Note the split with her print work.** Neue Haas Grotesk is the typeface on her InDesign boards and resume, via Adobe Fonts. The website is *not* on it. A Typekit kit (`use.typekit.net/rqn0qpl.css`) was wired up on 2026-08-14 in commit `eedd607` and removed the next day by the v2 redesign (`2a46451`); this file went on claiming Neue Haas until 2026-09-08. If Khushi ever wants the site to match her boards, it means re-adding that kit **and** adding `imkhushi.com` to the allowed domains on the "Khushi Portfolio Site" web project in her Adobe Fonts account — Typekit kits are domain-locked and will silently fall back otherwise.
 
 ### Layout
 - Page padding: 60px horizontal (16px mobile)
@@ -47,9 +47,11 @@ This is Khushi Patel's architecture portfolio website. Single page HTML file (an
 - Never patch a build script through nested shell quoting. Write the script with the Write tool instead; shell escaping mangled one and truncated index.html from 34MB to 2.3MB on 2026-09-03.
 
 ## Deploying
-- Target: **Cloudflare Pages, connected to this GitHub repo**, publishing the `site/` directory, on **imkhushi.com** (registered in Khushi's Cloudflare account). Pushing to `master` deploys.
+- **Live at https://imkhushi.com** on Cloudflare Pages, connected to this GitHub repo. Went live 2026-09-08. **Push to `master` and it deploys** — there is no manual step any more.
+- Cloudflare account `9a8d1f0a1da394964bd860eb1c26501d`, Pages project `portfolio-website`, also reachable at `portfolio-website.pages.dev`. The domain is Active in the same account, so DNS needed no nameserver work.
 - Build settings: no build command, **output directory `site`**. Publishing the repo root instead would expose ~950MB of source boards and model photographs, and would fail anyway — 13 tracked source files exceed Cloudflare's 25 MiB per file cap. Nothing inside `site/` does.
-- The old https://archportfoliopatel.netlify.app/ was never connected to Git, which is why it sat months out of date. Retire it once Cloudflare is verified, but check first whether that URL was ever sent to anyone — a `_redirects` file with `/* https://imkhushi.com/:splat 301!` forwards old links instead of breaking them.
+- Netlify (`archportfoliopatel.netlify.app`) was deleted 2026-09-08 and now 404s. That subdomain is free for anyone else to claim, so treat any old link to it as dead.
+- **`www.imkhushi.com` does not resolve** — only the apex is attached. If it should work, add `www.imkhushi.com` as a second custom domain on the Pages project.
 
 ## Known Issues
 - Cloudflare email obfuscation tags reappear on edits — search for __cf_email__ and replace with kbp.khushi@gmail.com

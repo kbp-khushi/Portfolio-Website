@@ -35,8 +35,8 @@ This is Khushi Patel's architecture portfolio website. Single page HTML file (an
 ## Image Handling
 - Images live in `images/` as real files, referenced by relative path
 - Set background: none !important on project-page images
-- Crop whitespace from PDFs before embedding
-- Resize to max 2000-2400px width before encoding
+- Crop whitespace from PDFs before adding them
+- Resize to max 2000-2400px width
 - Source/intermediate files for image processing live in `converted/` and `base64/` (both gitignored — regenerable build output, see `scripts/`). Raw originals (`Model Pictures/`, `Additional Work/`, `monet painting/`) are tracked/kept since they're irreplaceable.
 
 ## Editing
@@ -55,21 +55,23 @@ This is Khushi Patel's architecture portfolio website. Single page HTML file (an
 - Remove any <script data-cfasync> tags on every edit
 
 ## Site Structure
-- Landing (hero + "Selected Work" teaser, 3 projects) → Work index (`#projects`, 3-up grid, 3 groups: Graduate work / Undergraduate work / Additional work) → project overlay pages (`.project-page`, opened via `openProject('slug')`) → About (`#about`: bio, resume download, experience, education, software, AI-Assisted Design, licensure) → Footer (persistent: back to top, contact row, copyright)
+- Landing (hero + "Selected Work" teaser, 3 projects) → Work index (`#projects`, 3-up grid, 3 groups: Graduate work / Undergraduate work / Additional work) → project overlay pages (`.project-page`, opened via `openProject('slug')`) → About (`#about`: bio, resume download, experience, education, software with the generative tools folded in, honors, licensure with AXP rings, contact) → Footer (persistent: back to top, contact row, copyright)
 - Nav is just Work / About. On the landing page only, on desktop, the nav is embedded inside the hero image itself (name + links at the bottom corners, underline-on-hover) and the standalone `.nav` bar is hidden (`body.in-hero` toggles this via a scroll listener); it reverts to the standard top nav bar once scrolled past the hero, and always on mobile (no hover state there).
 - Each of the 7 studio projects (`page-the-pause`, `page-woven-edge`, `page-beacon`, `page-fluke`, `page-dreamscape`, `page-laker`, `page-drodel`) shares one header template: hero image → title → `.pp-meta-list` (stacked label/value rows — location, studio/professor/year, completion time, software, collaboration only if a named collaborator exists, never a Recognition row) → intro paragraph → design-strategy sections (`.edit-row`/`.edit-text`/`.edit-images`, unique per project, this is the actual write-up content, not captions).
-- "Additional work" (Massing Model, Section Model, Virtuous Book, From Elsewhere) are a separate 4 cards in the work index, generated/injected by `scripts/build-overlays.mjs` + `scripts/inject-overlays.mjs` — these follow an older flipbook/overlay pattern, not the 7-project header template above.
-- Project order: The Pause → Woven Edge → Beacon → Fluke → Dreamscape → Lakër → Drodel
+- Graduate work in the index is Caesura, then a stacked pair of small model thumbnails (Massing Model, Section Model — both Caesura's own, linked from its page), then The Woven Edge.
+- "Additional work" is a text list: Facade Mask, Beacon — Site Analysis, Camber, Virtuous Book, From Elsewhere, Custom Revit Families. The older ones follow a flipbook/overlay pattern; Camber, Facade Mask and Site Analysis were built in 2026-09 with the label/title/subtitle/course header and images on the page.
+- Project order: Caesura → Woven Edge → Beacon → Fluke → Dreamscape → Lakër → Drodel
 
 ## Resume
-- Two things share this content and should be kept in sync if it changes: the About page's Experience/Education/Software/AI-Assisted Design/Honors/Licensure lists in `index.html`, and `Khushi_Patel_Resume.pdf`.
+- Two things share this content and should be kept in sync if it changes: the About page's Experience, Education, Software, Honors and Licensure lists in `index.html`, and `Khushi_Patel_Resume.pdf`.
 - The PDF is not generated from HTML anymore (`resume.html` and `scripts/generate-resume-pdf.mjs` are dead — see File section above) — when Khushi has a new resume version, replace `Khushi_Patel_Resume.pdf` directly with the file she supplies, keeping that exact filename since the About page's "Download Resume" button links to it by name.
 - SCAD M.Arch 2025-2027 (GPA 4.0), B.F.A. Architecture 2021-2025 Summa Cum Laude (GPA 4.0), Minor: Electronic Design, Study Abroad — SCAD Lacoste, France
 - Experience: The Johnson Studio at Cooper Carry, Rose Architects, Staging By Design, MRP Design
-- AXP: 955/3740 (26%), ARE: 0/6
-- Email: kbp.khushi@gmail.com | Phone: (706) 308-5889 | Location: Savannah, GA
+- AXP: 1,336.25/3,740 (35.7%), broken into six rings on the About page. The ARE line was dropped — publishing a zero volunteers a weakness for no benefit.
+- Email: kbp.khushi@gmail.com | Phone: (706) 308-5889 (on the resume only, not the site) | Location: Savannah, GA
 
 ## Known gaps / open items
-- Landing hero photo (Monet's water lily painting, Met) and About-page portrait: hero photo is in place (`monet painting/IMG_7057.HEIC`, cropped to just the painting); the About portrait is still a placeholder (`.about-portrait-placeholder`) — swap in a real `<img>` when Khushi supplies one.
-- DALL-E / Gemini one-line descriptions in AI-Assisted Design were written to match the style of the other 4 tools, not dictated verbatim — worth a review pass.
-- "AI-Assisted Design" being included on the printed resume (not just the About page) was a judgment call carried over from the source planning chat — worth a gut-check before using it for actual job applications.
+- The landing hero is Khushi's own photograph of a Monet water lily painting. She wants to keep it and add a note tying it to Caesura's palette; the hero headline still reads "welcome to my" and "Since 2026", which both reviewers flagged as the real problem. Not yet done.
+- The About portrait is resolved: her own photograph at the Forsyth Park fountain.
+- Conceptual and completed model photographs are still to come from Khushi.
+- Paintings, sketchbook pages, childhood art and the nail art Instagram were all considered and dropped.

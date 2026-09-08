@@ -1441,13 +1441,16 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
 <div class="project-page" id="page-beacon">
   <button class="pp-back" onclick="exitProject()">&#10229;Back</button>
   
-  <div class="pp-header"><h2 class="pp-title">Beacon</h2>
+  <div class="pp-header" style="position:relative;max-width:none">
+    <div class="pp-aside"><a class="we-boards-btn" style="position:static" onclick="openFlipbook('beacon')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>View Project</a></div>
+    <div style="max-width:900px"><h2 class="pp-title">Beacon</h2>
     <div class="pp-meta-list">
       <div class="pp-meta-row"><div class="pp-meta-label">Location</div><div class="pp-meta-value">North Charleston, SC</div></div>
       <div class="pp-meta-row"><div class="pp-meta-label">Studio</div><div class="pp-meta-value">ARCH 404 | Professor Guess | Fall 2024</div></div>
       <div class="pp-meta-row"><div class="pp-meta-label">Completion Time</div><div class="pp-meta-value">10 weeks</div></div>
       <div class="pp-meta-row"><div class="pp-meta-label">Program</div><div class="pp-meta-value">Police station, meeting rooms, multipurpose community space</div></div>
       <div class="pp-meta-row"><div class="pp-meta-label">Software</div><div class="pp-meta-value">Rhino, Lumion, Illustrator, Photoshop, InDesign, Procreate</div></div>
+    </div>
     </div>
   </div>
   <div class="pp-description">A police station is a building most people approach only when something has gone wrong. Beacon is built to be entered for other reasons. Alongside the operational station it holds meeting rooms and multipurpose spaces used for events, educational programs and everyday gathering, so the building works as a neighborhood hub as much as a police station. Transparent materials and open layouts blur the boundary between the two, breaking from the enclosed civic buildings that put officers on one side of a wall and residents on the other. Wind turbines, a solar panel facade, cross ventilation and a water collection system carry that same openness into how the building runs.</div>
@@ -1457,9 +1460,6 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
     <img loading="lazy" src="images/083-image.jpg" alt="Beacon, board 2 of 4">
     <img loading="lazy" src="images/084-image.jpg" alt="Beacon, board 3 of 4">
     <img loading="lazy" src="images/085-image.jpg" alt="Beacon, board 4 of 4">
-  </div>
-  <div style="padding:20px 60px;text-align:center">
-    <a class="dl-link" onclick="openFlipbook('beacon')" style="cursor:pointer">View Project</a>
   </div>
   
   <div class="project-nav" style="display:flex;justify-content:space-between;padding:40px 60px 0">
@@ -1483,12 +1483,15 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
 <div class="project-page" id="page-fluke">
   <button class="pp-back" onclick="exitProject()">&#10229;Back</button>
   
-  <div class="pp-header"><h2 class="pp-title">Fluke</h2>
+  <div class="pp-header" style="position:relative;max-width:none">
+    <div class="pp-aside"><a class="we-boards-btn" style="position:static" onclick="openFlipbook('fluke')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>View Project</a></div>
+    <div style="max-width:900px"><h2 class="pp-title">Fluke</h2>
     <div class="pp-meta-list">
       <div class="pp-meta-row"><div class="pp-meta-label">Location</div><div class="pp-meta-value">Savannah, GA</div></div>
       <div class="pp-meta-row"><div class="pp-meta-label">Studio</div><div class="pp-meta-value">ARCH 303 | Professor Nicholson | Spring 2024</div></div>
       <div class="pp-meta-row"><div class="pp-meta-label">Completion Time</div><div class="pp-meta-value">8 weeks</div></div>
       <div class="pp-meta-row"><div class="pp-meta-label">Software</div><div class="pp-meta-value">Rhino, Revit, Lumion, Illustrator, Photoshop, InDesign, Procreate</div></div>
+    </div>
     </div>
   </div>
   <div class="pp-description">A research and observation center for the North Atlantic right whale, on the river outside Savannah. The building keeps a small footprint and sits low against the bank, so you arrive through the landscape rather than across a parking lot. Its form comes from the whale&rsquo;s fluke: sweeping curves read as one continuous surface, cut open where the building meets the water. Materials are locally sourced and include recycled metal.</div>
@@ -1497,9 +1500,6 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
     <img loading="lazy" src="images/087-image.jpg" alt="Fluke, board 2 of 4">
     <img loading="lazy" src="images/088-image.jpg" alt="Fluke, board 3 of 4">
     <img loading="lazy" src="images/089-image.jpg" alt="Fluke, board 4 of 4">
-  </div>
-  <div style="padding:20px 60px;text-align:center">
-    <a class="dl-link" onclick="openFlipbook('fluke')" style="cursor:pointer">View Project</a>
   </div>
   
   <div class="project-nav" style="display:flex;justify-content:space-between;padding:40px 60px 0">
@@ -1523,21 +1523,21 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
 <div class="project-page" id="page-dreamscape">
   <button class="pp-back" onclick="exitProject()">&#10229;Back</button>
   
-  <div class="pp-header"><h2 class="pp-title">Dreamscape</h2>
+  <div class="pp-header" style="position:relative;max-width:none">
+    <div class="pp-aside"><a class="we-boards-btn" style="position:static" onclick="openFlipbook('dreamscape')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>View Project</a></div>
+    <div style="max-width:900px"><h2 class="pp-title">Dreamscape</h2>
     <div class="pp-meta-list">
       <div class="pp-meta-row"><div class="pp-meta-label">Location</div><div class="pp-meta-value">Lacoste, France</div></div>
       <div class="pp-meta-row"><div class="pp-meta-label">Studio</div><div class="pp-meta-value">ARCH 301 | Professor McManus | Fall 2023</div></div>
       <div class="pp-meta-row"><div class="pp-meta-label">Completion Time</div><div class="pp-meta-value">10 weeks</div></div>
       <div class="pp-meta-row"><div class="pp-meta-label">Software</div><div class="pp-meta-value">Rhino, Photoshop, Illustrator, InDesign, Procreate</div></div>
     </div>
+    </div>
   </div>
   <div class="pp-description">An archive for dreams, designed in Lacoste during my study abroad in Provence. The program is deliberately impossible, which is what made it worth doing: a building to hold the one thing that does not survive being held. The curves of the wall and roof carry that idea. You enter through a compressed opening and come out into an open interior, so the sequence works the way a dream does, hard to get into and completely free once you are there.</div>
   <div id="boards-dreamscape" style="display:none">
     <img loading="lazy" src="images/090-image.jpg" alt="Dreamscape, board 1 of 2">
     <img loading="lazy" src="images/091-image.jpg" alt="Dreamscape, board 2 of 2">
-  </div>
-  <div style="padding:20px 60px;text-align:center">
-    <a class="dl-link" onclick="openFlipbook('dreamscape')" style="cursor:pointer">View Project</a>
   </div>
   
   <div class="project-nav" style="display:flex;justify-content:space-between;padding:40px 60px 0">
@@ -1561,12 +1561,15 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
 <div class="project-page" id="page-laker">
   <button class="pp-back" onclick="exitProject()">&#10229;Back</button>
   
-  <div class="pp-header"><h2 class="pp-title">Lak&euml;r</h2>
+  <div class="pp-header" style="position:relative;max-width:none">
+    <div class="pp-aside"><a class="we-boards-btn" style="position:static" onclick="openFlipbook('laker')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>View Project</a></div>
+    <div style="max-width:900px"><h2 class="pp-title">Lak&euml;r</h2>
     <div class="pp-meta-list">
       <div class="pp-meta-row"><div class="pp-meta-label">Location</div><div class="pp-meta-value">Pristina, Kosovo</div></div>
       <div class="pp-meta-row"><div class="pp-meta-label">Studio</div><div class="pp-meta-value">ARCH 302 | Professor Hsu Jen | Winter 2024</div></div>
       <div class="pp-meta-row"><div class="pp-meta-label">Completion Time</div><div class="pp-meta-value">10 weeks</div></div>
       <div class="pp-meta-row"><div class="pp-meta-label">Software</div><div class="pp-meta-value">Revit, Lumion, Photoshop, InDesign, Procreate</div></div>
+    </div>
     </div>
   </div>
   <div class="pp-description">A school for young children in Pristina, drawing on Kosovar building culture and on what child development research says about how children use space. The plan began as a set of abstract blocks and became one curving form, turned so its long face runs east to west and the classrooms take the best daylight.</div>
@@ -1575,9 +1578,6 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
     <img loading="lazy" src="images/093-image.jpg" alt="Lakër, board 2 of 4">
     <img loading="lazy" src="images/094-image.jpg" alt="Lakër, board 3 of 4">
     <img loading="lazy" src="images/095-image.jpg" alt="Lakër, board 4 of 4">
-  </div>
-  <div style="padding:20px 60px;text-align:center">
-    <a class="dl-link" onclick="openFlipbook('laker')" style="cursor:pointer">View Project</a>
   </div>
   
   <div class="project-nav" style="display:flex;justify-content:space-between;padding:40px 60px 0">
@@ -1601,21 +1601,21 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
 <div class="project-page" id="page-drodel">
   <button class="pp-back" onclick="exitProject()">&#10229;Back</button>
   
-  <div class="pp-header"><h2 class="pp-title">Drodel</h2>
+  <div class="pp-header" style="position:relative;max-width:none">
+    <div class="pp-aside"><a class="we-boards-btn" style="position:static" onclick="openFlipbook('drodel')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>View Project</a></div>
+    <div style="max-width:900px"><h2 class="pp-title">Drodel</h2>
     <div class="pp-meta-list">
       <div class="pp-meta-row"><div class="pp-meta-label">Studio</div><div class="pp-meta-value">DSGN 225 | Professor Singeisen | Spring 2022</div></div>
       <div class="pp-meta-row"><div class="pp-meta-label">Completion Time</div><div class="pp-meta-value">10 weeks</div></div>
       <div class="pp-meta-row"><div class="pp-meta-label">Software</div><div class="pp-meta-value">Revit, Illustrator, InDesign</div></div>
       <div class="pp-meta-row"><div class="pp-meta-label">Materials/Process</div><div class="pp-meta-value">Chipboard, laser cutting, hand cutting</div></div>
     </div>
+    </div>
   </div>
   <div class="pp-description">A house for twins, designed from the sensations in Poe&rsquo;s <em>The Fall of the House of Usher</em> rather than from a program. The study breaks the building into separate layers, each a complete composition on its own, then sets them in register so that moving past them changes what lines up. What I was testing is whether several perspectives can occupy one composition without collapsing into a single reading. Chipboard, laser cut and hand cut.</div>
   <div id="boards-drodel" style="display:none">
     <img loading="lazy" src="images/096-image.jpg" alt="Drodel, board 1 of 2">
     <img loading="lazy" src="images/097-image.jpg" alt="Drodel, board 2 of 2">
-  </div>
-  <div style="padding:20px 60px;text-align:center">
-    <a class="dl-link" onclick="openFlipbook('drodel')" style="cursor:pointer">View Project</a>
   </div>
   
   <div class="project-nav" style="display:flex;justify-content:space-between;padding:40px 60px 0">

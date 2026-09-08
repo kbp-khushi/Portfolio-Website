@@ -32,6 +32,13 @@ This is Khushi Patel's architecture portfolio website. Single page HTML file (an
 - Edit-row grid: 320px | 1fr with 48px gap
 - Section spacing: 48px padding top/bottom
 - Mobile breakpoint: 768px (project-grid also gets a 2-up tablet breakpoint around 601–1024px)
+- **Mobile gutter is 24px, everywhere, no exceptions** — nav, hero, sections, project pages, the previous/next rule and the footer all share one left edge. Full-bleed images (padding 0, flush to the edge) are the only thing allowed off it. Before this pass a single project page had four different left edges (16 / 24 / 60 / 72), which is what made it look unfinished. Watch two traps when adding anything: the `[style*="padding:…"]` overrides in the mobile block rewrite inline padding with `!important` and will silently eat a value you set inline, and `.project-nav` needs the `.project-page .project-nav` specificity to beat them.
+- Mobile hero buttons stack full width in a column; on desktop they sit in a row. Left as a row on mobile, every label broke onto two lines.
+
+## Scroll reveal
+- Two fade-in systems, both driven by one IntersectionObserver: `.reveal` (32px rise, for landing and About content) and `.pp-reveal` (24px rise, applied to project-page blocks). An element gets the class *and* must be passed to `revealObs.observe(el)` — adding the class alone leaves it stuck at `opacity:0`.
+- The About block lists its selectors explicitly, so **anything new added to About stays un-faded until it is added to that list.** That is what happened to the AXP rings and the honors list. The rings (`.axp-item`) and honors (`.honors-list li`) now run on their own staggers so each group animates in reading order; the shared `(i%6)*70` counter had the first ring coming in last, at 350ms.
+- Verifying this in the preview pane is unreliable: when the pane is not compositing, IntersectionObserver does not fire and *everything* reads `opacity:0`, including elements that work in production. Check for the `visible` class after a real `computer` scroll on a fronted tab, not for opacity.
 
 ## Image Handling
 - Images live in `images/` as real files, referenced by relative path

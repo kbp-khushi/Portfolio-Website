@@ -56,8 +56,8 @@ a,button,[onclick],.project-card,.skill-tag,.cote-link,.flipbook-nav,.pp-back,.n
 @media(max-width:768px){
   .hero{padding:120px 0 0}
   .hero-row{grid-template-columns:1fr;justify-items:start;gap:12px;padding:0 24px 20px}
-  .hero-actions{margin-top:16px}
-  .hero-btn{padding:9px 16px}
+  .hero-actions{margin-top:16px;flex-direction:column;align-items:stretch;width:100%;gap:10px}
+  .hero-btn{padding:12px 16px;text-align:center;white-space:nowrap}
   .hero-title{white-space:normal}
   .hero-since{justify-self:start}
   .hero-img{height:45vh}
@@ -348,20 +348,20 @@ img[data-slug]:not([src]){opacity:0}
   .exp-item{grid-template-columns:1fr;gap:16px;padding:28px 0}
   .about-portrait-placeholder{max-width:100%}
   .img-row{grid-template-columns:1fr}.img-row.three{grid-template-columns:1fr}
-  .img-row-sm,.img-row-lg,.img-row-mixed,.img-row-mixed-r{grid-template-columns:1fr;padding-left:16px;padding-right:16px}
-  .img-hero-full,.img-large,.img-medium,.img-small,.img-block{padding-left:16px;padding-right:16px}
+  .img-row-sm,.img-row-lg,.img-row-mixed,.img-row-mixed-r{grid-template-columns:1fr;padding-left:24px;padding-right:24px}
+  .img-hero-full,.img-large,.img-medium,.img-small,.img-block{padding-left:24px;padding-right:24px}
   .img-medium img,.img-small img{max-width:100%}
-  .pp-header,.pp-description{padding-left:16px!important;padding-right:16px!important}
-  .ds-section{padding-left:16px!important;padding-right:16px!important}
-  .tag-row,.board-scroll{padding-left:16px!important;padding-right:16px!important}
+  .pp-header,.pp-description{padding-left:24px!important;padding-right:24px!important}
+  .ds-section{padding-left:24px!important;padding-right:24px!important}
+  .tag-row,.board-scroll{padding-left:24px!important;padding-right:24px!important}
   .pp-hero{height:40vh}
   .pp-title{font-size:28px!important}
   .pp-back{top:12px;left:12px;padding:10px 16px;font-size:12px}
   .card-img{height:220px}
-  .ds-row{grid-template-columns:1fr 1fr;gap:16px;padding-left:16px!important;padding-right:16px!important}
-  .edit-row{grid-template-columns:1fr!important;gap:24px;padding:32px 16px!important}
+  .ds-row{grid-template-columns:1fr 1fr;gap:16px;padding-left:24px!important;padding-right:24px!important}
+  .edit-row{grid-template-columns:1fr!important;gap:24px;padding:32px 24px!important}
   .edit-text{position:static!important}
-  .edit-full,.edit-full-narrow{padding:24px 16px!important}
+  .edit-full,.edit-full-narrow{padding:24px 24px!important}
   .edit-full-narrow img{max-width:100%}
   .pause-massing{grid-template-columns:repeat(2,1fr)!important}
   .edit-images .pause-usergroups{grid-template-columns:repeat(2,1fr)!important}
@@ -376,9 +376,9 @@ img[data-slug]:not([src]){opacity:0}
   .flipbook-close{top:8px!important;right:8px!important}
   .flipbook-inner{width:96%!important}
   .flipbook-counter{font-size:11px!important}
-  .project-nav{padding:24px 16px 0!important}
+  .project-page .project-nav{margin:0 24px!important;padding:24px 0 0!important}
   .project-nav a{font-size:10px!important;letter-spacing:1px!important}
-  .massing-labels{padding-left:16px!important;padding-right:16px!important}
+  .massing-labels{padding-left:24px!important;padding-right:24px!important}
   .massing-label{font-size:9px}
   .section-title{font-size:32px!important}
   .exp-header{flex-direction:column;gap:4px}
@@ -409,11 +409,15 @@ img[data-slug]:not([src]){opacity:0}
 .drawing-set{padding:8px 60px 40px}
 .ds-set-note{max-width:760px;border-left:2px solid var(--accent);padding-left:22px}
 .ds-set-note p{font-size:15px;line-height:1.7;color:var(--text-light);margin:10px 0 14px}
-@media(max-width:768px){.drawing-set{padding:8px 16px 32px}}
+@media(max-width:768px){.drawing-set{padding:8px 24px 32px}}
+.pp-cta{padding:8px 60px 60px;text-align:center}
+.pp-cta.has-sub{padding-bottom:0}
+.model-links.pp-cta-sub{justify-content:center;padding:18px 60px 60px}
+@media(max-width:768px){.pp-cta{padding:8px 24px 48px}.pp-cta.has-sub{padding-bottom:0}.model-links.pp-cta-sub{padding:14px 24px 48px}}
 .model-links{display:flex;flex-wrap:wrap;gap:12px 28px;padding:20px 60px 0;justify-content:center}
 .model-links a{font-family:var(--title);font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);cursor:pointer;text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:3px;transition:border-color .3s,color .3s}
 .model-links a:hover{color:var(--text);border-color:var(--accent)}
-@media(max-width:768px){.model-links{padding:20px 16px 0}}
+@media(max-width:768px){.model-links{padding:20px 24px 0}}
 .pp-description p + p{margin-top:16px}
 .pp-credit{margin-top:18px;font-style:italic;font-size:14px;color:var(--text-light)}
 .stack-credit{margin-top:10px;font-style:italic;font-size:12.5px;line-height:1.5;color:var(--text-light);max-width:46ch}
@@ -428,10 +432,10 @@ img[data-slug]:not([src]){opacity:0}
 .fm-text p{margin:0 0 14px;max-width:60ch}
 .fm-text p:last-child{margin-bottom:0}
 .fm-strategies{width:100%;display:block}
-@media(max-width:900px){.fm-brief{grid-template-columns:1fr;gap:28px;padding:40px 16px 32px}.fm-strategies{max-width:420px}}
+@media(max-width:900px){.fm-brief{grid-template-columns:1fr;gap:28px;padding:40px 24px 32px}.fm-strategies{max-width:420px}}
 .fm-finals{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:0 60px}
 .fm-finals img{width:100%;display:block}
-@media(max-width:768px){.fm-finals{grid-template-columns:1fr;gap:14px;padding:0 16px}}
+@media(max-width:768px){.fm-finals{grid-template-columns:1fr;gap:14px;padding:0 24px}}
 .sa-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:0 auto 14px;max-width:1200px}
 .sa-row img{width:100%;display:block}
 .sa-radius{width:100%;height:420px;object-fit:contain;display:block}
@@ -499,14 +503,15 @@ img[data-slug]:not([src]){opacity:0}
 }
 
 @media(max-width:768px){
-  [style*="padding:24px 180px"]{padding:16px 16px!important}
-  [style*="padding:8px 180px"]{padding:8px 16px!important}
-  [style*="padding:20px 60px"]{padding:16px 16px!important}
-  [style*="padding:48px 60px"]{padding:24px 16px!important}
-  [style*="padding:32px 60px"]{padding:24px 16px!important}
-  [style*="padding:40px 60px"]{padding:24px 16px!important}
-  [style*="padding:12px 60px"]{padding:12px 16px!important}
-  [style*="padding:8px 60px"]{padding:8px 16px!important}
+  [style*="padding:24px 180px"]{padding:16px 24px!important}
+  [style*="padding:8px 180px"]{padding:8px 24px!important}
+  [style*="padding:20px 60px"]{padding:16px 24px!important}
+  [style*="padding:48px 60px"]{padding:24px 24px!important}
+  [style*="padding:32px 60px"]{padding:24px 24px!important}
+  [style*="padding:40px 60px"]{padding:24px 24px!important}
+  [style*="padding:12px 60px"]{padding:12px 24px!important}
+  [style*="padding:0 60px"]{padding-left:24px!important;padding-right:24px!important}
+  [style*="padding:8px 60px"]{padding:8px 24px!important}
   [style*="grid-template-columns:repeat(5,1fr)"]{grid-template-columns:repeat(3,1fr)!important}
   [style*="grid-template-columns:repeat(6,1fr)"]{grid-template-columns:repeat(3,1fr)!important}
   [style*="margin-top:-110px"]{margin-top:-10px!important}
@@ -740,7 +745,7 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
         </div>
         <div>
           <div class="group-label">honors</div>
-          <ul class="exp-points" style="margin-top:8px">
+          <ul class="exp-points honors-list" style="margin-top:8px">
             <li>Poster accepted &mdash; ACSA 2026 Intersections Research Conference: Urban Design Matters, for <em>The Woven Edge</em></li>
             <li>Tau Sigma Delta &mdash; National Honor Society in Architecture and Allied Arts</li>
             <li>Outstanding Student Award &mdash; SCAD, 2025</li>
@@ -1458,10 +1463,10 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
     <img loading="lazy" src="images/085-image.jpg" alt="Beacon, board 4 of 4">
   </div>
   
-  <div style="padding:8px 60px 0;text-align:center">
+  <div class="pp-cta has-sub">
     <a class="we-boards-btn" style="position:static" onclick="openFlipbook('beacon')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>View Project</a>
   </div>
-  <div class="model-links" style="justify-content:center;padding:18px 60px 60px"><a onclick="closeProject();setTimeout(function(){openProject('site-analysis');},80)">View the site analysis that chose this program</a></div>
+  <div class="model-links pp-cta-sub"><a onclick="closeProject();setTimeout(function(){openProject('site-analysis');},80)">View the site analysis that chose this program</a></div>
   <div class="project-nav" style="display:flex;justify-content:space-between;padding:40px 60px 0">
     <a onclick="closeProject();setTimeout(function(){openProject('woven-edge');},100)" class="pnav-link pnav-prev"><span class="pnav-eyebrow">Previous Project</span><span class="pnav-name">The Woven Edge</span></a>
     <a onclick="closeProject();setTimeout(function(){openProject('fluke');},100)" class="pnav-link"><span class="pnav-eyebrow">Next Project</span><span class="pnav-name">Fluke</span></a>
@@ -1499,7 +1504,7 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
     <img loading="lazy" src="images/089-image.jpg" alt="Fluke, board 4 of 4">
   </div>
   
-  <div style="padding:8px 60px 60px;text-align:center">
+  <div class="pp-cta">
     <a class="we-boards-btn" style="position:static" onclick="openFlipbook('fluke')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>View Project</a>
   </div>
   <div class="project-nav" style="display:flex;justify-content:space-between;padding:40px 60px 0">
@@ -1537,7 +1542,7 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
     <img loading="lazy" src="images/091-image.jpg" alt="Dreamscape, board 2 of 2">
   </div>
   
-  <div style="padding:8px 60px 60px;text-align:center">
+  <div class="pp-cta">
     <a class="we-boards-btn" style="position:static" onclick="openFlipbook('dreamscape')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>View Project</a>
   </div>
   <div class="project-nav" style="display:flex;justify-content:space-between;padding:40px 60px 0">
@@ -1577,7 +1582,7 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
     <img loading="lazy" src="images/095-image.jpg" alt="Lakër, board 4 of 4">
   </div>
   
-  <div style="padding:8px 60px 60px;text-align:center">
+  <div class="pp-cta">
     <a class="we-boards-btn" style="position:static" onclick="openFlipbook('laker')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>View Project</a>
   </div>
   <div class="project-nav" style="display:flex;justify-content:space-between;padding:40px 60px 0">
@@ -1615,7 +1620,7 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
     <img loading="lazy" src="images/097-image.jpg" alt="Drodel, board 2 of 2">
   </div>
   
-  <div style="padding:8px 60px 60px;text-align:center">
+  <div class="pp-cta">
     <a class="we-boards-btn" style="position:static" onclick="openFlipbook('drodel')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>View Project</a>
   </div>
   <div class="project-nav" style="display:flex;justify-content:space-between;padding:40px 60px 0">
@@ -1813,6 +1818,15 @@ document.querySelectorAll('#about .exp-item,#about .education-item,#about .ai-ta
   el.classList.add('reveal');
   el.style.transitionDelay=(i%6)*70+'ms';
   revealObs.observe(el);
+});
+
+// the AXP rings and the honors list each read in their own order
+[['#about .axp-item',70],['#about .honors-list li',60]].forEach(function(pair){
+  document.querySelectorAll(pair[0]).forEach(function(el,i){
+    el.classList.add('reveal');
+    el.style.transitionDelay=(i*pair[1])+'ms';
+    revealObs.observe(el);
+  });
 });
 
 

@@ -1441,9 +1441,7 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
 <div class="project-page" id="page-beacon">
   <button class="pp-back" onclick="exitProject()">&#10229;Back</button>
   
-  <div class="pp-header" style="position:relative;max-width:none">
-    <div class="pp-aside"><a class="we-boards-btn" style="position:static" onclick="openFlipbook('beacon')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>View Project</a></div>
-    <div style="max-width:900px"><h2 class="pp-title">Beacon</h2>
+  <div class="pp-header"><h2 class="pp-title">Beacon</h2>
     <div class="pp-meta-list">
       <div class="pp-meta-row"><div class="pp-meta-label">Location</div><div class="pp-meta-value">North Charleston, SC</div></div>
       <div class="pp-meta-row"><div class="pp-meta-label">Studio</div><div class="pp-meta-value">ARCH 404 | Professor Guess | Fall 2024</div></div>
@@ -1451,10 +1449,8 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
       <div class="pp-meta-row"><div class="pp-meta-label">Program</div><div class="pp-meta-value">Police station, meeting rooms, multipurpose community space</div></div>
       <div class="pp-meta-row"><div class="pp-meta-label">Software</div><div class="pp-meta-value">Rhino, Lumion, Illustrator, Photoshop, InDesign, Procreate</div></div>
     </div>
-    </div>
   </div>
   <div class="pp-description">A police station is a building most people approach only when something has gone wrong. Beacon is built to be entered for other reasons. Alongside the operational station it holds meeting rooms and multipurpose spaces used for events, educational programs and everyday gathering, so the building works as a neighborhood hub as much as a police station. Transparent materials and open layouts blur the boundary between the two, breaking from the enclosed civic buildings that put officers on one side of a wall and residents on the other. Wind turbines, a solar panel facade, cross ventilation and a water collection system carry that same openness into how the building runs.</div>
-  <div class="model-links"><a onclick="closeProject();setTimeout(function(){openProject('site-analysis');},80)">View the site analysis that chose this program</a></div>
   <div id="boards-beacon" style="display:none">
     <img loading="lazy" src="images/082-image.jpg" alt="Beacon, board 1 of 4">
     <img loading="lazy" src="images/083-image.jpg" alt="Beacon, board 2 of 4">
@@ -1462,6 +1458,10 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
     <img loading="lazy" src="images/085-image.jpg" alt="Beacon, board 4 of 4">
   </div>
   
+  <div style="padding:8px 60px 0;text-align:center">
+    <a class="we-boards-btn" style="position:static" onclick="openFlipbook('beacon')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>View Project</a>
+  </div>
+  <div class="model-links" style="justify-content:center;padding:18px 60px 60px"><a onclick="closeProject();setTimeout(function(){openProject('site-analysis');},80)">View the site analysis that chose this program</a></div>
   <div class="project-nav" style="display:flex;justify-content:space-between;padding:40px 60px 0">
     <a onclick="closeProject();setTimeout(function(){openProject('woven-edge');},100)" class="pnav-link pnav-prev"><span class="pnav-eyebrow">Previous Project</span><span class="pnav-name">The Woven Edge</span></a>
     <a onclick="closeProject();setTimeout(function(){openProject('fluke');},100)" class="pnav-link"><span class="pnav-eyebrow">Next Project</span><span class="pnav-name">Fluke</span></a>
@@ -1891,7 +1891,7 @@ else populateStackImages();
     </div>
   </div>
   <div style="padding:40px 60px;text-align:center">
-    <a class="dl-link" onclick="openFlipbook('massing-model-process')" style="cursor:pointer">View Process Photos</a>
+    <a class="we-boards-btn" style="position:static" onclick="openFlipbook('massing-model-process')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>View Process Photos</a>
   </div>
   <div id="boards-massing-model-process" style="display:none">
     <img src="images/107-image.jpg" alt="Massing model process">
@@ -1948,7 +1948,7 @@ else populateStackImages();
     </div>
   </div>
   <div style="padding:40px 60px;text-align:center">
-    <a class="dl-link" onclick="openFlipbook('section-model-process')" style="cursor:pointer">View Process Photos</a>
+    <a class="we-boards-btn" style="position:static" onclick="openFlipbook('section-model-process')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>View Process Photos</a>
   </div>
   <div id="boards-section-model-process" style="display:none">
     <img src="images/122-image.jpg" alt="Section model process">
@@ -1992,7 +1992,7 @@ else populateStackImages();
     <p>This book merges Bruno Munari&rsquo;s methodical approach to design with Michael Bierut&rsquo;s reflective narrative style, challenging readers to see design beyond aesthetics. Through a dynamic typographic landscape, each page serves as a carefully curated composition, utilizing contrast, rhythm, and hierarchy to guide perception and provoke thought.</p>
   </div>
   <div style="padding:20px 60px;text-align:center">
-    <a class="dl-link" onclick="openFlipbook('virtuous-book')" style="cursor:pointer">View Book</a>
+    <a class="we-boards-btn" style="position:static" onclick="openFlipbook('virtuous-book')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>View Book</a>
   </div>
   <div id="boards-virtuous-book" style="display:none">
     <img src="images/131-virtuous-book-page.jpg" alt="Virtuous Book page">
@@ -2056,7 +2056,7 @@ else populateStackImages();
     <p>A cookbook built around a story: a baker who collected recipes from the cities she passed through. The name Beaufort, the short menu, the sketchbook format, none of it felt arbitrary. The scrapbook aesthetic demanded restraint; pulling things out was harder than putting them in. The handwriting, the taped photos, the coffee stains, the recipe she kept for herself at the end, it feels like something she carried.</p>
   </div>
   <div style="padding:20px 60px;text-align:center">
-    <a class="dl-link" onclick="openFlipbook('beaufort-cookbook')" style="cursor:pointer">View Cookbook</a>
+    <a class="we-boards-btn" style="position:static" onclick="openFlipbook('beaufort-cookbook')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>View Cookbook</a>
   </div>
   <div id="boards-beaufort-cookbook" style="display:none">
     <img src="images/160-image.jpg" alt="From Elsewhere page">
@@ -2127,7 +2127,7 @@ else populateStackImages();
       <div><img loading="lazy" src="images/184-image.jpg" alt="Three quarter mile radius analysis" class="sa-radius"><div class="dg-label-b" style="text-align:center">Three Quarter Mile Radius</div></div>
     </div>
     <div style="padding:44px 0 8px;text-align:center">
-      <a class="dl-link" onclick="openFlipbook('site-analysis-research')" style="cursor:pointer">View Research</a>
+      <a class="we-boards-btn" style="position:static" onclick="openFlipbook('site-analysis-research')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 3h11l5 5v13H4z"/><path d="M15 3v5h5"/><path d="M8 13h8"/><path d="M8 17h5"/></svg>View Research</a>
     </div>
     <div id="boards-site-analysis-research" style="display:none">
       <img src="images/185-image.jpg" alt="Population density, zoning and flood extent research">

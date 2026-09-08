@@ -1,12 +1,12 @@
 # Portfolio Site — Khushi Patel
 
 ## Identity
-This is Khushi Patel's architecture portfolio website. Single-page HTML file (an SPA — nav links scroll/toggle sections and project overlays, no real per-page URLs) with embedded base64 images.
+This is Khushi Patel's architecture portfolio website. Single page HTML file (an SPA — nav links toggle views and project overlays, no real per page URLs) with images served from `images/`.
 
 ## File
-- Main file: `index.html`
-- Single HTML file, all CSS/JS/images inline
-- `resume.html` was retired (commit `160bfdb`) — the downloadable resume is now just `Khushi_Patel_Resume.pdf`, replaced directly whenever Khushi has an updated version, not regenerated from HTML
+- Main file: `index.html` — about 170KB of markup, CSS and JS
+- Images are **separate files in `images/`**, referenced as `src="images/NNN-name.jpg"`. They were inlined as base64 until 2026-09-03, when the document had reached 39MB; extracting them dropped it to 171KB. Do not re-embed them.
+- `resume.html` was retired (commit `160bfdb`) — the downloadable resume is now just `Khushi_Patel_Resume.pdf`, replaced directly whenever Khushi has an updated version
 
 ## Design System
 
@@ -33,17 +33,22 @@ This is Khushi Patel's architecture portfolio website. Single-page HTML file (an
 - Mobile breakpoint: 768px (project-grid also gets a 2-up tablet breakpoint around 601–1024px)
 
 ## Image Handling
-- All images embedded as base64 data URIs
+- Images live in `images/` as real files, referenced by relative path
 - Set background: none !important on project-page images
 - Crop whitespace from PDFs before embedding
 - Resize to max 2000-2400px width before encoding
 - Source/intermediate files for image processing live in `converted/` and `base64/` (both gitignored — regenerable build output, see `scripts/`). Raw originals (`Model Pictures/`, `Additional Work/`, `monet painting/`) are tracked/kept since they're irreplaceable.
 
-## CRITICAL: File Truncation Fix
-The file is ~30MB. It truncates at the flipbook popup when written in one pass. ALWAYS:
-1. Never use the Write tool on this file — use the Edit tool for text-only changes, or a small Node.js script (read/replace/write via `fs`) for large or repetitive changes. Node has no token-limit truncation risk; the Write/Edit tool interfaces do.
-2. Never target a `src="data:..."` attribute's content in an Edit match — only match short, unique text/markup snippets around the base64, never the blob itself.
-3. If you must reconstruct the file some other way: write main content first, then APPEND the flipbook popup + `</body></html>` separately.
+## Editing
+- The file is small enough to edit normally now, but **prefer a Node script** for anything repetitive: it is exact, checkable, and leaves a record in `scripts/`.
+- The working copy has **CRLF line endings**. Multi line match strings must use `\r\n` or they silently fail to match.
+- Verify after every scripted edit: the file ends with `</html>`, `boards-popup` and `flipbook-popup` each appear 8 times, and the image count is what you expect.
+- Never patch a build script through nested shell quoting. Write the script with the Write tool instead; shell escaping mangled one and truncated index.html from 34MB to 2.3MB on 2026-09-03.
+
+## Deploying
+- `_deploy/` (gitignored) is the publishable folder: `index.html`, `images/`, both PDFs, `og-image.jpg`. Rebuild it with `scripts/extract-images.mjs`.
+- Live site: https://archportfoliopatel.netlify.app/ — **not** connected to GitHub, so pushing does not deploy. Deploys are manual.
+- Khushi owns a Cloudflare domain and wants to move there. Cloudflare Pages caps a single file at 25 MiB, which the old 39MB index.html would have failed; after extraction nothing is over 25 MiB.
 
 ## Known Issues
 - Cloudflare email obfuscation tags reappear on edits — search for __cf_email__ and replace with kbp.khushi@gmail.com

@@ -500,7 +500,16 @@ img[data-slug]:not([src]){opacity:0}
 .model-title::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:var(--text);transition:width .3s}
 .model-card:hover .model-title::after{width:100%}
 .model-sub{font-size:11px;color:var(--text-light)}
-.contact-block{margin-top:96px;padding:44px 0 8px;border-top:2px solid var(--text);scroll-margin-top:100px}
+.contact-section{background:#000;color:#fff;padding:110px 60px;scroll-margin-top:0}
+.contact-inner{max-width:1120px;margin:0 auto}
+.contact-section .section-title{color:#fff}
+.contact-section .section-divider{background:#fff;margin-bottom:44px}
+.contact-section .contact-email{margin-top:0;color:#fff;font-size:clamp(28px,4.4vw,48px)}
+.contact-section .contact-email::after{background:#fff}
+.contact-section .contact-row{margin-top:40px;padding-top:24px;border-top:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.6)}
+.contact-section .contact-row a{color:rgba(255,255,255,.75);border-bottom-color:rgba(255,255,255,.28)}
+.contact-section .contact-row a:hover{color:#fff;border-color:#fff}
+@media(max-width:768px){.contact-section{padding:72px 24px}}
 .contact-title{font-family:var(--title);font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin:0}
 .contact-block .contact-row{margin-top:24px;padding-top:20px;border-top:1px solid var(--line)}
 .contact-email{display:inline-block;margin-top:18px;font-family:var(--title);font-size:clamp(24px,3vw,36px);font-weight:700;color:var(--text);text-decoration:none;position:relative}
@@ -895,17 +904,22 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
       </div>
 
 
-      <div class="contact-block" id="contact">
-        <h2 class="contact-title">contact</h2>
-        <a class="contact-email" href="mailto:kbp.khushi@gmail.com">kbp.khushi@gmail.com</a>
-        <div class="contact-row">
+      
+    </div>
+  </div>
+  </div>
+</section>
+
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <h2 class="section-title">contact</h2>
+    <div class="section-divider"></div>
+    <a class="contact-email" href="mailto:kbp.khushi@gmail.com">kbp.khushi@gmail.com</a>
+    <div class="contact-row">
           <a href="https://www.linkedin.com/in/kbp-khushi" target="_blank" rel="noopener">linkedin.com/in/kbp-khushi</a>
           <span>Savannah, GA / Atlanta, GA</span>
           <a href="Khushi_Patel_Resume.pdf" target="_blank" rel="noopener">resume (PDF)</a>
         </div>
-      </div>
-    </div>
-  </div>
   </div>
 </section>
 </div><!-- end view-about -->
@@ -1912,7 +1926,7 @@ document.querySelectorAll('.section-label,.section-title,.section-divider,.group
   var i=0;
   addReveal(document,pair[0],'reveal',function(el){el.style.transitionDelay=(i++*pair[1])+'ms';revealObs.observe(el);});
 });
-addReveal(document,'.teaser-viewall-wrap,#contact .contact-title,#contact .contact-email,#contact .contact-row','reveal',function(el){revealObs.observe(el);});
+addReveal(document,'.teaser-viewall-wrap,#contact .section-title,#contact .section-divider,#contact .contact-email,#contact .contact-row','reveal',function(el){revealObs.observe(el);});
 
 // About page content fades in piece by piece, same as the section titles
 document.querySelectorAll('#about .exp-item,#about .education-item,#about .ai-tag,#about .about-lic-item').forEach((el,i)=>{

@@ -480,8 +480,9 @@ img[data-slug]:not([src]){opacity:0}
 .pp-aside-set p{font-size:13px;line-height:1.65;color:var(--text-light);margin:0}
 @media(max-width:900px){.pp-header{display:flex;flex-direction:column}.pp-header>.we-boards-btn{align-self:flex-start}.pp-aside{position:static;width:auto;margin-top:24px;order:2}}
 @media(max-width:768px){.camber-photos{grid-template-columns:1fr;gap:14px}}
-.model-stack{display:flex;flex-direction:row;gap:18px;max-width:none;align-self:start}
-.model-card{cursor:pointer;flex:1 1 0;min-width:0}
+.model-stack{display:flex;flex-direction:column;gap:26px;max-width:250px;align-self:start}
+@media(max-width:768px){.model-stack{flex-direction:row;gap:14px;max-width:none}.model-stack .model-card{flex:1 1 0}}
+.model-card{cursor:pointer;min-width:0}
 .model-img{height:130px;width:100%;object-fit:contain;display:block;transition:transform .6s cubic-bezier(.22,1,.36,1)}
 .model-card:hover .model-img{transform:scale(1.03)}
 .model-body{padding:10px 0 0;display:flex;flex-direction:column;gap:2px}
@@ -795,7 +796,7 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
         <div>
           <div class="group-label">software</div>
           <div class="ai-tags"><span class="ai-tag" data-tooltip="2D drafting and construction documentation">AutoCAD</span><span class="ai-tag" data-tooltip="BIM modeling and construction documents">Revit</span><span class="ai-tag" data-tooltip="3D modeling and form-finding">Rhino</span><span class="ai-tag" data-tooltip="Quick 3D massing and iteration">SketchUp</span><span class="ai-tag" data-tooltip="3D modeling and animation">3DS Max</span><span class="ai-tag" data-tooltip="Real-time architectural rendering">Lumion</span><span class="ai-tag" data-tooltip="Real-time rendering and walkthroughs">Enscape</span><span class="ai-tag" data-tooltip="Image editing and rendering post-production">Photoshop</span><span class="ai-tag" data-tooltip="Vector diagrams and graphics">Illustrator</span><span class="ai-tag" data-tooltip="Layout and board production">InDesign</span><span class="ai-tag" data-tooltip="Motion graphics and animation">After Effects</span><span class="ai-tag" data-tooltip="Video editing">Premiere Pro</span><span class="ai-tag" data-tooltip="Freehand drawing and sketching">Hand Drafting</span><span class="ai-tag" data-tooltip="Physical model construction">Model Making</span><span class="ai-tag" data-tooltip="Documentation and presentations">Microsoft Office</span><span class="ai-tag" data-tooltip="Site building, used for the Rose Architects website">Squarespace</span><span class="ai-tag" data-tooltip="Node based tool for generating and refining images">ComfyUI</span><span class="ai-tag" data-tooltip="Research, ideation and writing support">ChatGPT</span><span class="ai-tag" data-tooltip="Coding assistant used to build this site">Claude Code</span><span class="ai-tag" data-tooltip="Layout and visual mockups">Claude Design</span><span class="ai-tag" data-tooltip="Text to image generation for visual studies">DALL&middot;E</span><span class="ai-tag" data-tooltip="Research and ideation support">Gemini</span></div>
-          <div class="about-ai-note">The generative tools above are used for research, iteration and visual studies, and for website development and document preparation. They are not used to produce final drawings.</div>
+          <div class="about-ai-note">The generative tools above are used for research, iteration and visual studies, and for website development and document preparation.</div>
         </div>
         <div>
           <div class="group-label">licensure</div>
@@ -1857,7 +1858,7 @@ document.querySelectorAll('#about .exp-item,#about .education-item,#about .ai-ta
 });
 
 // the AXP rings and the honors list each read in their own order
-[['#about .axp-item',70],['#about .honors-list li',60]].forEach(function(pair){
+[['#about .axp-item',70],['#about .honors-list li',60],['.additional-item',70]].forEach(function(pair){
   document.querySelectorAll(pair[0]).forEach(function(el,i){
     el.classList.add('reveal');
     el.style.transitionDelay=(i*pair[1])+'ms';

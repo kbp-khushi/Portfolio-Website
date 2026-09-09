@@ -556,6 +556,13 @@ img[data-slug]:not([src]){opacity:0}
   [style*="grid-template-columns:repeat(6,1fr)"]{grid-template-columns:repeat(3,1fr)!important}
   [style*="margin-top:-110px"]{margin-top:-10px!important}
 }
+
+/* The bottom button holds the space above the previous/next rule itself,
+   since .project-nav puts its own padding below the border. flex, because
+   these wrappers contain only the button and the line box was adding a
+   different amount of slack on different pages. */
+.cta-clear{display:flex;justify-content:center;padding-bottom:60px!important}
+@media(max-width:768px){.cta-clear{padding-bottom:48px!important}}
 </style>
 <!-- v1774032460 -->
 </head>
@@ -1159,7 +1166,7 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
   <div class="edit-full"><img width="2400" height="964" loading="lazy" src="images/045-image.jpg" alt="Building Section"><div class="dg-label-b">Building Section</div></div>
 
   <!-- VIEW BOARDS -->
-  <div style="padding:48px 60px 0;text-align:center">
+  <div class="cta-clear" style="padding:48px 60px 0;text-align:center">
     <a class="we-boards-btn" style="position:static" onclick="document.getElementById('boards-popup').style.display='flex'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>View Full Boards</a>
   </div>
 
@@ -1477,7 +1484,7 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
   </div>
   <div class="edit-full"><img width="2200" height="924" loading="lazy" src="images/081-image.jpg" alt="Bathroom Charette"></div>
 
-<div style="padding:48px 60px 0;text-align:center">
+<div class="cta-clear" style="padding:48px 60px 0;text-align:center">
     <a class="we-boards-btn" style="position:static" onclick="document.getElementById('we-boards-popup').style.display='flex'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>View Full Boards</a>
   </div>
 
@@ -1998,7 +2005,7 @@ else populateStackImages();
       <img width="1600" height="1200" loading="lazy" src="images/106-image.jpg" alt="Massing model front view" style="width:100%;max-width:900px;display:block;margin:0 auto;background:none !important">
     </div>
   </div>
-  <div style="padding:40px 60px;text-align:center">
+  <div class="cta-clear" style="padding:40px 60px;text-align:center">
     <a class="we-boards-btn" style="position:static" onclick="openFlipbook('massing-model-process')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>View Process Photos</a>
   </div>
   <div id="boards-massing-model-process" style="display:none">
@@ -2055,7 +2062,7 @@ else populateStackImages();
       <div class="pp-reveal"><img width="1600" height="2133" loading="lazy" src="images/121-image.jpg" alt="Section model view 5" style="width:100%;background:none !important"></div>
     </div>
   </div>
-  <div style="padding:40px 60px;text-align:center">
+  <div class="cta-clear" style="padding:40px 60px;text-align:center">
     <a class="we-boards-btn" style="position:static" onclick="openFlipbook('section-model-process')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>View Process Photos</a>
   </div>
   <div id="boards-section-model-process" style="display:none">
@@ -2099,7 +2106,7 @@ else populateStackImages();
   <div class="pp-description" style="max-width:720px;padding:0 60px 40px">
     <p>This book merges Bruno Munari&rsquo;s methodical approach to design with Michael Bierut&rsquo;s reflective narrative style, challenging readers to see design beyond aesthetics. Through a dynamic typographic landscape, each page serves as a carefully curated composition, utilizing contrast, rhythm, and hierarchy to guide perception and provoke thought.</p>
   </div>
-  <div style="padding:20px 60px;text-align:center">
+  <div class="cta-clear" style="padding:20px 60px;text-align:center">
     <a class="we-boards-btn" style="position:static" onclick="openFlipbook('virtuous-book')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>View Book</a>
   </div>
   <div id="boards-virtuous-book" style="display:none">
@@ -2163,7 +2170,7 @@ else populateStackImages();
   <div class="pp-description" style="max-width:720px;padding:0 60px 40px">
     <p>A cookbook built around a story: a baker who collected recipes from the cities she passed through. The name Beaufort, the short menu, the sketchbook format, none of it felt arbitrary. The scrapbook aesthetic demanded restraint; pulling things out was harder than putting them in. The handwriting, the taped photos, the coffee stains, the recipe she kept for herself at the end, it feels like something she carried.</p>
   </div>
-  <div style="padding:20px 60px;text-align:center">
+  <div class="cta-clear" style="padding:20px 60px;text-align:center">
     <a class="we-boards-btn" style="position:static" onclick="openFlipbook('beaufort-cookbook')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>View Cookbook</a>
   </div>
   <div id="boards-beaufort-cookbook" style="display:none">
@@ -2234,7 +2241,7 @@ else populateStackImages();
       <div><img width="1400" height="1283" loading="lazy" src="images/183-image.jpg" alt="Two mile radius analysis" class="sa-radius"><div class="dg-label-b" style="text-align:center">Two Mile Radius</div></div>
       <div><img width="1400" height="1245" loading="lazy" src="images/184-image.jpg" alt="Three quarter mile radius analysis" class="sa-radius"><div class="dg-label-b" style="text-align:center">Three Quarter Mile Radius</div></div>
     </div>
-    <div style="padding:44px 0 8px;text-align:center">
+    <div class="cta-clear" style="padding:44px 0 8px;text-align:center">
       <a class="we-boards-btn" style="position:static" onclick="openFlipbook('site-analysis-research')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 3h11l5 5v13H4z"/><path d="M15 3v5h5"/><path d="M8 13h8"/><path d="M8 17h5"/></svg>View Research</a>
     </div>
     <div id="boards-site-analysis-research" style="display:none">

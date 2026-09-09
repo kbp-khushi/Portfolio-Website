@@ -304,7 +304,7 @@ img[data-slug]:not([src]){opacity:0}
 .edu-school{font-size:14px;color:var(--accent);margin-top:2px}
 .edu-year{font-size:13px;color:var(--text-light);margin-top:2px}
 .edu-sub{font-size:13px;font-style:italic;color:var(--text-light);margin-top:8px}
-.about-intro-row{display:grid;grid-template-columns:520px 1fr;gap:48px;align-items:center;margin-bottom:56px}
+.about-intro-row{display:grid;grid-template-columns:520px 1fr;gap:48px;align-items:end;margin-bottom:56px}
 .about-portrait-placeholder{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;background:var(--line)}
 .about-bio{max-width:640px}
 .about-bio p{font-size:15px;line-height:1.8;color:var(--text);margin-bottom:20px}
@@ -551,7 +551,7 @@ img[data-slug]:not([src]){opacity:0}
 </head>
 <body>
 <script>
-function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.closest('.project-page');if(!page)return;var head=el.classList.contains('ds-title')?el:(el.querySelector('.ds-title,.stack-title')||el);var top=0,n=head;while(n&&n!==page){top+=n.offsetTop;n=n.offsetParent;}var target=Math.max(0,top-80),start=page.scrollTop,dist=target-start,i=0,steps=50;function tick(){i++;var p=i/steps;var e=1-Math.pow(1-p,3);page.scrollTop=start+dist*e;if(i<steps)setTimeout(tick,14);}tick();}
+function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.closest(".project-page");if(!page)return;var head=el.classList.contains("ds-title")?el:(el.querySelector(".ds-title,.stack-title")||el);var token=(window.__weNav=(window.__weNav||0)+1);function mine(){return token===window.__weNav;}function measure(){var t=0,n=head;while(n&&n!==page){t+=n.offsetTop;n=n.offsetParent;}return Math.max(0,t-80);}var evs=["wheel","touchstart","keydown","pointerdown"];function cleanup(){evs.forEach(function(t){page.removeEventListener(t,onUser);});page.removeEventListener("load",onLoad,true);}function onUser(){window.__weNav++;cleanup();}function snap(){var f=measure();if(Math.abs(page.scrollTop-f)>1)page.scrollTop=f;}function onLoad(){if(!mine()){cleanup();return;}snap();}evs.forEach(function(t){page.addEventListener(t,onUser,{passive:true});});page.addEventListener("load",onLoad,true);var startTop=page.scrollTop,i=0,steps=50;(function tick(){if(!mine()){cleanup();return;}i++;var p=i/steps,e=1-Math.pow(1-p,3);page.scrollTop=startTop+(measure()-startTop)*e;if(i<steps){setTimeout(tick,14);return;}snap();var until=Date.now()+4000;(function settle(){if(!mine()||Date.now()>until){cleanup();return;}snap();setTimeout(settle,120);})();})();}
 </script>
 
 
@@ -581,7 +581,7 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-canvas">
-    <img class="hero-img" loading="eager" fetchpriority="high" src="images/001-image.jpg" alt="Detail of a personal photograph of Monet's Japanese footbridge and water lily painting, taken at the Met">
+    <img width="1560" height="855" class="hero-img" loading="eager" fetchpriority="high" src="images/001-image.jpg" alt="Detail of a personal photograph of Monet's Japanese footbridge and water lily painting, taken at the Met">
     <div class="hero-scrim"></div>
     <div class="hero-inner">
       <div class="hero-eyebrow">M.Arch candidate &middot; Savannah / Atlanta</div>
@@ -601,7 +601,7 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
   <div class="section-label">selected work</div>
   <div class="work-stack">
     <div class="stack-item" onclick="openProject('the-pause')">
-      <img class="stack-img" data-slug="the-pause" src="images/002-image.jpg" alt="Exterior render of Caesura, a visitor's center along the South Edisto River">
+      <img width="1672" height="941" class="stack-img" data-slug="the-pause" src="images/002-image.jpg" alt="Exterior render of Caesura, a visitor's center along the South Edisto River">
       <div class="stack-info">
         <div class="stack-title">Caesura</div>
         <div class="stack-facts">
@@ -614,7 +614,7 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
       </div>
     </div>
     <div class="stack-item" onclick="openProject('woven-edge')">
-      <img class="stack-img" data-slug="woven-edge" src="images/003-image.jpg" alt="Aerial render of Mary Ross Park and River's Edge, Brunswick, GA">
+      <img width="800" height="425" class="stack-img" data-slug="woven-edge" src="images/003-image.jpg" alt="Aerial render of Mary Ross Park and River's Edge, Brunswick, GA">
       <div class="stack-info">
         <div class="stack-title">The Woven Edge</div>
         <div class="stack-facts">
@@ -627,7 +627,7 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
       </div>
     </div>
     <div class="stack-item" onclick="openProject('beacon')">
-      <img class="stack-img" data-slug="beacon" src="images/004-image.jpg" alt="Exterior render of Beacon, a community station in North Charleston">
+      <img width="2000" height="1579" class="stack-img" data-slug="beacon" src="images/004-image.jpg" alt="Exterior render of Beacon, a community station in North Charleston">
       <div class="stack-info">
         <div class="stack-title">Beacon</div>
         <div class="stack-facts">
@@ -684,19 +684,19 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
         <div class="card-sub">North Charleston Community Station</div></div>
     </div>
     <div class="project-card" onclick="openProject('fluke')">
-      <img class="card-img" loading="lazy" src="images/005-image.jpg" alt="Fluke">      <div class="card-body"><div class="card-title-row"><div class="card-title">Fluke</div><div class="card-year">2024</div></div>
+      <img width="800" height="464" class="card-img" loading="lazy" src="images/005-image.jpg" alt="Fluke">      <div class="card-body"><div class="card-title-row"><div class="card-title">Fluke</div><div class="card-year">2024</div></div>
         <div class="card-sub">Center for Marine Research Studies</div></div>
     </div>
     <div class="project-card" onclick="openProject('dreamscape')">
-      <img class="card-img" loading="lazy" src="images/006-image.jpg" alt="Dreamscape">      <div class="card-body"><div class="card-title-row"><div class="card-title">Dreamscape</div><div class="card-year">2023</div></div>
+      <img width="800" height="513" class="card-img" loading="lazy" src="images/006-image.jpg" alt="Dreamscape">      <div class="card-body"><div class="card-title-row"><div class="card-title">Dreamscape</div><div class="card-year">2023</div></div>
         <div class="card-sub">Immersive Dream Archival Vault</div></div>
     </div>
     <div class="project-card" onclick="openProject('laker')">
-      <img class="card-img" loading="lazy" src="images/007-image.jpg" alt="Lak&euml;r">      <div class="card-body"><div class="card-title-row"><div class="card-title">Lak&euml;r</div><div class="card-year">2024</div></div>
+      <img width="800" height="445" class="card-img" loading="lazy" src="images/007-image.jpg" alt="Lak&euml;r">      <div class="card-body"><div class="card-title-row"><div class="card-title">Lak&euml;r</div><div class="card-year">2024</div></div>
         <div class="card-sub">Daycare and Kindergarten Learning Establishment</div></div>
     </div>
     <div class="project-card" onclick="openProject('drodel')">
-      <img class="card-img" loading="lazy" src="images/008-image.jpg" alt="Drodel">      <div class="card-body"><div class="card-title-row"><div class="card-title">Drodel</div><div class="card-year">2022</div></div>
+      <img width="2000" height="1200" class="card-img" loading="lazy" src="images/008-image.jpg" alt="Drodel">      <div class="card-body"><div class="card-title-row"><div class="card-title">Drodel</div><div class="card-year">2022</div></div>
         <div class="card-sub">Layered Perception Studies</div></div>
     </div>
   </div>
@@ -754,7 +754,7 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
   <div class="section-divider"></div>
 
   <div class="about-intro-row">
-    <img class="about-portrait-placeholder" id="about-portrait-img" src="images/009-image.jpg" alt="Khushi Patel at the Forsyth Park fountain in Savannah, in graduation dress">
+    <img width="1100" height="1375" class="about-portrait-placeholder" id="about-portrait-img" src="images/009-image.jpg" alt="Khushi Patel at the Forsyth Park fountain in Savannah, in graduation dress">
     <div class="about-bio">
       <p>Hey, I&rsquo;m Khushi! I&rsquo;m an M.Arch candidate at the Savannah College of Art and Design (SCAD), where I also did my undergrad.</p>
       <p>Design, to me, isn&rsquo;t really about the aesthetics, it&rsquo;s about how people move through it, gather in it, and feel while they&rsquo;re there. That&rsquo;s the question I keep coming back to across everything I make, from studio work asking big civic and ecological questions to firm work where those questions get grounded in what actually gets built. Most of what I design starts with a site, a river, a park, a community that&rsquo;s been overlooked, and works outward from there.</p>
@@ -905,7 +905,7 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
 <div class="project-page" id="page-the-pause">
   <button class="pp-back" onclick="exitProject()">&#10229;Back</button>
 
-  <img class="pp-hero" loading="lazy" src="images/010-image.jpg" alt="Approach through cypress forest">
+  <img width="2200" height="1238" class="pp-hero" loading="lazy" src="images/010-image.jpg" alt="Approach through cypress forest">
 
   <div class="pp-header" style="position:relative;max-width:none">
     <div class="pp-aside"><a class="we-boards-btn" style="position:static" onclick="document.getElementById('boards-popup').style.display='flex'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>View Final Boards</a>
@@ -960,8 +960,8 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
     </div>
     <div class="edit-images">
       <div style="display:flex;gap:60px;justify-content:center;flex-wrap:wrap">
-        <div style="display:flex;flex-direction:column;align-items:center"><img loading="lazy" src="images/011-image.jpg" alt="Sun Path" style="height:200px;width:auto;max-width:100%"><div class="img-caption">Sun Path</div></div>
-        <div style="display:flex;flex-direction:column;align-items:center"><img loading="lazy" src="images/012-image.jpg" alt="Prevailing Winds" style="height:200px;width:auto;max-width:100%"><div class="img-caption">Prevailing Winds</div></div>
+        <div style="display:flex;flex-direction:column;align-items:center"><img width="900" height="898" loading="lazy" src="images/011-image.jpg" alt="Sun Path" style="height:200px;width:auto;max-width:100%"><div class="img-caption">Sun Path</div></div>
+        <div style="display:flex;flex-direction:column;align-items:center"><img width="900" height="785" loading="lazy" src="images/012-image.jpg" alt="Prevailing Winds" style="height:200px;width:auto;max-width:100%"><div class="img-caption">Prevailing Winds</div></div>
       </div>
     </div>
   </div>
@@ -969,10 +969,10 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
   <!-- MASSING -->
   <div class="edit-full" style="padding-bottom:96px">
     <div class="pause-massing" style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;align-items:end">
-      <div style="display:flex;flex-direction:column;align-items:center"><img loading="lazy" src="images/013-carve.jpg" alt="Carve" style="width:100%;height:auto;display:block"><div style="text-align:center;font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:8px"><b style="color:var(--text)">Carve</b><br><span style="font-family:var(--body);text-transform:none;letter-spacing:0;font-size:10px;font-weight:400">Bend the massing to follow the river's edge.</span></div></div>
-      <div style="display:flex;flex-direction:column;align-items:center"><img loading="lazy" src="images/014-frame.jpg" alt="Frame" style="width:100%;height:auto;display:block"><div style="text-align:center;font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:8px"><b style="color:var(--text)">Frame</b><br><span style="font-family:var(--body);text-transform:none;letter-spacing:0;font-size:10px;font-weight:400">Open sightlines and circulation toward forest and water.</span></div></div>
-      <div style="display:flex;flex-direction:column;align-items:center"><img loading="lazy" src="images/015-raise.jpg" alt="Raise" style="width:100%;height:auto;display:block"><div style="text-align:center;font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:8px"><b style="color:var(--text)">Raise</b><br><span style="font-family:var(--body);text-transform:none;letter-spacing:0;font-size:10px;font-weight:400">Lift the structure clear of the floodplain.</span></div></div>
-      <div style="display:flex;flex-direction:column;align-items:center"><img loading="lazy" src="images/016-hold.jpg" alt="Hold" style="width:100%;height:auto;display:block"><div style="text-align:center;font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:8px"><b style="color:var(--text)">Hold</b><br><span style="font-family:var(--body);text-transform:none;letter-spacing:0;font-size:10px;font-weight:400">Consolidate into distinct pavilions connected by boardwalk.</span></div></div>
+      <div style="display:flex;flex-direction:column;align-items:center"><img width="692" height="420" loading="lazy" src="images/013-carve.jpg" alt="Carve" style="width:100%;height:auto;display:block"><div style="text-align:center;font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:8px"><b style="color:var(--text)">Carve</b><br><span style="font-family:var(--body);text-transform:none;letter-spacing:0;font-size:10px;font-weight:400">Bend the massing to follow the river's edge.</span></div></div>
+      <div style="display:flex;flex-direction:column;align-items:center"><img width="665" height="420" loading="lazy" src="images/014-frame.jpg" alt="Frame" style="width:100%;height:auto;display:block"><div style="text-align:center;font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:8px"><b style="color:var(--text)">Frame</b><br><span style="font-family:var(--body);text-transform:none;letter-spacing:0;font-size:10px;font-weight:400">Open sightlines and circulation toward forest and water.</span></div></div>
+      <div style="display:flex;flex-direction:column;align-items:center"><img width="679" height="420" loading="lazy" src="images/015-raise.jpg" alt="Raise" style="width:100%;height:auto;display:block"><div style="text-align:center;font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:8px"><b style="color:var(--text)">Raise</b><br><span style="font-family:var(--body);text-transform:none;letter-spacing:0;font-size:10px;font-weight:400">Lift the structure clear of the floodplain.</span></div></div>
+      <div style="display:flex;flex-direction:column;align-items:center"><img width="575" height="420" loading="lazy" src="images/016-hold.jpg" alt="Hold" style="width:100%;height:auto;display:block"><div style="text-align:center;font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:8px"><b style="color:var(--text)">Hold</b><br><span style="font-family:var(--body);text-transform:none;letter-spacing:0;font-size:10px;font-weight:400">Consolidate into distinct pavilions connected by boardwalk.</span></div></div>
     </div>
     <div class="pp-cta-inline"><a class="we-boards-btn" style="position:static" onclick="closeProject();setTimeout(function(){openProject('massing-model');},80)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg>View the Massing Model</a></div>
   </div>
@@ -996,7 +996,7 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
           <div>09&nbsp; Historic Fishing Cabin</div>
         </div>
       </div>
-      <div style="flex:1 1 480px;min-width:280px;max-width:820px"><img loading="lazy" src="images/017-image.jpg" alt="Site Plan" style="width:100%;display:block"></div>
+      <div style="flex:1 1 480px;min-width:280px;max-width:820px"><img width="1290" height="1030" loading="lazy" src="images/017-image.jpg" alt="Site Plan" style="width:100%;display:block"></div>
     </div>
   </div>
 
@@ -1008,7 +1008,7 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
       <div class="ds-text">The elevated boardwalk moves visitors through the cypress canopy at eye level with branches, birds, and filtered light. Pavilions frame the river, then the forest, then the sky through sightlines, positioning people inside the landscape rather than simply looking at it. The library, studio, and outdoor classrooms give structure to that attention, turning a visit into sustained contact with the site.<div style="font-style:italic;margin-top:12px;color:var(--text-light)">Metric: Constant contact and awareness of the South Edisto River landscape.</div></div>
     </div>
     <div class="edit-images">
-      <div style="width:100%"><img loading="lazy" src="images/002-image.jpg" alt="Pavilion" style="width:100%"><div class="img-caption" style="text-align:right">Open air pavilion along the boardwalk</div></div>
+      <div style="width:100%"><img width="1672" height="941" loading="lazy" src="images/002-image.jpg" alt="Pavilion" style="width:100%"><div class="img-caption" style="text-align:right">Open air pavilion along the boardwalk</div></div>
     </div>
   </div>
 
@@ -1020,8 +1020,8 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
     </div>
     <div class="edit-images" style="align-items:stretch">
       <div style="width:100%">
-        <div class="dg-label" style="max-width:560px;margin:0 auto 10px">Resources Proximity Map</div><img loading="lazy" src="images/018-image.jpg" alt="Regional Sourcing" style="width:100%;max-width:560px;display:block;margin:0 auto">
-        <img loading="lazy" src="images/019-image.jpg" alt="Regional sourcing supplier legend" style="width:100%;max-width:560px;display:block;margin:28px auto 0">
+        <div class="dg-label" style="max-width:560px;margin:0 auto 10px">Resources Proximity Map</div><img width="1300" height="1602" loading="lazy" src="images/018-image.jpg" alt="Regional Sourcing" style="width:100%;max-width:560px;display:block;margin:0 auto">
+        <img width="1709" height="389" loading="lazy" src="images/019-image.jpg" alt="Regional sourcing supplier legend" style="width:100%;max-width:560px;display:block;margin:28px auto 0">
       </div>
     </div>
   </div>
@@ -1035,36 +1035,36 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
     <div class="edit-images" style="align-items:stretch">
       <div style="width:100%">
         <div class="pause-usergroups" style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px;align-items:end;max-width:760px;margin:0 auto">
-          <img loading="lazy" src="images/020-local-residents.jpg" alt="Local Residents" style="width:100%;height:auto;display:block">
-          <img loading="lazy" src="images/021-retirees.jpg" alt="Retirees" style="width:100%;height:auto;display:block">
-          <img loading="lazy" src="images/022-families.jpg" alt="Families" style="width:100%;height:auto;display:block">
-          <img loading="lazy" src="images/023-seasonal-visitors.jpg" alt="Seasonal Visitors" style="width:100%;height:auto;display:block">
-          <img loading="lazy" src="images/024-outdoor-recreation-users.jpg" alt="Outdoor Recreation Users" style="width:100%;height:auto;display:block">
+          <img width="460" height="329" loading="lazy" src="images/020-local-residents.jpg" alt="Local Residents" style="width:100%;height:auto;display:block">
+          <img width="460" height="329" loading="lazy" src="images/021-retirees.jpg" alt="Retirees" style="width:100%;height:auto;display:block">
+          <img width="460" height="329" loading="lazy" src="images/022-families.jpg" alt="Families" style="width:100%;height:auto;display:block">
+          <img width="460" height="329" loading="lazy" src="images/023-seasonal-visitors.jpg" alt="Seasonal Visitors" style="width:100%;height:auto;display:block">
+          <img width="460" height="329" loading="lazy" src="images/024-outdoor-recreation-users.jpg" alt="Outdoor Recreation Users" style="width:100%;height:auto;display:block">
         </div>
         <div class="pause-charts" style="display:grid;grid-template-columns:repeat(2,1fr);gap:24px;align-items:center;max-width:760px;margin:28px auto 0">
-          <img loading="lazy" src="images/025-image.jpg" alt="Seasonal use by user group" style="width:100%;height:auto;display:block">
-          <img loading="lazy" src="images/026-image.jpg" alt="Time of day use by user group" style="width:100%;height:auto;display:block">
+          <img width="1000" height="943" loading="lazy" src="images/025-image.jpg" alt="Seasonal use by user group" style="width:100%;height:auto;display:block">
+          <img width="1000" height="1000" loading="lazy" src="images/026-image.jpg" alt="Time of day use by user group" style="width:100%;height:auto;display:block">
         </div>
-        <img loading="lazy" src="images/027-image.jpg" alt="Library Proximity Map" style="width:100%;max-width:680px;display:block;margin:40px auto 0"><div class="img-caption" style="text-align:right;max-width:680px;margin-left:auto;margin-right:auto">Educational and cultural access gap</div>
+        <img width="1200" height="776" loading="lazy" src="images/027-image.jpg" alt="Library Proximity Map" style="width:100%;max-width:680px;display:block;margin:40px auto 0"><div class="img-caption" style="text-align:right;max-width:680px;margin-left:auto;margin-right:auto">Educational and cultural access gap</div>
       </div>
     </div>
   </div>
 
   <!-- WELL-BEING (louver full width, matching exterior library) -->
-  <div class="edit-full" id="pause-wellbeing" style="padding-top:64px;padding-bottom:64px"><img loading="lazy" src="images/028-image.jpg" alt="Exterior Library"><div class="img-caption" style="text-align:right">View outside the library pavilion</div></div>
+  <div class="edit-full" id="pause-wellbeing" style="padding-top:64px;padding-bottom:64px"><img width="1672" height="941" loading="lazy" src="images/028-image.jpg" alt="Exterior Library"><div class="img-caption" style="text-align:right">View outside the library pavilion</div></div>
   <div class="edit-row">
     <div class="edit-text">
       <div class="ds-title">Design for Well-Being</div>
       <div class="ds-text">Every occupied space opens to the forest or the river, and moments of enclosure and exposure alternate along the path through the pavilions. The plans map daylight factor across all three, averaging 3.7%, which keeps the reading rooms and work areas in the range that supports sustained use without glare. Three louver studies tested how to get there: a solid panel darkened the interior, straight louvers admitted too much direct sun, and the angled profile filtered daylight while blocking the high summer sun. The section carries that through, drawing light in above the louvers and moving air across the plan and beneath the raised floor, so comfort comes from the section itself before any mechanical system.<div style="font-style:italic;margin-top:12px;color:var(--text-light)">Metric: Building average daylight factor 3.7%; 90% of user area within target range (2-10% DF); 95% with direct views to nature.</div></div>
     </div>
     <div class="edit-images" style="align-items:stretch">
-      <div style="width:100%;margin-top:0"><img loading="lazy" src="images/029-image.jpg" alt="Floor Plan" style="width:100%;max-width:640px;display:block;margin:0 auto"></div>
+      <div style="width:100%;margin-top:0"><img width="2000" height="2080" loading="lazy" src="images/029-image.jpg" alt="Floor Plan" style="width:100%;max-width:640px;display:block;margin:0 auto"></div>
       <div style="margin-top:36px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
-        <div style="display:flex;flex-direction:column;align-items:center"><img loading="lazy" src="images/030-solid-panel.jpg" alt="Solid Panel" style="height:160px;width:auto;max-width:100%"><div style="text-align:center;font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:8px;max-width:165px">Solid Panel<br><span style="font-family:var(--body);text-transform:none;letter-spacing:0;font-size:10px">Blocks light completely, creating excessive shade and dark spaces.</span></div></div>
-        <div style="display:flex;flex-direction:column;align-items:center"><img loading="lazy" src="images/031-straight-louvers.jpg" alt="Straight Louvers" style="height:160px;width:auto;max-width:100%"><div style="text-align:center;font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:8px;max-width:165px">Straight Louvers<br><span style="font-family:var(--body);text-transform:none;letter-spacing:0;font-size:10px">Allow permeability and airflow but admit too much direct sunlight.</span></div></div>
-        <div style="display:flex;flex-direction:column;align-items:center"><img loading="lazy" src="images/032-angled-louvers.jpg" alt="Angled Louvers" style="height:160px;width:auto;max-width:100%"><div style="text-align:center;font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:8px;max-width:165px">Angled Louvers<br><span style="font-family:var(--body);text-transform:none;letter-spacing:0;font-size:10px">Filter daylight, allowing indirect light while blocking direct sun rays.</span></div></div>
+        <div style="display:flex;flex-direction:column;align-items:center"><img width="538" height="460" loading="lazy" src="images/030-solid-panel.jpg" alt="Solid Panel" style="height:160px;width:auto;max-width:100%"><div style="text-align:center;font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:8px;max-width:165px">Solid Panel<br><span style="font-family:var(--body);text-transform:none;letter-spacing:0;font-size:10px">Blocks light completely, creating excessive shade and dark spaces.</span></div></div>
+        <div style="display:flex;flex-direction:column;align-items:center"><img width="532" height="460" loading="lazy" src="images/031-straight-louvers.jpg" alt="Straight Louvers" style="height:160px;width:auto;max-width:100%"><div style="text-align:center;font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:8px;max-width:165px">Straight Louvers<br><span style="font-family:var(--body);text-transform:none;letter-spacing:0;font-size:10px">Allow permeability and airflow but admit too much direct sunlight.</span></div></div>
+        <div style="display:flex;flex-direction:column;align-items:center"><img width="523" height="460" loading="lazy" src="images/032-angled-louvers.jpg" alt="Angled Louvers" style="height:160px;width:auto;max-width:100%"><div style="text-align:center;font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:8px;max-width:165px">Angled Louvers<br><span style="font-family:var(--body);text-transform:none;letter-spacing:0;font-size:10px">Filter daylight, allowing indirect light while blocking direct sun rays.</span></div></div>
       </div>
-      <div style="width:100%;margin-top:24px"><div style="max-width:640px;margin:0 auto"><img loading="lazy" src="images/033-image.jpg" alt="Daylight and Ventilation Diagram" style="width:100%;display:block"><div class="dg-label-b">Daylight and Ventilation Diagram</div></div></div>
+      <div style="width:100%;margin-top:24px"><div style="max-width:640px;margin:0 auto"><img width="1600" height="1361" loading="lazy" src="images/033-image.jpg" alt="Daylight and Ventilation Diagram" style="width:100%;display:block"><div class="dg-label-b">Daylight and Ventilation Diagram</div></div></div>
     
     </div>
   </div>
@@ -1076,13 +1076,13 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
       <div class="ds-text">The building lifts entirely off the ground, and helical piles replace excavation so that root systems, floodplain hydrology, and the wildlife corridors of white-tailed deer, river otters, and wading birds continue undisturbed beneath the structure. All plantings are native to the South Edisto watershed, and surplus rainwater from the roofs returns to on-site basins that recharge the cypress swamp the building sits within.<div style="font-style:italic;margin-top:12px;color:var(--text-light)">Metric: 94% site vegetated post-development; 100% native plantings; 5% waterways; 1% built post-development.</div></div>
     </div>
     <div class="edit-images">
-      <div style="width:100%"><div style="max-width:760px;margin:0 auto"><img loading="lazy" src="images/034-image.jpg" alt="Ecosystem Diagram" style="width:100%;display:block"><div class="eco-metrics"><div>100% Native Plantings</div><div>92% Tree Canopy Coverage</div><div>100% Permeable Surfaces</div></div></div></div>
-      <div style="width:100%;margin-top:24px"><div style="max-width:760px;margin:0 auto"><img loading="lazy" src="images/035-image.jpg" alt="Site Ecology Diagram" style="width:100%;display:block"><div class="dg-label-b">Site Ecology Diagram</div></div></div>
+      <div style="width:100%"><div style="max-width:760px;margin:0 auto"><img width="1600" height="294" loading="lazy" src="images/034-image.jpg" alt="Ecosystem Diagram" style="width:100%;display:block"><div class="eco-metrics"><div>100% Native Plantings</div><div>92% Tree Canopy Coverage</div><div>100% Permeable Surfaces</div></div></div></div>
+      <div style="width:100%;margin-top:24px"><div style="max-width:760px;margin:0 auto"><img width="1800" height="1109" loading="lazy" src="images/035-image.jpg" alt="Site Ecology Diagram" style="width:100%;display:block"><div class="dg-label-b">Site Ecology Diagram</div></div></div>
     </div>
   </div>
 
   <!-- INTERIOR RENDERS -->
-  <div class="edit-full" style="padding-top:64px;padding-bottom:64px"><img loading="lazy" src="images/036-image.jpg" alt="Interior Library"><div class="img-caption" style="text-align:right">Library and lounge interior</div></div>
+  <div class="edit-full" style="padding-top:64px;padding-bottom:64px"><img width="1672" height="941" loading="lazy" src="images/036-image.jpg" alt="Interior Library"><div class="img-caption" style="text-align:right">Library and lounge interior</div></div>
 
 
   <!-- RESOURCES + EXPLODED AXON -->
@@ -1092,8 +1092,8 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
       <div class="ds-text">The project explores material availability within 100 miles of the site, favoring wood for both human experience and carbon performance. Mass timber cantilever structures create minimal disturbance — no excavation, no dewatering, no disruption to root systems or the floodplain below. Bolted joints allow disassembly and reuse, and the structure sequesters carbon for the full duration of its 200-year lifespan.<div style="font-style:italic;margin-top:12px;color:var(--text-light)">Metric: 707 m³ softwood; net carbon storage &minus;1,434,000 lbs CO&#8322; over 200-year lifespan.</div></div>
     </div>
     <div class="edit-images">
-      <div style="width:100%"><img loading="lazy" src="images/037-image.jpg" alt="Exploded Axonometric" style="width:100%;display:block"><div class="dg-label-b">Exploded Assembly Axonometric</div></div>
-      <div style="width:100%;margin-top:56px"><img loading="lazy" src="images/038-image.jpg" alt="Timber lifecycle carbon diagram" style="width:100%;max-width:620px;display:block;margin:0 auto"><div class="dg-label-b" style="text-align:center;max-width:620px;margin-left:auto;margin-right:auto">Timber Lifecycle</div></div>
+      <div style="width:100%"><img width="1300" height="1399" loading="lazy" src="images/037-image.jpg" alt="Exploded Axonometric" style="width:100%;display:block"><div class="dg-label-b">Exploded Assembly Axonometric</div></div>
+      <div style="width:100%;margin-top:56px"><img width="1800" height="1471" loading="lazy" src="images/038-image.jpg" alt="Timber lifecycle carbon diagram" style="width:100%;max-width:620px;display:block;margin:0 auto"><div class="dg-label-b" style="text-align:center;max-width:620px;margin-left:auto;margin-right:auto">Timber Lifecycle</div></div>
     </div>
   </div>
 
@@ -1104,13 +1104,13 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
       <div class="ds-text">The South Edisto floods seasonally, and climate projections anticipate increased precipitation and storm intensity through 2080. The finished floor sits 12' above the base flood elevation without altering the site. Operable partitions let spaces shift between classroom and exterior space as program needs evolve, and bolted glulam connections allow the mass timber structure to be disassembled and reused well beyond the program it currently serves.<div style="font-style:italic;margin-top:12px;color:var(--text-light)">Metric: FF 267' / BFE 255' (12' freeboard); 200-year design lifespan.</div></div>
     </div>
     <div class="edit-images">
-      <div style="text-align:center"><img loading="lazy" src="images/039-image.jpg" alt="Operable Partitions" style="width:100%"></div>
-      <div style="width:100%;margin-top:24px;max-width:560px;margin-left:auto;margin-right:auto"><div style="max-width:560px;margin:0 auto"><img loading="lazy" src="images/040-image.jpg" alt="Flood Resilience diagram" style="width:100%;display:block"><div class="dg-label-b">Flood Resilience</div></div></div>
+      <div style="text-align:center"><img width="1600" height="1600" loading="lazy" src="images/039-image.jpg" alt="Operable Partitions" style="width:100%"></div>
+      <div style="width:100%;margin-top:24px;max-width:560px;margin-left:auto;margin-right:auto"><div style="max-width:560px;margin:0 auto"><img width="1600" height="1577" loading="lazy" src="images/040-image.jpg" alt="Flood Resilience diagram" style="width:100%;display:block"><div class="dg-label-b">Flood Resilience</div></div></div>
     </div>
   </div>
 
   <!-- STUDIO INTERIOR (moved: sits after Design for Change) -->
-  <div class="edit-full" style="padding-top:64px;padding-bottom:64px"><img loading="lazy" src="images/041-image.jpg" alt="Studio interior with framed art"><div class="img-caption" style="text-align:right">Studio and gallery interior</div></div>
+  <div class="edit-full" style="padding-top:64px;padding-bottom:64px"><img width="1672" height="941" loading="lazy" src="images/041-image.jpg" alt="Studio interior with framed art"><div class="img-caption" style="text-align:right">Studio and gallery interior</div></div>
 
   <!-- WATER -->
   <div class="edit-row" id="pause-water">
@@ -1119,7 +1119,7 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
       <div class="ds-text">The South Edisto floods seasonally, sustaining the cypress swamp and its ecosystems. The sloped metal roofs are the collection system: 13,450 SF of roof surface feeds two on-site cisterns. No potable water is used for irrigation, and the elevated structure lets natural flooding continue beneath the building undisturbed.<div style="font-style:italic;margin-top:12px;color:var(--text-light)">Metric: 192,000 gals of water collected; 0% potable water reliance; 83% stormwater managed onsite.</div></div>
     </div>
     <div class="edit-images">
-      <div style="width:100%"><div style="max-width:560px;margin:0 auto"><div class="dg-label">Water Collection and Use</div><img loading="lazy" src="images/042-image.jpg" alt="Water Metric" style="width:100%;display:block"></div></div>
+      <div style="width:100%"><div style="max-width:560px;margin:0 auto"><div class="dg-label">Water Collection and Use</div><img width="874" height="520" loading="lazy" src="images/042-image.jpg" alt="Water Metric" style="width:100%;display:block"></div></div>
     </div>
   </div>
 
@@ -1130,13 +1130,13 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
       <div class="ds-text">The project incorporates passive strategies toward light, air, and thermal comfort before any mechanical system. Deep roof overhangs and angled louvers reduce solar heat gain at 33 degrees latitude, while operable clerestories and cross ventilation move air through the section without conditioning it. What remains after passive strategies is a net EUI of -14 kBtu/sf/yr — roughly 4,200 SF of south-facing photovoltaics generate more energy than the building demands, returning the surplus to the Aiken State Park grid.<div style="font-style:italic;margin-top:12px;color:var(--text-light)">Metric: Net EUI &minus;14 kBtu/sf/yr; 133% renewable energy coverage; LPD 0.62 W/sf.</div></div>
     </div>
     <div class="edit-images" style="align-items:stretch">
-      <div style="width:100%"><div style="max-width:560px;margin:0 auto"><div class="dg-label">Energy Generation and Demand</div><img loading="lazy" src="images/043-image.jpg" alt="Energy Budget" style="width:100%;display:block"></div></div>
-      <div style="width:100%;margin-top:24px"><div style="max-width:560px;margin:0 auto"><div class="dg-label">Energy Use Intensity (kBtu/sf/yr)</div><img loading="lazy" src="images/044-image.jpg" alt="Energy use intensity chart" style="width:100%;display:block"></div></div>
+      <div style="width:100%"><div style="max-width:560px;margin:0 auto"><div class="dg-label">Energy Generation and Demand</div><img width="905" height="520" loading="lazy" src="images/043-image.jpg" alt="Energy Budget" style="width:100%;display:block"></div></div>
+      <div style="width:100%;margin-top:24px"><div style="max-width:560px;margin:0 auto"><div class="dg-label">Energy Use Intensity (kBtu/sf/yr)</div><img width="1400" height="1386" loading="lazy" src="images/044-image.jpg" alt="Energy use intensity chart" style="width:100%;display:block"></div></div>
     </div>
   </div>
 
   <!-- SECTION PERSPECTIVE -->
-  <div class="edit-full"><img loading="lazy" src="images/045-image.jpg" alt="Building Section"><div class="dg-label-b">Building Section</div></div>
+  <div class="edit-full"><img width="2400" height="964" loading="lazy" src="images/045-image.jpg" alt="Building Section"><div class="dg-label-b">Building Section</div></div>
 
   <!-- VIEW BOARDS -->
   <div style="padding:48px 60px 0;text-align:center">
@@ -1163,7 +1163,7 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
 
 <div class="project-page" id="page-woven-edge">
   <button class="pp-back" onclick="exitProject()">&#10229;Back</button>
-  <div style="width:100%;padding:0"><img loading="lazy" src="images/046-image.jpg" alt="The Woven Edge" style="width:100%;display:block"></div>
+  <div style="width:100%;padding:0"><img width="2400" height="1276" loading="lazy" src="images/046-image.jpg" alt="The Woven Edge" style="width:100%;display:block"></div>
 
   <div class="pp-header" style="position:relative;max-width:none">
     <style>
@@ -1205,35 +1205,35 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
       <div class="ds-text">Mary Ross Park sits along the Brunswick waterfront in coastal Georgia. The site analysis examined circulation, civic structures, entry nodes, sun and wind, views, and existing tree canopy.</div>
     </div>
     <div class="edit-images">
-      <div style="text-align:center"><img loading="lazy" src="images/047-georgia.jpg" alt="Georgia" style="max-width:180px"></div>
+      <div style="text-align:center"><img width="612" height="612" loading="lazy" src="images/047-georgia.jpg" alt="Georgia" style="max-width:180px"></div>
     </div>
   </div>
 
   <!-- SITE PHOTOS -->
   <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;padding:20px 60px">
-    <div style="text-align:center"><img loading="lazy" src="images/048-image.jpg" alt="Existing Market Structure" style="width:100%;height:160px;object-fit:cover"><div style="font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:8px">Existing Market Structure</div></div>
-    <div style="text-align:center"><img loading="lazy" src="images/049-image.jpg" alt="Marina & Boat Dock" style="width:100%;height:160px;object-fit:cover"><div style="font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:8px">Marina & Boat Dock</div></div>
-    <div style="text-align:center"><img loading="lazy" src="images/050-image.jpg" alt="Gloucester Street" style="width:100%;height:160px;object-fit:cover"><div style="font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:8px">Gloucester Street</div></div>
-    <div style="text-align:center"><img loading="lazy" src="images/051-image.jpg" alt="Historic Pavilion" style="width:100%;height:160px;object-fit:cover"><div style="font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:8px">Historic Pavilion</div></div>
-    <div style="text-align:center"><img loading="lazy" src="images/052-image.jpg" alt="Mary Ross Park" style="width:100%;height:160px;object-fit:cover"><div style="font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:8px">Mary Ross Park</div></div>
+    <div style="text-align:center"><img width="1000" height="667" loading="lazy" src="images/048-image.jpg" alt="Existing Market Structure" style="width:100%;height:160px;object-fit:cover"><div style="font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:8px">Existing Market Structure</div></div>
+    <div style="text-align:center"><img width="1000" height="667" loading="lazy" src="images/049-image.jpg" alt="Marina & Boat Dock" style="width:100%;height:160px;object-fit:cover"><div style="font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:8px">Marina & Boat Dock</div></div>
+    <div style="text-align:center"><img width="1000" height="667" loading="lazy" src="images/050-image.jpg" alt="Gloucester Street" style="width:100%;height:160px;object-fit:cover"><div style="font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:8px">Gloucester Street</div></div>
+    <div style="text-align:center"><img width="1000" height="667" loading="lazy" src="images/051-image.jpg" alt="Historic Pavilion" style="width:100%;height:160px;object-fit:cover"><div style="font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:8px">Historic Pavilion</div></div>
+    <div style="text-align:center"><img width="1000" height="667" loading="lazy" src="images/052-image.jpg" alt="Mary Ross Park" style="width:100%;height:160px;object-fit:cover"><div style="font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:8px">Mary Ross Park</div></div>
   </div>
 
   <!-- ANALYSIS MAPS with labels -->
   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px;padding:32px 60px;text-align:center">
-    <div><img loading="lazy" src="images/053-image.jpg" alt="Circulation Diagram" style="width:100%"><div style="font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:8px">Circulation Diagram</div></div>
-    <div><img loading="lazy" src="images/054-image.jpg" alt="Civic Spaces" style="width:100%"><div style="font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:8px">Civic Spaces</div></div>
-    <div><img loading="lazy" src="images/055-image.jpg" alt="Entry Nodes" style="width:100%"><div style="font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:8px">Entry Nodes</div></div>
+    <div><img width="1600" height="1787" loading="lazy" src="images/053-image.jpg" alt="Circulation Diagram" style="width:100%"><div style="font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:8px">Circulation Diagram</div></div>
+    <div><img width="1600" height="1787" loading="lazy" src="images/054-image.jpg" alt="Civic Spaces" style="width:100%"><div style="font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:8px">Civic Spaces</div></div>
+    <div><img width="1600" height="1788" loading="lazy" src="images/055-image.jpg" alt="Entry Nodes" style="width:100%"><div style="font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:8px">Entry Nodes</div></div>
   </div>
   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px;padding:8px 60px 32px;text-align:center">
-    <div><img loading="lazy" src="images/056-image.jpg" alt="Sun and Wind Analysis" style="width:100%"><div style="font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:8px">Sun and Wind Analysis</div></div>
-    <div><img loading="lazy" src="images/057-image.jpg" alt="Existing Vegetation" style="width:100%"><div style="font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:8px">Existing Vegetation</div></div>
-    <div><img loading="lazy" src="images/058-image.jpg" alt="Viewpoints" style="width:100%"><div style="font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:8px">Viewpoints</div></div>
+    <div><img width="1600" height="1787" loading="lazy" src="images/056-image.jpg" alt="Sun and Wind Analysis" style="width:100%"><div style="font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:8px">Sun and Wind Analysis</div></div>
+    <div><img width="1600" height="1787" loading="lazy" src="images/057-image.jpg" alt="Existing Vegetation" style="width:100%"><div style="font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:8px">Existing Vegetation</div></div>
+    <div><img width="1600" height="1787" loading="lazy" src="images/058-image.jpg" alt="Viewpoints" style="width:100%"><div style="font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:8px">Viewpoints</div></div>
   </div>
 
   <div class="edit-full" style="padding:24px 60px 24px">
     <div style="display:flex;justify-content:center;align-items:flex-end;gap:5%;max-width:700px;margin:0 auto">
-      <img loading="lazy" src="images/059-gender-distribution.jpg" alt="Gender distribution" style="flex:0 0 25.4%;width:25.4%;height:auto;display:block">
-      <img loading="lazy" src="images/060-image.jpg" alt="Age distribution" style="flex:0 0 69.6%;width:69.6%;height:auto;display:block">
+      <img width="398" height="594" loading="lazy" src="images/059-gender-distribution.jpg" alt="Gender distribution" style="flex:0 0 25.4%;width:25.4%;height:auto;display:block">
+      <img width="1090" height="594" loading="lazy" src="images/060-image.jpg" alt="Age distribution" style="flex:0 0 69.6%;width:69.6%;height:auto;display:block">
     </div>
     <div style="font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:16px;text-align:center">Gender and Age Distribution</div>
   </div>
@@ -1255,7 +1255,7 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
         @media(max-width:600px){.wep-num{width:18px;height:18px;font-size:9px}.wep-key span{font-size:8px}}
       </style>
       <div class="wep-plan">
-        <img loading="lazy" src="images/061-image.jpg" alt="Proposed Site Plan" style="width:100%;display:block">
+        <img width="1600" height="2480" loading="lazy" src="images/061-image.jpg" alt="Proposed Site Plan" style="width:100%;display:block">
         <div class="wep-num" style="left:67%;top:25%"><span>1</span></div>
         <div class="wep-num" style="left:60%;top:18%"><span>2</span></div>
         <div class="wep-num" style="left:80%;top:43%"><span>3</span></div>
@@ -1294,27 +1294,27 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
   <div class="edit-full" style="padding:8px 60px 24px">
     <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:16px;text-align:center">
       <div>
-        <img loading="lazy" src="images/062-kids-playground-icon.jpg" alt="Kids' Playground icon" style="width:100%;display:block">
+        <img width="660" height="485" loading="lazy" src="images/062-kids-playground-icon.jpg" alt="Kids' Playground icon" style="width:100%;display:block">
         <div style="font-family:var(--title);font-size:9px;letter-spacing:1.2px;text-transform:uppercase;color:var(--text-light);margin-top:8px">Kids&rsquo; Playground</div>
       </div>
       <div>
-        <img loading="lazy" src="images/063-image.jpg" alt="Green Flex Space icon" style="width:100%;display:block">
+        <img width="660" height="485" loading="lazy" src="images/063-image.jpg" alt="Green Flex Space icon" style="width:100%;display:block">
         <div style="font-family:var(--title);font-size:9px;letter-spacing:1.2px;text-transform:uppercase;color:var(--text-light);margin-top:8px">Green Flex Space</div>
       </div>
       <div>
-        <img loading="lazy" src="images/064-image.jpg" alt="Dog Park icon" style="width:100%;display:block">
+        <img width="660" height="485" loading="lazy" src="images/064-image.jpg" alt="Dog Park icon" style="width:100%;display:block">
         <div style="font-family:var(--title);font-size:9px;letter-spacing:1.2px;text-transform:uppercase;color:var(--text-light);margin-top:8px">Dog Park</div>
       </div>
       <div>
-        <img loading="lazy" src="images/065-boat-dock-icon.jpg" alt="Boat Dock icon" style="width:100%;display:block">
+        <img width="660" height="485" loading="lazy" src="images/065-boat-dock-icon.jpg" alt="Boat Dock icon" style="width:100%;display:block">
         <div style="font-family:var(--title);font-size:9px;letter-spacing:1.2px;text-transform:uppercase;color:var(--text-light);margin-top:8px">Boat Dock</div>
       </div>
       <div>
-        <img loading="lazy" src="images/066-marketspace-icon.jpg" alt="Marketspace icon" style="width:100%;display:block">
+        <img width="660" height="485" loading="lazy" src="images/066-marketspace-icon.jpg" alt="Marketspace icon" style="width:100%;display:block">
         <div style="font-family:var(--title);font-size:9px;letter-spacing:1.2px;text-transform:uppercase;color:var(--text-light);margin-top:8px">Marketspace</div>
       </div>
       <div>
-        <img loading="lazy" src="images/067-waterfront-stepping-icon.jpg" alt="Waterfront Stepping icon" style="width:100%;display:block">
+        <img width="660" height="485" loading="lazy" src="images/067-waterfront-stepping-icon.jpg" alt="Waterfront Stepping icon" style="width:100%;display:block">
         <div style="font-family:var(--title);font-size:9px;letter-spacing:1.2px;text-transform:uppercase;color:var(--text-light);margin-top:8px">Waterfront Stepping</div>
       </div>
     </div>
@@ -1329,7 +1329,7 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
       <div class="ds-text">Brunswick already holds all four threads: streets, people, water, and nature. Yet they sit apart, the shore treated as a barrier instead of a connection to the city. Design for Integration draws them into one interdependent system. Gloucester Street, one of the city&rsquo;s main streets, is pulled all the way to the water, blending land into shore and stitching the two back together. Restored ecology does more than heal the site. It opens the waterfront as a place that welcomes everyone who lives here and everyone who visits. The city, the park, and the river read as a single continuous landscape rather than separate layers.</div>
     </div>
     <div class="edit-images">
-      <div style="text-align:center"><img loading="lazy" src="images/068-image.jpg" alt="Weaving" style="width:100%"></div>
+      <div style="text-align:center"><img width="1600" height="3192" loading="lazy" src="images/068-image.jpg" alt="Weaving" style="width:100%"></div>
     </div>
   </div>
 
@@ -1342,7 +1342,7 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
     <div class="ds-title">Design for Economy</div>
     <div class="ds-text">Before, this stretch of Mary Ross Park sat underused and cut off from daily life. A market hall, caf&eacute;, and local retail now bring everyday commerce to the water&rsquo;s edge, extending the core of Gloucester Street all the way to the shore. This gives the waterfront a working purpose again, one that serves both commerce and leisure. Built around small and independent businesses rather than a single attraction, the plaza stays active throughout the day and becomes an economic anchor for Brunswick.</div>
   </div>
-  <div class="edit-full"><img loading="lazy" src="images/069-image.jpg" alt="City Square Axonometric"></div>
+  <div class="edit-full"><img width="2000" height="948" loading="lazy" src="images/069-image.jpg" alt="City Square Axonometric"></div>
 
   <!-- EQUITABLE COMMUNITIES -->
   <div class="edit-row" id="we-equitable">
@@ -1351,17 +1351,17 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
       <div class="ds-text">Once, the park served only a narrow slice of the city, an occasional elderly resident or waterfront visitor moving through a largely empty space. Its new range of program opens the waterfront to the whole community, drawing families, workers, shoppers, and neighbors to the same edge at every hour of the day. This steady, varied presence is what makes the park feel safe: a place kept alive by the people who use it rather than one left vacant. The result is a shared waterfront that belongs to everyone.</div>
     </div>
     <div class="edit-images">
-      <div><img loading="lazy" src="images/070-image-cropped.jpg" alt="Equitable Communities"></div>
+      <div><img width="1349" height="1607" loading="lazy" src="images/070-image-cropped.jpg" alt="Equitable Communities"></div>
     </div>
   </div>
-  <div class="edit-full"><img loading="lazy" src="images/071-image-cropped.jpg" alt="User Groups" style="max-width:850px;display:block;margin:0 auto"></div>
+  <div class="edit-full"><img width="1479" height="1020" loading="lazy" src="images/071-image-cropped.jpg" alt="User Groups" style="max-width:850px;display:block;margin:0 auto"></div>
 
   <!-- WELL-BEING -->
   <div class="ds-section" id="we-wellbeing">
     <div class="ds-title">Design for Well-Being</div>
     <div class="ds-text">The park is designed to restore, drawing on the same moves that shape the rest of the plan. The promenade and its paths invite walking and daily movement, while the restored marsh, tree canopy, and shade give relief from the coastal heat and a calm setting to rest in. At the shoreline, the stepped water edge slows people down and offers a place to sit close to the river, and gathering spaces throughout the park support the connection that comes from sharing a place. Whether a visit is active or quiet, time spent here is meant to restore both body and mind.</div>
   </div>
-  <div class="edit-full"><img loading="lazy" src="images/072-image.jpg" alt="Stepping Render"></div>
+  <div class="edit-full"><img width="2000" height="1143" loading="lazy" src="images/072-image.jpg" alt="Stepping Render"></div>
 
   <!-- ECONOMY -->
   
@@ -1376,7 +1376,7 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
       <div class="pp-reveal">
         <div class="we-sec-title">Gloucester Street Section A</div>
         <div style="position:relative">
-          <img loading="lazy" src="images/073-image.jpg" alt="Street section — marketplace corridor, existing and proposed" style="width:100%;display:block">
+          <img width="1800" height="1325" loading="lazy" src="images/073-image.jpg" alt="Street section — marketplace corridor, existing and proposed" style="width:100%;display:block">
           <span class="we-sec-cond" style="top:38%">Existing Conditions</span>
           <span class="we-sec-cond" style="top:89%">Proposed Conditions</span>
         </div>
@@ -1384,7 +1384,7 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
       <div class="pp-reveal">
         <div class="we-sec-title">Bay Street Section B</div>
         <div style="position:relative">
-          <img loading="lazy" src="images/074-image.jpg" alt="Street section — rail corridor, existing and proposed" style="width:100%;display:block">
+          <img width="1800" height="1325" loading="lazy" src="images/074-image.jpg" alt="Street section — rail corridor, existing and proposed" style="width:100%;display:block">
           <span class="we-sec-cond" style="top:38%">Existing Conditions</span>
           <span class="we-sec-cond" style="top:89%">Proposed Conditions</span>
         </div>
@@ -1399,7 +1399,7 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
       <div class="ds-text">Water is treated as both a resource and a design driver throughout Brunswick Park. The caf&eacute; and restroom facilities integrate on-site water filtration and collection systems that capture rainwater for reuse in irrigation and maintenance. Across the landscape, bioswales and planted terraces manage runoff naturally, filtering pollutants and slowing the flow of stormwater before it reaches the river.</div>
     </div>
     <div class="edit-images">
-      <div><div style="max-width:600px"><img loading="lazy" src="images/075-image-cropped.jpg" alt="Bioswale" style="width:100%;display:block"><div class="dg-label-b">Bioswale Section</div></div></div>
+      <div><div style="max-width:600px"><img width="1370" height="1272" loading="lazy" src="images/075-image-cropped.jpg" alt="Bioswale" style="width:100%;display:block"><div class="dg-label-b">Bioswale Section</div></div></div>
     </div>
   </div>
 
@@ -1407,7 +1407,7 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
   <div class="pp-reveal" style="margin-bottom:80px">
     <div class="we-sec-title">Marina Water&rsquo;s Edge Sections A</div>
     <div style="position:relative">
-      <img loading="lazy" src="images/076-image.jpg" alt="Waterfront section — marina to boardwalk, existing and proposed" style="width:100%;display:block">
+      <img width="1800" height="865" loading="lazy" src="images/076-image.jpg" alt="Waterfront section — marina to boardwalk, existing and proposed" style="width:100%;display:block">
       <span class="we-sec-cond" style="top:39%">Existing Conditions</span>
       <span class="we-sec-cond" style="top:76%">Proposed Conditions</span>
     </div>
@@ -1415,7 +1415,7 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
   <div class="pp-reveal">
     <div class="we-sec-title">Mary Ross Park Water&rsquo;s Edge Section B</div>
     <div style="position:relative">
-      <img loading="lazy" src="images/077-image.jpg" alt="Waterfront section — marina to park, existing and proposed" style="width:100%;display:block">
+      <img width="1800" height="795" loading="lazy" src="images/077-image.jpg" alt="Waterfront section — marina to park, existing and proposed" style="width:100%;display:block">
       <span class="we-sec-cond" style="top:36%">Existing Conditions</span>
       <span class="we-sec-cond" style="top:72%">Proposed Conditions</span>
     </div>
@@ -1432,15 +1432,15 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
     </div>
     <div class="edit-images">
       <div style="max-width:340px;margin:0 auto">
-          <img loading="lazy" src="images/078-image.jpg" alt="Oyster Reef and Tidal Flat" style="width:100%;display:block">
+          <img width="900" height="692" loading="lazy" src="images/078-image.jpg" alt="Oyster Reef and Tidal Flat" style="width:100%;display:block">
           <div class="dg-label-b">Oyster Reef and Tidal Flat</div>
         </div>
         <div style="max-width:340px;margin:32px auto 0">
-          <img loading="lazy" src="images/079-image.jpg" alt="Marsh" style="width:100%;display:block">
+          <img width="900" height="610" loading="lazy" src="images/079-image.jpg" alt="Marsh" style="width:100%;display:block">
           <div class="dg-label-b">Marsh</div>
         </div>
         <div style="max-width:340px;margin:32px auto 0">
-          <img loading="lazy" src="images/080-image.jpg" alt="Maritime Forest" style="width:100%;display:block">
+          <img width="900" height="835" loading="lazy" src="images/080-image.jpg" alt="Maritime Forest" style="width:100%;display:block">
           <div class="dg-label-b">Maritime Forest</div>
         </div>
     </div>
@@ -1455,7 +1455,7 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
     <div class="ds-title">Bathroom Charette</div>
     <div class="ds-text">The restroom pods came out of a weeklong charette exploring public restroom design for the park. The scheme takes its cues from the surrounding trees: slatted walls read as tree trunks, and a thin roof plane floats above like a canopy. Each stall is its own separate pod, so that even in such an open, transparent layout every visitor feels safe to enter.</div>
   </div>
-  <div class="edit-full"><img loading="lazy" src="images/081-image.jpg" alt="Bathroom Charette"></div>
+  <div class="edit-full"><img width="2200" height="924" loading="lazy" src="images/081-image.jpg" alt="Bathroom Charette"></div>
 
 <div style="padding:48px 60px 0;text-align:center">
     <a class="we-boards-btn" style="position:static" onclick="document.getElementById('we-boards-popup').style.display='flex'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>View Full Boards</a>
@@ -1494,10 +1494,10 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
   </div>
   <div class="pp-description">A police station is a building most people approach only when something has gone wrong. Beacon is built to be entered for other reasons. Alongside the operational station it holds meeting rooms and multipurpose spaces used for events, educational programs and everyday gathering, so the building works as a neighborhood hub as much as a police station. Transparent materials and open layouts blur the boundary between the two, breaking from the enclosed civic buildings that put officers on one side of a wall and residents on the other. Wind turbines, a solar panel facade, cross ventilation and a water collection system carry that same openness into how the building runs.</div>
   <div id="boards-beacon" style="display:none">
-    <img loading="lazy" src="images/082-image.jpg" alt="Beacon, board 1 of 4">
-    <img loading="lazy" src="images/083-image.jpg" alt="Beacon, board 2 of 4">
-    <img loading="lazy" src="images/084-image.jpg" alt="Beacon, board 3 of 4">
-    <img loading="lazy" src="images/085-image.jpg" alt="Beacon, board 4 of 4">
+    <img width="2000" height="772" loading="lazy" src="images/082-image.jpg" alt="Beacon, board 1 of 4">
+    <img width="2000" height="772" loading="lazy" src="images/083-image.jpg" alt="Beacon, board 2 of 4">
+    <img width="2000" height="772" loading="lazy" src="images/084-image.jpg" alt="Beacon, board 3 of 4">
+    <img width="2000" height="772" loading="lazy" src="images/085-image.jpg" alt="Beacon, board 4 of 4">
   </div>
   
   <div class="pp-cta has-sub">
@@ -1535,10 +1535,10 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
   </div>
   <div class="pp-description">A research and observation center for the North Atlantic right whale, on the river outside Savannah. The building keeps a small footprint and sits low against the bank, so you arrive through the landscape rather than across a parking lot. Its form comes from the whale&rsquo;s fluke: sweeping curves read as one continuous surface, cut open where the building meets the water. Materials are locally sourced and include recycled metal.</div>
   <div id="boards-fluke" style="display:none">
-    <img loading="lazy" src="images/086-image.jpg" alt="Fluke, board 1 of 4">
-    <img loading="lazy" src="images/087-image.jpg" alt="Fluke, board 2 of 4">
-    <img loading="lazy" src="images/088-image.jpg" alt="Fluke, board 3 of 4">
-    <img loading="lazy" src="images/089-image.jpg" alt="Fluke, board 4 of 4">
+    <img width="2000" height="772" loading="lazy" src="images/086-image.jpg" alt="Fluke, board 1 of 4">
+    <img width="2000" height="772" loading="lazy" src="images/087-image.jpg" alt="Fluke, board 2 of 4">
+    <img width="2000" height="772" loading="lazy" src="images/088-image.jpg" alt="Fluke, board 3 of 4">
+    <img width="2000" height="772" loading="lazy" src="images/089-image.jpg" alt="Fluke, board 4 of 4">
   </div>
   
   <div class="pp-cta">
@@ -1575,8 +1575,8 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
   </div>
   <div class="pp-description">An archive for dreams, designed in Lacoste during my study abroad in Provence. The program is deliberately impossible, which is what made it worth doing: a building to hold the one thing that does not survive being held. The curves of the wall and roof carry that idea. You enter through a compressed opening and come out into an open interior, so the sequence works the way a dream does, hard to get into and completely free once you are there.</div>
   <div id="boards-dreamscape" style="display:none">
-    <img loading="lazy" src="images/090-image.jpg" alt="Dreamscape, board 1 of 2">
-    <img loading="lazy" src="images/091-image.jpg" alt="Dreamscape, board 2 of 2">
+    <img width="2000" height="772" loading="lazy" src="images/090-image.jpg" alt="Dreamscape, board 1 of 2">
+    <img width="2000" height="772" loading="lazy" src="images/091-image.jpg" alt="Dreamscape, board 2 of 2">
   </div>
   
   <div class="pp-cta">
@@ -1613,10 +1613,10 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
   </div>
   <div class="pp-description">A school for young children in Pristina, drawing on Kosovar building culture and on what child development research says about how children use space. The plan began as a set of abstract blocks and became one curving form, turned so its long face runs east to west and the classrooms take the best daylight.</div>
   <div id="boards-laker" style="display:none">
-    <img loading="lazy" src="images/092-image.jpg" alt="Lakër, board 1 of 4">
-    <img loading="lazy" src="images/093-image.jpg" alt="Lakër, board 2 of 4">
-    <img loading="lazy" src="images/094-image.jpg" alt="Lakër, board 3 of 4">
-    <img loading="lazy" src="images/095-image.jpg" alt="Lakër, board 4 of 4">
+    <img width="2000" height="772" loading="lazy" src="images/092-image.jpg" alt="Lakër, board 1 of 4">
+    <img width="2000" height="772" loading="lazy" src="images/093-image.jpg" alt="Lakër, board 2 of 4">
+    <img width="2000" height="772" loading="lazy" src="images/094-image.jpg" alt="Lakër, board 3 of 4">
+    <img width="2000" height="772" loading="lazy" src="images/095-image.jpg" alt="Lakër, board 4 of 4">
   </div>
   
   <div class="pp-cta">
@@ -1653,8 +1653,8 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
   </div>
   <div class="pp-description">A house for twins, designed from the sensations in Poe&rsquo;s <em>The Fall of the House of Usher</em> rather than from a program. The study breaks the building into separate layers, each a complete composition on its own, then sets them in register so that moving past them changes what lines up. What I was testing is whether several perspectives can occupy one composition without collapsing into a single reading. Chipboard, laser cut and hand cut.</div>
   <div id="boards-drodel" style="display:none">
-    <img loading="lazy" src="images/096-image.jpg" alt="Drodel, board 1 of 2">
-    <img loading="lazy" src="images/097-image.jpg" alt="Drodel, board 2 of 2">
+    <img width="2000" height="772" loading="lazy" src="images/096-image.jpg" alt="Drodel, board 1 of 2">
+    <img width="2000" height="772" loading="lazy" src="images/097-image.jpg" alt="Drodel, board 2 of 2">
   </div>
   
   <div class="pp-cta">
@@ -1685,18 +1685,18 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
   <div style="background:var(--white);max-width:1000px;width:100%;position:relative;padding:24px;display:flex;flex-direction:column;gap:16px">
     <button onclick="document.getElementById('boards-popup').style.display='none'" style="position:sticky;top:0;float:right;width:36px;height:36px;border:1px solid var(--line);background:var(--white);cursor:pointer;font-size:16px;color:var(--text-light);display:flex;align-items:center;justify-content:center;z-index:10">&times;</button>
     <div style="font-family:var(--title);font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:8px">Caesura &mdash; Full Boards</div>
-    <img loading="lazy" src="images/098-image.jpg" alt="Caesura boards, page 1 of 2" style="width:100%">
-    <img loading="lazy" src="images/099-image.jpg" alt="Caesura boards, page 2 of 2" style="width:100%">
+    <img width="2200" height="1467" loading="lazy" src="images/098-image.jpg" alt="Caesura boards, page 1 of 2" style="width:100%">
+    <img width="2200" height="1467" loading="lazy" src="images/099-image.jpg" alt="Caesura boards, page 2 of 2" style="width:100%">
   </div>
 </div>
 <div id="we-boards-popup" onclick="if(event.target===this)this.style.display='none'" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:300;background:rgba(42,42,42,0.6);backdrop-filter:blur(8px);justify-content:center;align-items:flex-start;padding:40px;overflow-y:auto">
   <div style="background:var(--white);max-width:1000px;width:100%;position:relative;padding:24px;display:flex;flex-direction:column;gap:16px">
     <button onclick="document.getElementById('we-boards-popup').style.display='none'" style="position:sticky;top:0;float:right;width:36px;height:36px;border:1px solid var(--line);background:var(--white);cursor:pointer;font-size:16px;color:var(--text-light);display:flex;align-items:center;justify-content:center;z-index:10">&times;</button>
     <div style="font-family:var(--title);font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:8px">The Woven Edge &mdash; Full Boards</div>
-    <img loading="lazy" src="images/100-image.jpg" alt="Board 1" style="width:100%">
-    <img loading="lazy" src="images/101-image.jpg" alt="Board 2" style="width:100%">
-    <img loading="lazy" src="images/102-image.jpg" alt="Board 3" style="width:100%">
-    <img loading="lazy" src="images/103-image.jpg" alt="Board 4" style="width:100%">
+    <img width="896" height="1372" loading="lazy" src="images/100-image.jpg" alt="Board 1" style="width:100%">
+    <img width="896" height="1372" loading="lazy" src="images/101-image.jpg" alt="Board 2" style="width:100%">
+    <img width="896" height="1372" loading="lazy" src="images/102-image.jpg" alt="Board 3" style="width:100%">
+    <img width="896" height="1372" loading="lazy" src="images/103-image.jpg" alt="Board 4" style="width:100%">
   </div>
 </div>
 
@@ -1932,29 +1932,29 @@ else populateStackImages();
   </div>
   <div style="padding:0 60px">
     <div class="pp-reveal" style="margin-bottom:32px">
-      <img loading="lazy" src="images/104-image.jpg" alt="Massing model plan view" style="width:100%;max-width:900px;display:block;margin:0 auto;background:none !important">
+      <img width="1600" height="1861" loading="lazy" src="images/104-image.jpg" alt="Massing model plan view" style="width:100%;max-width:900px;display:block;margin:0 auto;background:none !important">
     </div>
     <div class="pp-reveal" style="margin-bottom:32px">
-      <img loading="lazy" src="images/105-image.jpg" alt="Massing model front elevation" style="width:100%;max-width:900px;display:block;margin:0 auto;background:none !important">
+      <img width="1600" height="600" loading="lazy" src="images/105-image.jpg" alt="Massing model front elevation" style="width:100%;max-width:900px;display:block;margin:0 auto;background:none !important">
     </div>
     <div class="pp-reveal" style="margin-top:32px">
-      <img loading="lazy" src="images/106-image.jpg" alt="Massing model front view" style="width:100%;max-width:900px;display:block;margin:0 auto;background:none !important">
+      <img width="1600" height="1200" loading="lazy" src="images/106-image.jpg" alt="Massing model front view" style="width:100%;max-width:900px;display:block;margin:0 auto;background:none !important">
     </div>
   </div>
   <div style="padding:40px 60px;text-align:center">
     <a class="we-boards-btn" style="position:static" onclick="openFlipbook('massing-model-process')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>View Process Photos</a>
   </div>
   <div id="boards-massing-model-process" style="display:none">
-    <img loading="lazy" src="images/107-image.jpg" alt="Massing model process">
-    <img loading="lazy" src="images/108-image.jpg" alt="Massing model process">
-    <img loading="lazy" src="images/109-image.jpg" alt="Massing model process">
-    <img loading="lazy" src="images/110-image.jpg" alt="Massing model process">
-    <img loading="lazy" src="images/111-image.jpg" alt="Massing model process">
-    <img loading="lazy" src="images/112-image.jpg" alt="Massing model process">
-    <img loading="lazy" src="images/113-image.jpg" alt="Massing model process">
-    <img loading="lazy" src="images/114-image.jpg" alt="Massing model process">
-    <img loading="lazy" src="images/115-image.jpg" alt="Massing model process">
-    <img loading="lazy" src="images/116-image.jpg" alt="Massing model process">
+    <img width="800" height="1067" loading="lazy" src="images/107-image.jpg" alt="Massing model process">
+    <img width="800" height="1067" loading="lazy" src="images/108-image.jpg" alt="Massing model process">
+    <img width="800" height="1067" loading="lazy" src="images/109-image.jpg" alt="Massing model process">
+    <img width="800" height="1067" loading="lazy" src="images/110-image.jpg" alt="Massing model process">
+    <img width="800" height="719" loading="lazy" src="images/111-image.jpg" alt="Massing model process">
+    <img width="800" height="654" loading="lazy" src="images/112-image.jpg" alt="Massing model process">
+    <img width="800" height="1067" loading="lazy" src="images/113-image.jpg" alt="Massing model process">
+    <img width="800" height="1078" loading="lazy" src="images/114-image.jpg" alt="Massing model process">
+    <img width="800" height="1067" loading="lazy" src="images/115-image.jpg" alt="Massing model process">
+    <img width="800" height="1067" loading="lazy" src="images/116-image.jpg" alt="Massing model process">
   </div>
   <div class="project-nav" style="display:flex;justify-content:space-between;padding:40px 60px 0">
     <span></span>
@@ -1989,28 +1989,28 @@ else populateStackImages();
   </div>
   <div style="padding:0 60px">
     <div class="pp-reveal" style="margin-bottom:32px">
-      <img loading="lazy" src="images/117-image.jpg" alt="Section model view 1" style="width:100%;max-width:900px;display:block;margin:0 auto;background:none !important">
+      <img width="1600" height="2133" loading="lazy" src="images/117-image.jpg" alt="Section model view 1" style="width:100%;max-width:900px;display:block;margin:0 auto;background:none !important">
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:1200px;margin:0 auto">
-      <div class="pp-reveal"><img loading="lazy" src="images/118-image.jpg" alt="Section model view 2" style="width:100%;background:none !important"></div>
-      <div class="pp-reveal"><img loading="lazy" src="images/119-image.jpg" alt="Section model view 3" style="width:100%;background:none !important"></div>
-      <div class="pp-reveal"><img loading="lazy" src="images/120-image.jpg" alt="Section model view 4" style="width:100%;background:none !important"></div>
-      <div class="pp-reveal"><img loading="lazy" src="images/121-image.jpg" alt="Section model view 5" style="width:100%;background:none !important"></div>
+      <div class="pp-reveal"><img width="1600" height="2133" loading="lazy" src="images/118-image.jpg" alt="Section model view 2" style="width:100%;background:none !important"></div>
+      <div class="pp-reveal"><img width="1600" height="2133" loading="lazy" src="images/119-image.jpg" alt="Section model view 3" style="width:100%;background:none !important"></div>
+      <div class="pp-reveal"><img width="1600" height="2133" loading="lazy" src="images/120-image.jpg" alt="Section model view 4" style="width:100%;background:none !important"></div>
+      <div class="pp-reveal"><img width="1600" height="2133" loading="lazy" src="images/121-image.jpg" alt="Section model view 5" style="width:100%;background:none !important"></div>
     </div>
   </div>
   <div style="padding:40px 60px;text-align:center">
     <a class="we-boards-btn" style="position:static" onclick="openFlipbook('section-model-process')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>View Process Photos</a>
   </div>
   <div id="boards-section-model-process" style="display:none">
-    <img loading="lazy" src="images/122-image.jpg" alt="Section model process">
-    <img loading="lazy" src="images/123-image.jpg" alt="Section model process">
-    <img loading="lazy" src="images/124-image.jpg" alt="Section model process">
-    <img loading="lazy" src="images/125-image.jpg" alt="Section model process">
-    <img loading="lazy" src="images/126-image.jpg" alt="Section model process">
-    <img loading="lazy" src="images/127-image.jpg" alt="Section model process">
-    <img loading="lazy" src="images/128-image.jpg" alt="Section model process">
-    <img loading="lazy" src="images/129-image.jpg" alt="Section model process">
-    <img loading="lazy" src="images/130-image.jpg" alt="Section model process">
+    <img width="800" height="1067" loading="lazy" src="images/122-image.jpg" alt="Section model process">
+    <img width="800" height="1067" loading="lazy" src="images/123-image.jpg" alt="Section model process">
+    <img width="800" height="1067" loading="lazy" src="images/124-image.jpg" alt="Section model process">
+    <img width="800" height="1067" loading="lazy" src="images/125-image.jpg" alt="Section model process">
+    <img width="800" height="1067" loading="lazy" src="images/126-image.jpg" alt="Section model process">
+    <img width="800" height="1067" loading="lazy" src="images/127-image.jpg" alt="Section model process">
+    <img width="800" height="1067" loading="lazy" src="images/128-image.jpg" alt="Section model process">
+    <img width="800" height="1067" loading="lazy" src="images/129-image.jpg" alt="Section model process">
+    <img width="800" height="1067" loading="lazy" src="images/130-image.jpg" alt="Section model process">
   </div>
   <div class="project-nav" style="display:flex;justify-content:space-between;padding:40px 60px 0">
     <a onclick="closeProject();setTimeout(function(){openProject('massing-model');},100)" class="pnav-link pnav-prev"><span class="pnav-eyebrow">Previous Project</span><span class="pnav-name">Massing Model</span></a>
@@ -2046,35 +2046,35 @@ else populateStackImages();
     <a class="we-boards-btn" style="position:static" onclick="openFlipbook('virtuous-book')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>View Book</a>
   </div>
   <div id="boards-virtuous-book" style="display:none">
-    <img loading="lazy" src="images/131-virtuous-book-page.jpg" alt="Virtuous Book page">
-    <img loading="lazy" src="images/132-virtuous-book-page.jpg" alt="Virtuous Book page">
-    <img loading="lazy" src="images/133-virtuous-book-page.jpg" alt="Virtuous Book page">
-    <img loading="lazy" src="images/134-virtuous-book-page.jpg" alt="Virtuous Book page">
-    <img loading="lazy" src="images/135-virtuous-book-page.jpg" alt="Virtuous Book page">
-    <img loading="lazy" src="images/136-virtuous-book-page.jpg" alt="Virtuous Book page">
-    <img loading="lazy" src="images/137-virtuous-book-page.jpg" alt="Virtuous Book page">
-    <img loading="lazy" src="images/138-image.jpg" alt="Virtuous Book page">
-    <img loading="lazy" src="images/139-image.jpg" alt="Virtuous Book page">
-    <img loading="lazy" src="images/140-image.jpg" alt="Virtuous Book page">
-    <img loading="lazy" src="images/141-virtuous-book-page.jpg" alt="Virtuous Book page">
-    <img loading="lazy" src="images/142-image.jpg" alt="Virtuous Book page">
-    <img loading="lazy" src="images/143-image.jpg" alt="Virtuous Book page">
-    <img loading="lazy" src="images/144-image.jpg" alt="Virtuous Book page">
-    <img loading="lazy" src="images/145-virtuous-book-page.jpg" alt="Virtuous Book page">
-    <img loading="lazy" src="images/146-image.jpg" alt="Virtuous Book page">
-    <img loading="lazy" src="images/147-image.jpg" alt="Virtuous Book page">
-    <img loading="lazy" src="images/148-image.jpg" alt="Virtuous Book page">
-    <img loading="lazy" src="images/149-virtuous-book-page.jpg" alt="Virtuous Book page">
-    <img loading="lazy" src="images/150-image.jpg" alt="Virtuous Book page">
-    <img loading="lazy" src="images/151-image.jpg" alt="Virtuous Book page">
-    <img loading="lazy" src="images/152-virtuous-book-page.jpg" alt="Virtuous Book page">
-    <img loading="lazy" src="images/153-image.jpg" alt="Virtuous Book page">
-    <img loading="lazy" src="images/154-image.jpg" alt="Virtuous Book page">
-    <img loading="lazy" src="images/155-image.jpg" alt="Virtuous Book page">
-    <img loading="lazy" src="images/156-virtuous-book-page.jpg" alt="Virtuous Book page">
-    <img loading="lazy" src="images/157-image.jpg" alt="Virtuous Book page">
-    <img loading="lazy" src="images/158-image.jpg" alt="Virtuous Book page">
-    <img loading="lazy" src="images/159-virtuous-book-page.jpg" alt="Virtuous Book page">
+    <img width="1400" height="1050" loading="lazy" src="images/131-virtuous-book-page.jpg" alt="Virtuous Book page">
+    <img width="1400" height="525" loading="lazy" src="images/132-virtuous-book-page.jpg" alt="Virtuous Book page">
+    <img width="1400" height="525" loading="lazy" src="images/133-virtuous-book-page.jpg" alt="Virtuous Book page">
+    <img width="1400" height="525" loading="lazy" src="images/134-virtuous-book-page.jpg" alt="Virtuous Book page">
+    <img width="1400" height="525" loading="lazy" src="images/135-virtuous-book-page.jpg" alt="Virtuous Book page">
+    <img width="1400" height="525" loading="lazy" src="images/136-virtuous-book-page.jpg" alt="Virtuous Book page">
+    <img width="1400" height="525" loading="lazy" src="images/137-virtuous-book-page.jpg" alt="Virtuous Book page">
+    <img width="1400" height="525" loading="lazy" src="images/138-image.jpg" alt="Virtuous Book page">
+    <img width="1400" height="525" loading="lazy" src="images/139-image.jpg" alt="Virtuous Book page">
+    <img width="1400" height="525" loading="lazy" src="images/140-image.jpg" alt="Virtuous Book page">
+    <img width="1400" height="525" loading="lazy" src="images/141-virtuous-book-page.jpg" alt="Virtuous Book page">
+    <img width="1400" height="525" loading="lazy" src="images/142-image.jpg" alt="Virtuous Book page">
+    <img width="1400" height="525" loading="lazy" src="images/143-image.jpg" alt="Virtuous Book page">
+    <img width="1400" height="525" loading="lazy" src="images/144-image.jpg" alt="Virtuous Book page">
+    <img width="1400" height="525" loading="lazy" src="images/145-virtuous-book-page.jpg" alt="Virtuous Book page">
+    <img width="1400" height="525" loading="lazy" src="images/146-image.jpg" alt="Virtuous Book page">
+    <img width="1400" height="525" loading="lazy" src="images/147-image.jpg" alt="Virtuous Book page">
+    <img width="1400" height="525" loading="lazy" src="images/148-image.jpg" alt="Virtuous Book page">
+    <img width="1400" height="525" loading="lazy" src="images/149-virtuous-book-page.jpg" alt="Virtuous Book page">
+    <img width="1400" height="525" loading="lazy" src="images/150-image.jpg" alt="Virtuous Book page">
+    <img width="1400" height="525" loading="lazy" src="images/151-image.jpg" alt="Virtuous Book page">
+    <img width="1400" height="525" loading="lazy" src="images/152-virtuous-book-page.jpg" alt="Virtuous Book page">
+    <img width="1400" height="525" loading="lazy" src="images/153-image.jpg" alt="Virtuous Book page">
+    <img width="1400" height="525" loading="lazy" src="images/154-image.jpg" alt="Virtuous Book page">
+    <img width="1400" height="525" loading="lazy" src="images/155-image.jpg" alt="Virtuous Book page">
+    <img width="1400" height="525" loading="lazy" src="images/156-virtuous-book-page.jpg" alt="Virtuous Book page">
+    <img width="1400" height="525" loading="lazy" src="images/157-image.jpg" alt="Virtuous Book page">
+    <img width="1400" height="525" loading="lazy" src="images/158-image.jpg" alt="Virtuous Book page">
+    <img width="1400" height="1050" loading="lazy" src="images/159-virtuous-book-page.jpg" alt="Virtuous Book page">
   </div>
   <div class="project-nav" style="display:flex;justify-content:space-between;padding:40px 60px 0">
     <a onclick="closeProject();setTimeout(function(){openProject('section-model');},100)" class="pnav-link pnav-prev"><span class="pnav-eyebrow">Previous Project</span><span class="pnav-name">Section Model</span></a>
@@ -2110,24 +2110,24 @@ else populateStackImages();
     <a class="we-boards-btn" style="position:static" onclick="openFlipbook('beaufort-cookbook')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>View Cookbook</a>
   </div>
   <div id="boards-beaufort-cookbook" style="display:none">
-    <img loading="lazy" src="images/160-image.jpg" alt="From Elsewhere page">
-    <img loading="lazy" src="images/161-image.jpg" alt="From Elsewhere page">
-    <img loading="lazy" src="images/162-image.jpg" alt="From Elsewhere page">
-    <img loading="lazy" src="images/163-image.jpg" alt="From Elsewhere page">
-    <img loading="lazy" src="images/164-image.jpg" alt="From Elsewhere page">
-    <img loading="lazy" src="images/165-image.jpg" alt="From Elsewhere page">
-    <img loading="lazy" src="images/166-image.jpg" alt="From Elsewhere page">
-    <img loading="lazy" src="images/167-image.jpg" alt="From Elsewhere page">
-    <img loading="lazy" src="images/168-image.jpg" alt="From Elsewhere page">
-    <img loading="lazy" src="images/169-image.jpg" alt="From Elsewhere page">
-    <img loading="lazy" src="images/170-image.jpg" alt="From Elsewhere page">
-    <img loading="lazy" src="images/171-image.jpg" alt="From Elsewhere page">
-    <img loading="lazy" src="images/172-image.jpg" alt="From Elsewhere page">
-    <img loading="lazy" src="images/173-image.jpg" alt="From Elsewhere page">
-    <img loading="lazy" src="images/174-image.jpg" alt="From Elsewhere page">
-    <img loading="lazy" src="images/175-image.jpg" alt="From Elsewhere page">
-    <img loading="lazy" src="images/176-image.jpg" alt="From Elsewhere page">
-    <img loading="lazy" src="images/177-image.jpg" alt="From Elsewhere page">
+    <img width="1223" height="1584" loading="lazy" src="images/160-image.jpg" alt="From Elsewhere page">
+    <img width="1400" height="906" loading="lazy" src="images/161-image.jpg" alt="From Elsewhere page">
+    <img width="1400" height="906" loading="lazy" src="images/162-image.jpg" alt="From Elsewhere page">
+    <img width="1400" height="906" loading="lazy" src="images/163-image.jpg" alt="From Elsewhere page">
+    <img width="1400" height="906" loading="lazy" src="images/164-image.jpg" alt="From Elsewhere page">
+    <img width="1400" height="906" loading="lazy" src="images/165-image.jpg" alt="From Elsewhere page">
+    <img width="1400" height="906" loading="lazy" src="images/166-image.jpg" alt="From Elsewhere page">
+    <img width="1400" height="906" loading="lazy" src="images/167-image.jpg" alt="From Elsewhere page">
+    <img width="1400" height="906" loading="lazy" src="images/168-image.jpg" alt="From Elsewhere page">
+    <img width="1400" height="906" loading="lazy" src="images/169-image.jpg" alt="From Elsewhere page">
+    <img width="1223" height="1584" loading="lazy" src="images/170-image.jpg" alt="From Elsewhere page">
+    <img width="713" height="1200" loading="lazy" src="images/171-image.jpg" alt="From Elsewhere page">
+    <img width="825" height="1350" loading="lazy" src="images/172-image.jpg" alt="From Elsewhere page">
+    <img width="825" height="1500" loading="lazy" src="images/173-image.jpg" alt="From Elsewhere page">
+    <img width="825" height="1650" loading="lazy" src="images/174-image.jpg" alt="From Elsewhere page">
+    <img width="825" height="1800" loading="lazy" src="images/175-image.jpg" alt="From Elsewhere page">
+    <img width="1400" height="906" loading="lazy" src="images/176-image.jpg" alt="From Elsewhere page">
+    <img width="1400" height="906" loading="lazy" src="images/177-image.jpg" alt="From Elsewhere page">
   </div>
   <div class="project-nav" style="display:flex;justify-content:space-between;padding:40px 60px 0">
     <a onclick="closeProject();setTimeout(function(){openProject('virtuous-book');},100)" class="pnav-link pnav-prev"><span class="pnav-eyebrow">Previous Project</span><span class="pnav-name">Virtuous Book</span></a>
@@ -2163,26 +2163,26 @@ else populateStackImages();
   </div>
   <div style="padding:0 60px">
     <div class="pp-reveal" style="margin:0 auto 20px;max-width:1000px">
-      <img loading="lazy" src="images/178-image.jpg" alt="Physical site model of North Charleston" style="width:100%;display:block">
+      <img width="1400" height="1290" loading="lazy" src="images/178-image.jpg" alt="Physical site model of North Charleston" style="width:100%;display:block">
       <div class="dg-label-b" style="text-align:center">Physical Site Model</div>
     </div>
     <div class="sa-row">
-      <img loading="lazy" src="images/179-image.jpg" alt="Intensity mapping at a civic anchor">
-      <img loading="lazy" src="images/180-image.jpg" alt="Threads tracing movement across the marsh edge">
-      <img loading="lazy" src="images/181-image.jpg" alt="Pinned density against the street grid">
-      <img loading="lazy" src="images/182-image.jpg" alt="Connections between anchors along the water">
+      <img width="900" height="901" loading="lazy" src="images/179-image.jpg" alt="Intensity mapping at a civic anchor">
+      <img width="900" height="901" loading="lazy" src="images/180-image.jpg" alt="Threads tracing movement across the marsh edge">
+      <img width="900" height="900" loading="lazy" src="images/181-image.jpg" alt="Pinned density against the street grid">
+      <img width="900" height="900" loading="lazy" src="images/182-image.jpg" alt="Connections between anchors along the water">
     </div>
     <div class="dg-label-b" style="text-align:center;margin-bottom:56px">Mapping Movement Between Civic Anchors</div>
     <div class="sa-pair">
-      <div><img loading="lazy" src="images/183-image.jpg" alt="Two mile radius analysis" class="sa-radius"><div class="dg-label-b" style="text-align:center">Two Mile Radius</div></div>
-      <div><img loading="lazy" src="images/184-image.jpg" alt="Three quarter mile radius analysis" class="sa-radius"><div class="dg-label-b" style="text-align:center">Three Quarter Mile Radius</div></div>
+      <div><img width="1400" height="1283" loading="lazy" src="images/183-image.jpg" alt="Two mile radius analysis" class="sa-radius"><div class="dg-label-b" style="text-align:center">Two Mile Radius</div></div>
+      <div><img width="1400" height="1245" loading="lazy" src="images/184-image.jpg" alt="Three quarter mile radius analysis" class="sa-radius"><div class="dg-label-b" style="text-align:center">Three Quarter Mile Radius</div></div>
     </div>
     <div style="padding:44px 0 8px;text-align:center">
       <a class="we-boards-btn" style="position:static" onclick="openFlipbook('site-analysis-research')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 3h11l5 5v13H4z"/><path d="M15 3v5h5"/><path d="M8 13h8"/><path d="M8 17h5"/></svg>View Research</a>
     </div>
     <div id="boards-site-analysis-research" style="display:none">
-      <img loading="lazy" src="images/185-image.jpg" alt="Population density, zoning and flood extent research">
-      <img loading="lazy" src="images/186-image.jpg" alt="Crime grades, land use and district mapping">
+      <img width="1400" height="1507" loading="lazy" src="images/185-image.jpg" alt="Population density, zoning and flood extent research">
+      <img width="1400" height="3193" loading="lazy" src="images/186-image.jpg" alt="Crime grades, land use and district mapping">
     </div>
   </div>
   <div class="project-nav" style="display:flex;justify-content:space-between;padding:40px 60px 0">
@@ -2201,9 +2201,9 @@ else populateStackImages();
     <div class="pp-course">Environmental Control | Professor Guess | Winter 2024</div>
   </div>
   <div class="fm-finals">
-    <img loading="lazy" src="images/187-image.jpg" alt="The mask worn, profile">
-    <img loading="lazy" src="images/188-image.jpg" alt="The mask worn, front">
-    <img loading="lazy" src="images/189-image.jpg" alt="The mask worn, reverse profile">
+    <img width="900" height="829" loading="lazy" src="images/187-image.jpg" alt="The mask worn, profile">
+    <img width="900" height="829" loading="lazy" src="images/188-image.jpg" alt="The mask worn, front">
+    <img width="900" height="829" loading="lazy" src="images/189-image.jpg" alt="The mask worn, reverse profile">
   </div>
   <div class="fm-brief">
     <div class="fm-text">
@@ -2211,7 +2211,7 @@ else populateStackImages();
       <p>I chose Dubai, where the strategies that matter in a hot arid desert climate are shading, daylighting and ventilation. Three traditional elements do that work, and each became part of the mask: <strong>mashrabiya</strong> lattice screens, which diffuse light and filter dust while letting hot air escape; <strong>sikkas</strong>, the narrow alleys built close enough to stay shaded and channel wind toward the creek; and <strong>central courtyards</strong>, turned away from the sun, their overhangs and louvers blocking direct light while the walls hold off dusty winds.</p>
       <p>Put together, these are not defenses against the climate so much as ways of using it. That is the argument the mask is making.</p>
     </div>
-    <img class="fm-strategies" loading="lazy" src="images/190-image.jpg" alt="The mask worn, with each strategy keyed to the element it comes from">
+    <img width="1200" height="1238" class="fm-strategies" loading="lazy" src="images/190-image.jpg" alt="The mask worn, with each strategy keyed to the element it comes from">
   </div>
   <div class="project-nav" style="display:flex;justify-content:space-between;padding:40px 60px 0">
     <span></span>
@@ -2234,26 +2234,26 @@ else populateStackImages();
   </div>
   <div style="padding:0 60px">
     <div class="camber-photos">
-      <img loading="lazy" src="images/191-image.jpg" alt="Study model, long elevation">
-      <img loading="lazy" src="images/192-image.jpg" alt="Study model, truss and deck">
-      <img loading="lazy" src="images/193-image.jpg" alt="Study model, dwelling within the span">
-      <img loading="lazy" src="images/194-image.jpg" alt="Study model, three quarter view">
+      <img width="1600" height="1179" loading="lazy" src="images/191-image.jpg" alt="Study model, long elevation">
+      <img width="1600" height="1179" loading="lazy" src="images/192-image.jpg" alt="Study model, truss and deck">
+      <img width="1600" height="1179" loading="lazy" src="images/193-image.jpg" alt="Study model, dwelling within the span">
+      <img width="1600" height="1179" loading="lazy" src="images/194-image.jpg" alt="Study model, three quarter view">
     </div>
     <div class="dg-label-b" style="margin-bottom:52px">Study Model</div>
     <div class="pp-reveal" style="margin:0 auto 44px;max-width:900px">
-      <img loading="lazy" src="images/195-image.jpg" alt="First and Second Floor Plans" style="width:100%;display:block">
+      <img width="2000" height="1593" loading="lazy" src="images/195-image.jpg" alt="First and Second Floor Plans" style="width:100%;display:block">
       <div class="dg-label-b">First and Second Floor Plans</div>
     </div>
     <div class="pp-reveal" style="margin:0 auto 44px;max-width:1100px">
-      <img loading="lazy" src="images/196-image.jpg" alt="East Elevation" style="width:100%;display:block">
+      <img width="2000" height="1155" loading="lazy" src="images/196-image.jpg" alt="East Elevation" style="width:100%;display:block">
       <div class="dg-label-b">East Elevation</div>
     </div>
     <div class="pp-reveal" style="margin:0 auto 44px;max-width:1100px">
-      <img loading="lazy" src="images/197-image.jpg" alt="North Elevation and Section A" style="width:100%;display:block">
+      <img width="2000" height="1393" loading="lazy" src="images/197-image.jpg" alt="North Elevation and Section A" style="width:100%;display:block">
       <div class="dg-label-b">North Elevation and Section A</div>
     </div>
     <div class="pp-reveal" style="margin:0 auto 44px;max-width:1100px">
-      <img loading="lazy" src="images/198-image.jpg" alt="Section B" style="width:100%;display:block">
+      <img width="2000" height="1241" loading="lazy" src="images/198-image.jpg" alt="Section B" style="width:100%;display:block">
       <div class="dg-label-b">Section B</div>
     </div>
   </div>
@@ -2275,7 +2275,7 @@ else populateStackImages();
           <div class="edit-full" style="padding-top:48px;padding-bottom:48px">
     <div class="rv-room">King Guestroom</div>
     <div class="rv-figure">
-      <img loading="lazy" src="images/199-image.jpg" alt="King guestroom axonometric with custom Revit families called out">
+      <img width="2400" height="1382" loading="lazy" src="images/199-image.jpg" alt="King guestroom axonometric with custom Revit families called out">
       <span class="rv-num" style="left:1.40%;top:46.64%">01</span>
       <span class="rv-num" style="left:2.22%;top:79.83%">02</span>
       <span class="rv-num" style="right:6.51%;top:37.48%">03</span>
@@ -2296,7 +2296,7 @@ else populateStackImages();
   <div class="edit-full" style="padding-top:48px;padding-bottom:48px">
     <div class="rv-room">Queen Guestroom</div>
     <div class="rv-figure">
-      <img loading="lazy" src="images/200-image.jpg" alt="Queen guestroom axonometric with custom Revit families called out">
+      <img width="2400" height="1285" loading="lazy" src="images/200-image.jpg" alt="Queen guestroom axonometric with custom Revit families called out">
       <span class="rv-num" style="left:2.25%;top:28.33%">01</span>
       <span class="rv-num" style="left:7.51%;top:56.52%">02</span>
       <span class="rv-num" style="left:3.23%;top:90.04%">03</span>
@@ -2317,7 +2317,7 @@ else populateStackImages();
   <div class="edit-full" style="padding-top:48px;padding-bottom:48px">
     <div class="rv-room">Library</div>
     <div class="rv-figure">
-      <img loading="lazy" src="images/201-image.jpg" alt="Library axonometric with the custom millwork wall unit called out">
+      <img width="2400" height="1713" loading="lazy" src="images/201-image.jpg" alt="Library axonometric with the custom millwork wall unit called out">
       <span class="rv-num" style="right:19.41%;top:48.59%">01</span>
     </div>
     <div class="rv-key">
@@ -2330,7 +2330,7 @@ else populateStackImages();
   <div class="edit-full" style="padding-top:48px;padding-bottom:48px">
     <div class="rv-room">Private Dining Room</div>
     <div class="rv-figure">
-      <img loading="lazy" src="images/202-image.jpg" alt="Private dining room axonometric with the wine storage wall called out">
+      <img width="2400" height="1109" loading="lazy" src="images/202-image.jpg" alt="Private dining room axonometric with the wine storage wall called out">
       <span class="rv-num" style="right:1.85%;top:67.06%">01</span>
     </div>
     <div class="rv-key">

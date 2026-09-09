@@ -61,6 +61,8 @@ This is Khushi Patel's architecture portfolio website. Single page HTML file (an
 - Both `imkhushi.com` and `www.imkhushi.com` are attached as custom domains and serve over HTTPS.
 
 ## Known Issues
+- **Every image carries width/height attributes. Keep it that way.** Without them a lazy image occupies zero height until it loads, which shifts everything below it. That is what broke the category jump nav on Caesura and Woven Edge after 76 overlay images were made lazy: weNav scrolled to a position that then moved. `scripts/fix-jump-nav-drift.mjs` regenerates them from the real files.
+- **weNav is deliberately defensive** (`scripts/wenav-rewrite.mjs`): it remeasures the target every frame, corrects again whenever an image inside the page fires load, keeps correcting for a short window, and cancels completely on real input or on a new jump. An earlier version leaked its listeners, so clicking a second category could yank you back to the first.
 - **Flex label columns need a basis wider than the longest label.** `.fact-label` and `.pp-meta-label` are flex items with `white-space:nowrap`, and a flex item will not shrink below its content (`min-width:auto`). A 96px basis with a 105px label silently rendered at 105px and indented that one row by 9px. If a label column looks misaligned, measure the longest label before touching anything else.
 - **A push does not guarantee a deploy.** The GitHub webhook into Cloudflare Pages dropped twice in seventeen deploys on 2026-09-08, leaving commits on GitHub that were never built. Confirm the change is live rather than assuming; another push retriggers it.
 - Cloudflare email obfuscation tags reappear on edits — search for __cf_email__ and replace with kbp.khushi@gmail.com

@@ -381,6 +381,15 @@ img[data-slug]:not([src]){opacity:0}
   .project-grid{grid-template-columns:1fr}
   .resume-grid{grid-template-columns:1fr}
   .exp-item{grid-template-columns:1fr;gap:16px;padding:28px 0}
+  /* Without the desktop two column grid, every line here hung off the left
+     and the right third of the screen sat empty. The year takes the right
+     edge of the first line so each entry spans both gutters. */
+  .exp-meta{display:grid;grid-template-columns:1fr auto;column-gap:16px;align-items:baseline}
+  .exp-meta>*{grid-column:1}
+  .exp-year{grid-column:2;grid-row:1;text-align:right;white-space:nowrap}
+  .education-item{display:grid;grid-template-columns:1fr auto;column-gap:16px;align-items:baseline}
+  .education-item>*{grid-column:1}
+  .edu-year{grid-column:2;grid-row:1;text-align:right;white-space:nowrap}
   .about-portrait-placeholder{max-width:100%}
   .img-row{grid-template-columns:1fr}.img-row.three{grid-template-columns:1fr}
   .img-row-sm,.img-row-lg,.img-row-mixed,.img-row-mixed-r{grid-template-columns:1fr;padding-left:24px;padding-right:24px}

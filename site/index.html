@@ -52,7 +52,7 @@ a,button,[onclick],.project-card,.skill-tag,.cote-link,.flipbook-nav,.pp-back,.n
 
 /* HERO - whitespace, headline + since-tag row, then a full-bleed image below */
 .hero{padding:0}
-.hero-canvas{position:relative;width:100%;height:100vh;height:100svh;overflow:hidden}
+.hero-canvas{position:relative;width:100%;height:calc(100vh - 144px);height:calc(100svh - 144px);overflow:hidden}
 .hero-scrim{position:absolute;inset:0;pointer-events:none;background:
   linear-gradient(to top, rgba(0,0,0,.56) 0%, rgba(0,0,0,.26) 32%, rgba(0,0,0,0) 62%),
   linear-gradient(to right, rgba(0,0,0,.26) 0%, rgba(0,0,0,.04) 46%, rgba(0,0,0,0) 74%)}
@@ -72,8 +72,8 @@ a,button,[onclick],.project-card,.skill-tag,.cote-link,.flipbook-nav,.pp-back,.n
 .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 @media(max-width:768px){
   .hero{padding:0}
-  .hero-canvas{height:100vh;height:100svh}
-  .hero-inner{padding:0 24px 88px}
+  .hero-canvas{height:calc(100vh - 144px);height:calc(100svh - 144px)}
+  .hero-inner{padding:0 24px 34px}
   .hero-lede{font-size:14px;max-width:none;margin-top:14px}
   .hero-eyebrow{font-size:10px;margin-bottom:10px}
   .hero-scrim{background:
@@ -100,7 +100,7 @@ a,button,[onclick],.project-card,.skill-tag,.cote-link,.flipbook-nav,.pp-back,.n
 .group-label{font-family:var(--title);font-size:17px;font-weight:700;letter-spacing:0.5px;color:var(--text-light);margin-bottom:28px;padding-bottom:12px;border-bottom:1px solid var(--line)}
 
 /* SELECTED WORK (landing page) - long vertical stack, Leon Ivey-style */
-.work-teaser{padding:40px 60px 100px;scroll-margin-top:100px}
+.work-teaser{padding:150px 60px 100px;scroll-margin-top:100px}
 .work-teaser .section-label{text-align:center;font-size:18px;font-weight:800;color:var(--text);text-transform:uppercase;letter-spacing:0.5px}
 .work-stack{display:flex;flex-direction:column;margin:40px auto 0;max-width:1100px}
 .stack-item{cursor:pointer;padding:36px 0;display:grid;grid-template-columns:minmax(0,580px) minmax(290px,340px);gap:40px;align-items:center;justify-content:center}
@@ -122,7 +122,7 @@ img[data-slug]:not([src]){opacity:0}
 .teaser-viewall::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--text);transition:width .3s}
 .teaser-viewall:hover::after{width:100%}
 @media(max-width:768px){
-  .fact-label{flex:0 0 96px}
+  .fact-label{flex:0 0 108px}
   .stack-facts{width:100%;max-width:none}
 }
 
@@ -366,7 +366,7 @@ img[data-slug]:not([src]){opacity:0}
   .nav-links.mobile-open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);padding:24px;gap:20px;border-bottom:1px solid var(--line)}
   .nav-links.mobile-open .nav-slash{display:none}
   .section{padding:60px 24px}
-  .work-teaser{padding:60px 24px}
+  .work-teaser{padding:130px 24px 60px}
   .teaser-grid{grid-template-columns:1fr}
   .project-grid{grid-template-columns:1fr}
   .resume-grid{grid-template-columns:1fr}

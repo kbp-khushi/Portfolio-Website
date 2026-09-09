@@ -61,6 +61,8 @@ This is Khushi Patel's architecture portfolio website. Single page HTML file (an
 - Both `imkhushi.com` and `www.imkhushi.com` are attached as custom domains and serve over HTTPS.
 
 ## Known Issues
+- **Flex label columns need a basis wider than the longest label.** `.fact-label` and `.pp-meta-label` are flex items with `white-space:nowrap`, and a flex item will not shrink below its content (`min-width:auto`). A 96px basis with a 105px label silently rendered at 105px and indented that one row by 9px. If a label column looks misaligned, measure the longest label before touching anything else.
+- **A push does not guarantee a deploy.** The GitHub webhook into Cloudflare Pages dropped twice in seventeen deploys on 2026-09-08, leaving commits on GitHub that were never built. Confirm the change is live rather than assuming; another push retriggers it.
 - Cloudflare email obfuscation tags reappear on edits — search for __cf_email__ and replace with kbp.khushi@gmail.com
 - Remove any <script data-cfasync> tags on every edit
 
@@ -86,7 +88,7 @@ This is Khushi Patel's architecture portfolio website. Single page HTML file (an
 - Email: kbp.khushi@gmail.com | Phone: (706) 308-5889 (on the resume only, not the site) | Location: Savannah, GA
 
 ## Known gaps / open items
-- **The hero is resolved (2026-09-08).** It is the Monet with the type inside it: eyebrow "M.Arch candidate · Savannah / Atlanta", her name as the headline, and her own sentence from About as the position line, over a scrim weighted to the bottom left. "welcome to my" and "Since 2026" are gone. She chose this from six rendered options; the runner up was keeping the Monet as a small captioned band. Do not reintroduce a generic headline. The canvas is a full viewport (`height:100vh;height:100svh`) on both desktop and mobile, so the work starts below the fold; `svh` is what keeps it from overflowing on a phone once browser chrome shows. On mobile the hero text needs 88px of bottom padding to clear the fixed tab bar.
+- **The hero is resolved (2026-09-08).** It is the Monet with the type inside it: eyebrow "M.Arch candidate · Savannah / Atlanta", her name as the headline, and her own sentence from About as the position line, over a scrim weighted to the bottom left. "welcome to my" and "Since 2026" are gone. She chose this from six rendered options; the runner up was keeping the Monet as a small captioned band. Do not reintroduce a generic headline. The canvas is `calc(100svh - 144px)` on both desktop and mobile: a full screen less an inch and a half, so the first view ends on a white band instead of running to the edge. `svh` is what keeps it from overflowing on a phone once browser chrome shows. `.work-teaser` carries a large top padding (150px desktop, 130px mobile) so Selected Work sits below that band rather than peeking into it.
 - The About portrait is resolved: her own photograph at the Forsyth Park fountain.
 - Conceptual and completed model photographs are still to come from Khushi.
 - Paintings, sketchbook pages, childhood art and the nail art Instagram were all considered and dropped.

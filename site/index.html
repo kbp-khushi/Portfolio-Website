@@ -329,7 +329,6 @@ img[data-slug]:not([src]){opacity:0}
 .ai-tag:hover{border-color:var(--text-light);background:var(--line);color:var(--text)}
 .ai-tag::after{content:attr(data-tooltip);position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%);background:#000;color:#fff;font-family:var(--body);font-weight:400;font-size:12px;line-height:1.4;padding:7px 12px;white-space:nowrap;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s;z-index:20}
 .ai-tag:hover::after{opacity:1;visibility:visible}
-.about-ai-note{font-size:12px;color:var(--text-light);margin-top:12px}
 .about-lic-item{font-size:14px;color:var(--text);margin-bottom:6px}
 .about-lic-item:last-child{margin-bottom:0}
 @media(max-width:768px){
@@ -805,24 +804,19 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
 
       <div class="about-pair-row" style="margin-top:48px">
         <div>
-          <div class="group-label">software</div>
+          <div class="group-label">tools</div>
           <div class="tool-group">
-            <div class="tool-group-label">documentation</div>
-            <div class="ai-tags"><span class="ai-tag" data-tooltip="BIM modeling and construction documents">Revit</span><span class="ai-tag" data-tooltip="2D drafting and construction documentation">AutoCAD</span><span class="ai-tag" data-tooltip="Freehand drawing and sketching">Hand Drafting</span></div>
-          </div>
-          <div class="tool-group">
-            <div class="tool-group-label">modeling</div>
-            <div class="ai-tags"><span class="ai-tag" data-tooltip="3D modeling and form finding">Rhino</span><span class="ai-tag" data-tooltip="Quick 3D massing and iteration">SketchUp</span><span class="ai-tag" data-tooltip="3D modeling and animation">3DS Max</span><span class="ai-tag" data-tooltip="Physical model construction">Model Making</span></div>
+            <div class="tool-group-label">design and documentation</div>
+            <div class="ai-tags"><span class="ai-tag" data-tooltip="BIM modeling and construction documents">Revit</span><span class="ai-tag" data-tooltip="2D drafting and construction documentation">AutoCAD</span><span class="ai-tag" data-tooltip="Freehand drawing and sketching">Hand Drafting</span><span class="ai-tag" data-tooltip="3D modeling and form finding">Rhino</span><span class="ai-tag" data-tooltip="Quick 3D massing and iteration">SketchUp</span><span class="ai-tag" data-tooltip="3D modeling and animation">3DS Max</span><span class="ai-tag" data-tooltip="Physical model construction">Model Making</span></div>
           </div>
           <div class="tool-group">
             <div class="tool-group-label">visualization</div>
-            <div class="ai-tags"><span class="ai-tag" data-tooltip="Real time architectural rendering">Lumion</span><span class="ai-tag" data-tooltip="Real time rendering and walkthroughs">Enscape</span><span class="ai-tag" data-tooltip="Image editing and rendering post production">Photoshop</span><span class="ai-tag" data-tooltip="Motion graphics and animation">After Effects</span><span class="ai-tag" data-tooltip="Video editing">Premiere Pro</span><span class="ai-tag" data-tooltip="Node based tool for generating and refining images">ComfyUI</span><span class="ai-tag" data-tooltip="Text to image generation for visual studies">DALL&middot;E</span></div>
+            <div class="ai-tags"><span class="ai-tag" data-tooltip="Real time architectural rendering">Lumion</span><span class="ai-tag" data-tooltip="Real time rendering and walkthroughs">Enscape</span><span class="ai-tag" data-tooltip="Image editing and rendering post production">Photoshop</span><span class="ai-tag" data-tooltip="Vector diagrams and graphics">Illustrator</span><span class="ai-tag" data-tooltip="Motion graphics and animation">After Effects</span><span class="ai-tag" data-tooltip="Video editing">Premiere Pro</span><span class="ai-tag" data-tooltip="Node based tool for generating and refining images">ComfyUI</span><span class="ai-tag" data-tooltip="Text to image generation for visual studies">DALL&middot;E</span></div>
           </div>
           <div class="tool-group">
-            <div class="tool-group-label">layout and research</div>
-            <div class="ai-tags"><span class="ai-tag" data-tooltip="Layout and board production">InDesign</span><span class="ai-tag" data-tooltip="Vector diagrams and graphics">Illustrator</span><span class="ai-tag" data-tooltip="Site building, used for the Rose Architects website">Squarespace</span><span class="ai-tag" data-tooltip="Layout and visual mockups">Claude Design</span><span class="ai-tag" data-tooltip="Coding assistant used to build this site">Claude Code</span><span class="ai-tag" data-tooltip="Research, ideation and writing support">ChatGPT</span><span class="ai-tag" data-tooltip="Research and ideation support">Gemini</span><span class="ai-tag" data-tooltip="Documentation and presentations">Microsoft Office</span></div>
+            <div class="tool-group-label">presentation and layout</div>
+            <div class="ai-tags"><span class="ai-tag" data-tooltip="Layout and board production">InDesign</span><span class="ai-tag" data-tooltip="Site building, used for the Rose Architects website">Squarespace</span><span class="ai-tag" data-tooltip="Layout and visual mockups">Claude Design</span><span class="ai-tag" data-tooltip="Coding assistant used to build this site">Claude Code</span><span class="ai-tag" data-tooltip="Documentation and presentations">Microsoft Office</span></div>
           </div>
-          <div class="about-ai-note">Generative tools are used for research, iteration and visual studies, and for website development and document preparation.</div>
         </div>
         <div>
           <div class="group-label">licensure</div>
@@ -1914,7 +1908,7 @@ document.querySelectorAll('.section-label,.section-title,.section-divider,.group
 addReveal(document,'.teaser-viewall-wrap,#contact .contact-title,#contact .contact-email,#contact .contact-row','reveal',function(el){revealObs.observe(el);});
 
 // About page content fades in piece by piece, same as the section titles
-document.querySelectorAll('#about .exp-item,#about .education-item,#about .ai-tag,#about .about-ai-note,#about .about-lic-item').forEach((el,i)=>{
+document.querySelectorAll('#about .exp-item,#about .education-item,#about .ai-tag,#about .about-lic-item').forEach((el,i)=>{
   el.classList.add('reveal');
   el.style.transitionDelay=(i%6)*70+'ms';
   revealObs.observe(el);

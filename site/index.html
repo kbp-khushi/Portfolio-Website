@@ -11,7 +11,7 @@
 <meta property="og:description" content="M.Arch student at SCAD exploring community, ecology, and spatial experience through thoughtful design.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://imkhushi.com/">
-<meta property="og:image" content="https://imkhushi.com/og-image.jpg">
+<meta property="og:image" content="https://imkhushi.com/og-image-pavilion.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -118,7 +118,7 @@ img[data-slug]:not([src]){opacity:0}
 }
 .fact-label{flex:0 0 128px;white-space:nowrap;color:var(--text-light)}
 .fact-value{color:var(--text);font-weight:600}
-.teaser-viewall{display:block;width:fit-content;margin:40px auto 0;font-family:var(--title);font-size:13px;color:var(--text);text-decoration:none;padding-bottom:4px;position:relative}
+.teaser-viewall-wrap{display:flex;justify-content:center;margin-top:44px}
 .teaser-viewall::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--text);transition:width .3s}
 .teaser-viewall:hover::after{width:100%}
 @media(max-width:768px){
@@ -639,7 +639,7 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
       </div>
     </div>
   </div>
-  <a href="#" class="teaser-viewall" onclick="showView('work');return false;">view all work</a>
+  <div class="teaser-viewall-wrap"><a class="we-boards-btn" style="position:static" href="#" onclick="showView('work');return false;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>View All Work</a></div>
 </section>
 </div><!-- end view-home -->
 

@@ -569,9 +569,9 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
   <div class="nav-credential">SCAD, M.Arch &rsquo;27</div>
 </nav>
 <nav class="mobile-tabbar" aria-label="Main">
+  <a href="#" data-view="home" onclick="showView('home');return false;">home</a>
   <a href="#" data-view="work" onclick="showView('work');return false;">work</a>
   <a href="#" data-view="about" onclick="showView('about');return false;">about</a>
-  <a href="#contact" onclick="showView('about');setTimeout(function(){var c=document.getElementById('contact');if(c)c.scrollIntoView({block:'start',behavior:'smooth'});},120);return false;">contact</a>
 </nav>
 
 <!-- MAIN CONTENT (hidden when project page open) -->

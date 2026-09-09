@@ -86,7 +86,7 @@ This is Khushi Patel's architecture portfolio website. Single page HTML file (an
 - Email: kbp.khushi@gmail.com | Phone: (706) 308-5889 (on the resume only, not the site) | Location: Savannah, GA
 
 ## Known gaps / open items
-- **The hero is resolved (2026-09-08).** It is the Monet with the type inside it: eyebrow "M.Arch candidate · Savannah / Atlanta", her name as the headline, and her own sentence from About as the position line, over a scrim weighted to the bottom left. "welcome to my" and "Since 2026" are gone. She chose this from six rendered options; the runner up was keeping the Monet as a small captioned band. Do not reintroduce a generic headline.
+- **The hero is resolved (2026-09-08).** It is the Monet with the type inside it: eyebrow "M.Arch candidate · Savannah / Atlanta", her name as the headline, and her own sentence from About as the position line, over a scrim weighted to the bottom left. "welcome to my" and "Since 2026" are gone. She chose this from six rendered options; the runner up was keeping the Monet as a small captioned band. Do not reintroduce a generic headline. The canvas is a full viewport (`height:100vh;height:100svh`) on both desktop and mobile, so the work starts below the fold; `svh` is what keeps it from overflowing on a phone once browser chrome shows. On mobile the hero text needs 88px of bottom padding to clear the fixed tab bar.
 - The About portrait is resolved: her own photograph at the Forsyth Park fountain.
 - Conceptual and completed model photographs are still to come from Khushi.
 - Paintings, sketchbook pages, childhood art and the nail art Instagram were all considered and dropped.

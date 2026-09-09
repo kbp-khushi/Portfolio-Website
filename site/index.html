@@ -1849,6 +1849,11 @@ function exitProject(){
   if(location.hash){history.back();}
   else{closeProject();}
 }
+// A reload should open the page at the top. The browser's default is to
+// restore the previous offset, which here means landing at the bottom of
+// whichever view you were on.
+if('scrollRestoration' in history){history.scrollRestoration='manual';}
+window.addEventListener('load',function(){window.scrollTo(0,0);});
 window.addEventListener('popstate',function(e){
   if(e.state&&e.state.project){openProject(e.state.project);}
   else if(document.querySelector('.project-page.open')){closeProject();}

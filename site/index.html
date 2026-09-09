@@ -24,6 +24,11 @@
   --title:'Urbanist',sans-serif;--body:'Urbanist',sans-serif;
 }
 html{scroll-behavior:smooth;scrollbar-gutter:stable}
+/* every img carries width/height attributes so lazy images reserve their box.
+   without this the attribute height is used as literal pixels wherever CSS sets
+   only the width, which stretched them. bare img loses to any class rule that
+   sets a real height, so .card-img, .model-img, .hero-img and friends still win. */
+img{height:auto}
 ::selection{background:var(--accent);color:var(--white)}
 ::-moz-selection{background:var(--accent);color:var(--white)}
 body{font-family:var(--body);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}

@@ -503,12 +503,12 @@ img[data-slug]:not([src]){opacity:0}
 /* Contact is a section in its own right, not a block inside About. It is
    separated the way every section here is separated, by a full size heading
    and the section divider, over a rule that runs the full width. */
-.contact-section{padding:100px 60px;border-top:2px solid var(--text);scroll-margin-top:0}
+.contact-section{margin:0 60px;padding:104px 0 100px;border-top:1px solid var(--text);scroll-margin-top:0}
 .contact-inner{max-width:1120px;margin:0 auto}
-.contact-section .section-divider{margin-bottom:40px}
-.contact-section .contact-email{margin-top:0;font-size:clamp(28px,4.4vw,48px)}
-.contact-section .contact-row{margin-top:40px;padding-top:24px;border-top:1px solid var(--line)}
-@media(max-width:768px){.contact-section{padding:60px 24px}}
+.contact-section .section-divider{margin-bottom:36px}
+.contact-section .contact-email{margin-top:0}
+.contact-section .contact-row{margin-top:36px;padding-top:24px;border-top:1px solid var(--line)}
+@media(max-width:768px){.contact-section{margin:0 24px;padding:60px 0 56px}}
 .contact-title{font-family:var(--title);font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin:0}
 .contact-block .contact-row{margin-top:24px;padding-top:20px;border-top:1px solid var(--line)}
 .contact-email{display:inline-block;margin-top:18px;font-family:var(--title);font-size:clamp(24px,3vw,36px);font-weight:700;color:var(--text);text-decoration:none;position:relative}
@@ -910,9 +910,9 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
 </section>
 
 <section class="contact-section" id="contact">
+  <h2 class="section-title">contact</h2>
+  <div class="section-divider"></div>
   <div class="contact-inner">
-    <h2 class="section-title">contact</h2>
-    <div class="section-divider"></div>
     <a class="contact-email" href="mailto:kbp.khushi@gmail.com">kbp.khushi@gmail.com</a>
     <div class="contact-row">
           <a href="https://www.linkedin.com/in/kbp-khushi" target="_blank" rel="noopener">linkedin.com/in/kbp-khushi</a>

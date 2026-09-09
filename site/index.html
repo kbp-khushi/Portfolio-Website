@@ -312,7 +312,7 @@ img[data-slug]:not([src]){opacity:0}
 .edu-year{font-size:13px;color:var(--text-light);margin-top:2px}
 .edu-sub{font-size:13px;font-style:italic;color:var(--text-light);margin-top:8px}
 .about-intro-row{display:grid;grid-template-columns:520px 1fr;gap:48px;align-items:end;margin-bottom:56px}
-.about-resume-btn{margin-top:22px}
+.about-resume-btn{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
 .about-portrait-placeholder{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;background:var(--line)}
 .about-bio{max-width:640px}
 .about-bio p{font-size:15px;line-height:1.8;color:var(--text);margin-bottom:20px}
@@ -777,7 +777,7 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
       <p>Hey, I&rsquo;m Khushi! I&rsquo;m an M.Arch candidate at the Savannah College of Art and Design (SCAD), where I also did my undergrad.</p>
       <p>Design, to me, isn&rsquo;t really about the aesthetics, it&rsquo;s about how people move through it, gather in it, and feel while they&rsquo;re there. That&rsquo;s the question I keep coming back to across everything I make, from studio work asking big civic and ecological questions to firm work where those questions get grounded in what actually gets built. Most of what I design starts with a site, a river, a park, a community that&rsquo;s been overlooked, and works outward from there.</p>
       <p>SCAD&rsquo;s pushed me to be versatile, comfortable moving between hand drafting and BIM, between concept sketches and construction documents, always with an eye toward sustainability and craft. I&rsquo;ve also picked up a real appreciation for architectural history along the way, it&rsquo;s hard not to, walking through Savannah every day. I&rsquo;m excited to learn more and expand my perspective while I get deeper into this beautiful profession.</p>
-      <div class="about-resume-btn"><a class="we-boards-btn" style="position:static" href="Khushi_Patel_Resume.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 3h11l5 5v13H4z"/><path d="M15 3v5h5"/><path d="M8 13h8"/><path d="M8 17h5"/></svg>View Resume</a></div>
+      <div class="about-resume-btn"><a class="we-boards-btn" style="position:static" href="Khushi_Patel_Resume.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 3h11l5 5v13H4z"/><path d="M15 3v5h5"/><path d="M8 13h8"/><path d="M8 17h5"/></svg>View Resume</a><a class="we-boards-btn" style="position:static" href="#contact" onclick="document.getElementById('contact').scrollIntoView({block:'start'});return false;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14"/><path d="M3 7l9 6 9-6"/></svg>Contact Me</a></div>
     </div>
   </div>
 

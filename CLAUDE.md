@@ -37,6 +37,7 @@ This is Khushi Patel's architecture portfolio website. Single page HTML file (an
 
 ## Scroll reveal
 - Two fade-in systems, both driven by one IntersectionObserver: `.reveal` (32px rise, for landing and About content) and `.pp-reveal` (24px rise, applied to project-page blocks). An element gets the class *and* must be passed to `revealObs.observe(el)` — adding the class alone leaves it stuck at `opacity:0`.
+- **Both systems go through one `addReveal(root,selector,cls,after)` helper with a nesting guard.** A reveal inside another reveal never fires: the outer sits at opacity 0 so the inner never intersects and stays hidden for good. The helper skips anything already inside one, and the project loop then strips `pp-reveal` from markup authored elements that ended up nested. If you add a block, add its selector to that list rather than writing the class into the markup.
 - The About block lists its selectors explicitly, so **anything new added to About stays un-faded until it is added to that list.** That is what happened to the AXP rings and the honors list. The rings (`.axp-item`) and honors (`.honors-list li`) now run on their own staggers so each group animates in reading order; the shared `(i%6)*70` counter had the first ring coming in last, at 350ms.
 - Verifying this in the preview pane is unreliable: when the pane is not compositing, IntersectionObserver does not fire and *everything* reads `opacity:0`, including elements that work in production. Check for the `visible` class after a real `computer` scroll on a fronted tab, not for opacity.
 

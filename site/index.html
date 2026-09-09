@@ -1845,15 +1845,52 @@ document.querySelectorAll('.project-card').forEach((card,i)=>{
   revealObs.observe(card);
 });
 
-// Project page reveals
+// One helper for both fade systems. The nesting guard is the important part:
+// a reveal inside another reveal never fires, because the outer one sits at
+// opacity 0 so the inner never intersects and stays hidden for good.
+function addReveal(root,selector,cls,after){
+  root.querySelectorAll(selector).forEach(function(el){
+    if(el.classList.contains(cls))return;
+    var n=el.parentElement,nested=false;
+    while(n&&n!==root&&n!==document.body){
+      if(n.classList.contains('reveal')||n.classList.contains('pp-reveal')){nested=true;break;}
+      n=n.parentElement;
+    }
+    if(nested)return;
+    el.classList.add(cls);
+    if(after)after(el);
+  });
+}
+
+// Project page reveals. setupPpReveal() re-queries .pp-reveal on every open,
+// so anything marked here is observed automatically when the page is shown.
 document.querySelectorAll('.project-page').forEach(page=>{
-  page.querySelectorAll('.pp-header,.pp-description,.edit-row,.pp-full-img,.dl-link,.pp-nav,.cote-link').forEach(el=>el.classList.add('pp-reveal'));
+  addReveal(page,'.pp-header,.pp-description,.edit-row,.edit-full,.edit-full-narrow,.ds-section,.pp-full-img,.pp-cta,.pp-cta-inline,.drawing-set,.fm-finals,.fm-brief,.project-nav,.pp-nav,.cote-link','pp-reveal');
+  // a pp-reveal written straight into the markup can end up inside one of the
+  // blocks above. Nested it would never fire, so let the outer one own the fade.
+  page.querySelectorAll('.pp-reveal').forEach(function(el){
+    var a=el.parentElement;
+    while(a&&a!==page){
+      if(a.classList.contains('pp-reveal')||a.classList.contains('reveal')){el.classList.remove('pp-reveal');break;}
+      a=a.parentElement;
+    }
+  });
 });
 
 // Section reveals
 document.querySelectorAll('.section-label,.section-title,.section-divider,.group-label,.about-intro-row').forEach(el=>{
   if(!el.classList.contains('reveal')){el.classList.add('reveal');revealObs.observe(el);}
 });
+
+// the landing cards, the model thumbnails and the contact block, none of
+// which were ever on the list. .resume-grid is deliberately left alone: its
+// children fade individually further down, and revealing the parent too
+// would trap them.
+[['.stack-item',90],['.model-card',90]].forEach(function(pair){
+  var i=0;
+  addReveal(document,pair[0],'reveal',function(el){el.style.transitionDelay=(i++*pair[1])+'ms';revealObs.observe(el);});
+});
+addReveal(document,'.teaser-viewall-wrap,#contact .contact-title,#contact .contact-email,#contact .contact-row','reveal',function(el){revealObs.observe(el);});
 
 // About page content fades in piece by piece, same as the section titles
 document.querySelectorAll('#about .exp-item,#about .education-item,#about .ai-tag,#about .about-ai-note,#about .about-lic-item').forEach((el,i)=>{

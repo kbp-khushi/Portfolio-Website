@@ -75,6 +75,7 @@ a,button,[onclick],.project-card,.skill-tag,.cote-link,.flipbook-nav,.pp-back,.n
 .hero-title .w-bold{font-weight:800}
 .hero-since{justify-self:end;font-family:var(--body);font-size:13px;color:var(--text-light);white-space:nowrap}
 .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.hero-credit{position:absolute;right:60px;bottom:56px;white-space:nowrap;margin:0;text-align:right;font-family:var(--title);font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);text-shadow:0 1px 10px rgba(0,0,0,.4)}
 @media(max-width:768px){
   .hero{padding:0}
   .hero-canvas{height:calc(100vh - 112px);height:calc(100svh - 112px)}
@@ -90,6 +91,7 @@ a,button,[onclick],.project-card,.skill-tag,.cote-link,.flipbook-nav,.pp-back,.n
   .hero-title{white-space:nowrap;font-size:clamp(38px,11.5vw,54px)}
   .hero-since{justify-self:start}
   .hero-img{height:100%}
+  .hero-credit{position:static;margin-top:14px;text-align:left;white-space:normal;font-size:9px;letter-spacing:.08em}
 }
 
 /* VIEWS - Home/Work/About are full-screen views navigated between, not scrolled past */
@@ -310,6 +312,8 @@ img[data-slug]:not([src]){opacity:0}
 .edu-year{font-size:13px;color:var(--text-light);margin-top:2px}
 .edu-sub{font-size:13px;font-style:italic;color:var(--text-light);margin-top:8px}
 .about-intro-row{display:grid;grid-template-columns:520px 1fr;gap:48px;align-items:end;margin-bottom:56px}
+.about-resume-btn{margin-top:22px}
+.about-note{font-family:var(--body);font-size:13px;line-height:1.6;color:var(--text-light);margin:20px 0 0;padding-top:16px;border-top:1px solid var(--line)}
 .about-portrait-placeholder{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;background:var(--line)}
 .about-bio{max-width:640px}
 .about-bio p{font-size:15px;line-height:1.8;color:var(--text);margin-bottom:20px}
@@ -597,6 +601,7 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
         <a class="hero-btn" href="Khushi_Patel_Resume.pdf" target="_blank" rel="noopener">view resume</a>
         <a class="hero-btn" href="#contact" onclick="showView('about');setTimeout(function(){document.getElementById('contact').scrollIntoView({block:'start'});},80);return false;">contact me</a>
       </div>
+      <p class="hero-credit">Claude Monet&rsquo;s water lilies, photographed by me at the Met</p>
     </div>
   </div>
 </section>
@@ -764,12 +769,12 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
       <p>Hey, I&rsquo;m Khushi! I&rsquo;m an M.Arch candidate at the Savannah College of Art and Design (SCAD), where I also did my undergrad.</p>
       <p>Design, to me, isn&rsquo;t really about the aesthetics, it&rsquo;s about how people move through it, gather in it, and feel while they&rsquo;re there. That&rsquo;s the question I keep coming back to across everything I make, from studio work asking big civic and ecological questions to firm work where those questions get grounded in what actually gets built. Most of what I design starts with a site, a river, a park, a community that&rsquo;s been overlooked, and works outward from there.</p>
       <p>SCAD&rsquo;s pushed me to be versatile, comfortable moving between hand drafting and BIM, between concept sketches and construction documents, always with an eye toward sustainability and craft. I&rsquo;ve also picked up a real appreciation for architectural history along the way, it&rsquo;s hard not to, walking through Savannah every day. I&rsquo;m excited to learn more and expand my perspective while I get deeper into this beautiful profession.</p>
+      <div class="about-resume-btn"><a class="we-boards-btn" style="position:static" href="Khushi_Patel_Resume.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 3h11l5 5v13H4z"/><path d="M15 3v5h5"/><path d="M8 13h8"/><path d="M8 17h5"/></svg>View Resume</a></div>
+      <p class="about-note">The painting at the top of this page is one I photographed at the Met. Monet&rsquo;s water lilies have been my favorite since I was a kid, and that palette found its way into Caesura.</p>
     </div>
   </div>
 
   <div class="about-wrap">
-  <div style="padding-bottom:56px"><a class="we-boards-btn" style="position:static" href="Khushi_Patel_Resume.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 3h11l5 5v13H4z"/><path d="M15 3v5h5"/><path d="M8 13h8"/><path d="M8 17h5"/></svg>View Resume</a></div>
-
   <div class="resume-grid">
     <div>
       <div class="group-label">experience</div>
@@ -792,7 +797,7 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
             <li>Tau Sigma Delta &mdash; National Honor Society in Architecture and Allied Arts</li>
             <li>Outstanding Student Award &mdash; SCAD, 2025</li>
             <li>Dean&rsquo;s List &mdash; Savannah College of Art and Design, 2022&ndash;2025</li>
-            <li>SCAD scholarships and fellowships &mdash; Academic Honors, Achievement Honor, Student Recognition, the Dr. Victor Andrews Endowed Scholarship, and the SCAD Alumni Fellowship</li>
+            <li>SCAD scholarships &mdash; Academic Honors, Achievement Honor, Student Recognition, and the Dr. Victor Andrews Endowed Scholarship</li>
           </ul>
         </div>
       </div>

@@ -505,10 +505,12 @@ img[data-slug]:not([src]){opacity:0}
    and the section divider, over a rule that runs the full width. */
 .contact-section{margin:0 60px;padding:104px 0 100px;border-top:1px solid var(--text);scroll-margin-top:0}
 .contact-inner{max-width:1120px;margin:0 auto}
-.contact-section .section-divider{margin-bottom:36px}
+.contact-section .section-divider{width:190px;margin-bottom:36px}
 .contact-section .contact-email{margin-top:0}
 .contact-section .contact-row{margin-top:36px;padding-top:24px;border-top:1px solid var(--line)}
-@media(max-width:768px){.contact-section{margin:0 24px;padding:60px 0 56px}}
+@media(max-width:768px){.contact-section{margin:0 24px;padding:60px 0 56px}
+  .contact-section .section-divider{width:150px}
+  html{scrollbar-gutter:auto}}
 .contact-title{font-family:var(--title);font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin:0}
 .contact-block .contact-row{margin-top:24px;padding-top:20px;border-top:1px solid var(--line)}
 .contact-email{display:inline-block;margin-top:18px;font-family:var(--title);font-size:clamp(24px,3vw,36px);font-weight:700;color:var(--text);text-decoration:none;position:relative}

@@ -48,7 +48,7 @@ swap(/<section class="contact-section" id="contact">[\s\S]*?<\/section>/, L(
     <div class="hero-eyebrow">Contact &middot; Savannah / Atlanta</div>
     <a class="hero-title" href="mailto:kbp.khushi@gmail.com"><span class="w-light">kbp.khushi</span><span class="w-bold">@gmail.com</span></a>
     <div class="hero-actions">
-      <a class="hero-btn" href="mailto:kbp.khushi@gmail.com">email me</a>
+      <a class="hero-btn" href="#work" onclick="showView('work');return false;">back to work</a>
       <a class="hero-btn" href="https://www.linkedin.com/in/kbp-khushi" target="_blank" rel="noopener">linkedin</a>
       <a class="hero-btn" href="Khushi_Patel_Resume.pdf" target="_blank" rel="noopener">view resume</a>
     </div>

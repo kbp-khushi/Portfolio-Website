@@ -103,7 +103,7 @@ a,button,[onclick],.project-card,.skill-tag,.cote-link,.flipbook-nav,.pp-back,.n
 /* SECTIONS */
 .section{padding:100px 60px;position:relative}
 .section-label{font-family:var(--title);font-size:13px;letter-spacing:0.5px;color:var(--text-light);margin-bottom:12px}
-.section-title{font-family:var(--title);font-size:clamp(32px,4vw,52px);font-weight:700;margin-bottom:16px;line-height:1.15}
+.section-title{font-family:var(--title);font-size:clamp(32px,4vw,52px);font-weight:700;margin-bottom:4px;line-height:1.15}
 .section-divider{width:150px;height:2px;background:var(--accent);margin-bottom:60px}
 .group-label{font-family:var(--title);font-size:17px;font-weight:700;letter-spacing:0.5px;color:var(--text-light);margin-bottom:28px;padding-bottom:12px;border-bottom:1px solid var(--line)}
 
@@ -459,7 +459,9 @@ img[data-slug]:not([src]){opacity:0}
 .pp-cta{padding:8px 60px 60px;text-align:center}
 .pp-cta-inline{text-align:center;padding:18px 60px 0}
 .pp-cta-inline.has-gap{padding-bottom:60px}
-@media(max-width:768px){.pp-cta-inline{padding:16px 24px 0}.pp-cta-inline.has-gap{padding-bottom:48px}}
+/* Caesura's massing button sits between the diagrams and the site plan, so it takes equal room on both sides */
+.pp-cta-inline.is-between{padding-top:56px}
+@media(max-width:768px){.pp-cta-inline{padding:16px 24px 0}.pp-cta-inline.has-gap{padding-bottom:48px}.pp-cta-inline.is-between{padding-top:24px}}
 .pp-cta.has-sub{padding-bottom:0}
 .model-links.pp-cta-sub{justify-content:center;padding:18px 60px 60px}
 @media(max-width:768px){.pp-cta{padding:36px 24px 48px}.pp-cta.has-sub{padding-bottom:0}.model-links.pp-cta-sub{padding:14px 24px 48px}}
@@ -1031,14 +1033,14 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
   </div>
 
   <!-- MASSING -->
-  <div class="edit-full" style="padding-bottom:96px">
+  <div class="edit-full" style="padding-bottom:56px">
     <div class="pause-massing" style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;align-items:end">
       <div style="display:flex;flex-direction:column;align-items:center"><img width="692" height="420" loading="lazy" src="images/013-carve.jpg" alt="Carve" style="width:100%;height:auto;display:block"><div style="text-align:center;font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:8px"><b style="color:var(--text)">Carve</b><br><span style="font-family:var(--body);text-transform:none;letter-spacing:0;font-size:10px;font-weight:400">Bend the massing to follow the river's edge.</span></div></div>
       <div style="display:flex;flex-direction:column;align-items:center"><img width="665" height="420" loading="lazy" src="images/014-frame.jpg" alt="Frame" style="width:100%;height:auto;display:block"><div style="text-align:center;font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:8px"><b style="color:var(--text)">Frame</b><br><span style="font-family:var(--body);text-transform:none;letter-spacing:0;font-size:10px;font-weight:400">Open sightlines and circulation toward forest and water.</span></div></div>
       <div style="display:flex;flex-direction:column;align-items:center"><img width="679" height="420" loading="lazy" src="images/015-raise.jpg" alt="Raise" style="width:100%;height:auto;display:block"><div style="text-align:center;font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:8px"><b style="color:var(--text)">Raise</b><br><span style="font-family:var(--body);text-transform:none;letter-spacing:0;font-size:10px;font-weight:400">Lift the structure clear of the floodplain.</span></div></div>
       <div style="display:flex;flex-direction:column;align-items:center"><img width="575" height="420" loading="lazy" src="images/016-hold.jpg" alt="Hold" style="width:100%;height:auto;display:block"><div style="text-align:center;font-family:var(--title);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:8px"><b style="color:var(--text)">Hold</b><br><span style="font-family:var(--body);text-transform:none;letter-spacing:0;font-size:10px;font-weight:400">Consolidate into distinct pavilions connected by boardwalk.</span></div></div>
     </div>
-    <div class="pp-cta-inline"><a class="we-boards-btn" style="position:static" onclick="closeProject();setTimeout(function(){openProject('massing-model');},80)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg>View the Massing Model</a></div>
+    <div class="pp-cta-inline is-between"><a class="we-boards-btn" style="position:static" onclick="closeProject();setTimeout(function(){openProject('massing-model');},80)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg>View the Massing Model</a></div>
   </div>
 
   <!-- SITE PLAN -->

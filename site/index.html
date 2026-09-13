@@ -584,11 +584,9 @@ img[data-slug]:not([src]){opacity:0}
 .cta-clear{display:flex;justify-content:center;padding-bottom:60px!important}
 @media(max-width:768px){.cta-clear{padding-bottom:48px!important}}
 /* LOAD INTRO: runs once on first page load. html.intro is set in <head> and removed when the sequence ends, so returning to home never replays it. */
-@keyframes introImg{from{opacity:0;transform:scale(1.06)}to{opacity:1;transform:scale(1)}}
 @keyframes introRise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 @keyframes introName{from{opacity:0;transform:translateY(105%)}to{opacity:1;transform:none}}
 @keyframes introFade{from{opacity:0}to{opacity:1}}
-html.intro .hero-img{animation:introImg 1.6s cubic-bezier(.22,1,.36,1) both}
 html.intro .hero-title{clip-path:inset(-.35em -1em -.3em -1em)}
 html.intro .hero-title span{display:inline-block;animation:introName 1s cubic-bezier(.22,1,.36,1) both}
 html.intro .hero-eyebrow{animation:introRise .8s cubic-bezier(.22,1,.36,1) .35s both}

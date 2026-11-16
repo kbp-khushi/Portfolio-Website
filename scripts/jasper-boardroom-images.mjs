@@ -16,12 +16,26 @@ const jobs = [
   ['JB - COLOR - ELEV D - NO DIMS.png', '207-jasper-bench-wall.jpg'],
 ];
 
-for (const [src, out] of jobs) {
-  const info = await sharp(path.join(SRC, src), { limitInputPixels: false })
-    .flatten({ background: '#ffffff' })
-    .trim({ background: '#ffffff', threshold: 4 })
-    .resize({ width: 2400, withoutEnlargement: true })
-    .jpeg({ quality: 82, mozjpeg: true })
-    .toFile(path.join(OUT, out));
-  console.log(out, info.width, info.height, Math.round(info.size / 1024) + ' KB');
+// 2026-11-16: Khushi swapped the page to the labeled (callout) drawings and
+// dropped the PDF button. Wider than usual (3000 px) so the callouts survive zoom.
+const labeled = [
+  ['labeled/JB - COLOR - FLOOR PLAN - LABELED - ROTATED.png', '244-jasper-plan-labeled.jpg'],
+  ['labeled/JB - COLOR - ELEV A - LABELED.png', '245-jasper-tv-wall-labeled.jpg'],
+  ['labeled/JB - COLOR - ELEV B - LABELED.png', '246-jasper-window-wall-labeled.jpg'],
+  ['labeled/JB - COLOR - ELEV C - LABELED.png', '247-jasper-lettering-wall-labeled.jpg'],
+  ['labeled/JB - COLOR - ELEV D - LABELED.png', '248-jasper-bench-wall-labeled.jpg'],
+];
+
+const only = process.argv[2]; // 'clean' or 'labeled'
+for (const [set, width] of [[jobs, 2400], [labeled, 3000]]) {
+  if (only && (only === 'labeled') !== (set === labeled)) continue;
+  for (const [src, out] of set) {
+    const info = await sharp(path.join(SRC, src), { limitInputPixels: false })
+      .flatten({ background: '#ffffff' })
+      .trim({ background: '#ffffff', threshold: 4 })
+      .resize({ width, withoutEnlargement: true })
+      .jpeg({ quality: 82, mozjpeg: true })
+      .toFile(path.join(OUT, out));
+    console.log(out, info.width, info.height, Math.round(info.size / 1024) + ' KB');
+  }
 }

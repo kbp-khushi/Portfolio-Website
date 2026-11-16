@@ -150,6 +150,7 @@ img[data-slug]:not([src]){opacity:0}
 .project-card{background:none;border:none;cursor:pointer;position:relative;overflow:visible}
 .card-img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.22,1,.36,1)}
 .project-card:hover .card-img{transform:scale(1.03)}
+.wip-badge{position:absolute;top:14px;left:14px;z-index:2;background:rgba(255,255,255,.92);color:#000;font-family:var(--title);font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:7px 12px;pointer-events:none}
 .card-body{padding:18px 0 0}
 .card-title-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
 .card-year{font-size:12px;color:var(--text-light);white-space:nowrap;flex-shrink:0}
@@ -810,6 +811,7 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
   <div class="group-label">graduate work</div>
   <div class="project-grid">
     <div class="project-card" onclick="openProject('reverie')">
+      <span class="wip-badge">In Progress</span>
       <img class="card-img" loading="lazy" data-slug="reverie" alt="Reverie">
       <div class="card-body">
         <div class="card-title-row"><div class="card-title">Reverie</div><div class="card-year">2026</div></div>
@@ -1114,7 +1116,8 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
       <div class="pp-meta-row"><div class="pp-meta-label">Completion Time</div><div class="pp-meta-value">10 weeks</div></div>
       <div class="pp-meta-row"><div class="pp-meta-label">Software</div><div class="pp-meta-value">Rhino, Illustrator, Photoshop, InDesign, ChatGPT</div></div>
     </div>
-    <div class="cote-links" style="margin-top:24px">
+    <div class="cote-badge" style="margin-top:24px">In Progress</div>
+    <div class="cote-links" style="margin-top:16px">
       <a class="cote-link" onclick="weNav('reverie-back40')">Back40</a>
       <a class="cote-link" onclick="weNav('reverie-atlanta')">Atlanta</a>
       <a class="cote-link" onclick="weNav('reverie-models')">Models</a>

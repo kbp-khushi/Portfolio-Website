@@ -100,13 +100,23 @@ await save(trimmed(renderAi('CONCEPT DIAGRAMS.ai', 1, 3600)), '218-reverie-conce
 await save(trimmed(renderAi('CONCEPT DIAGRAMS.ai', 4, 3600)), '219-reverie-concept-atl.jpg', 2400, 1200, 88);
 await save(trimmed(renderAi('PARTI DIAGRAMS.ai', 0, 2400)), '220-reverie-parti-sav.jpg', 1600, 1600, 88);
 await save(trimmed(renderAi('PARTI DIAGRAMS.ai', 1, 2400)), '221-reverie-parti-atl.jpg', 1600, 1600, 88);
-{ // the artboard runs past her board frame into an empty gray field on the right; crop to the board's framing
-  const full = await trimmed(renderAi('SAVANNAH/SAV - AXO SITEPLAN.ai', 0, 3200)).png().toBuffer();
-  const m = await sharp(full).metadata();
-  await save(sharp(full).extract({ left: 0, top: 0, width: Math.round(m.width * 0.76), height: m.height }), '222-reverie-site-sav-cropped.jpg', 2400, 2400, 86);
+// Site axos cropped to exactly how she framed them on the boards. Frame rectangles (artboard
+// inches, left top right bottom) come from scripts/reverie-board-frame.mjs, which matched each
+// board's frame against the artboard (NCC 0.89 SAV, 0.94 ATL), 2026-11-16.
+async function framed(file, [l, t, r, b], widthPx) {
+  const doc = mupdf.Document.openDocument(fs.readFileSync(AI + file), 'application/pdf');
+  const page = doc.loadPage(0);
+  const bd = page.getBounds();
+  const ppi = widthPx / (r - l);
+  const pm = page.toPixmap(mupdf.Matrix.scale(ppi / 72, ppi / 72), mupdf.ColorSpace.DeviceRGB, false, true);
+  const W = pm.getWidth(), H = pm.getHeight();
+  const x0 = Math.max(0, Math.round(l * ppi)), y0 = Math.max(0, Math.round(t * ppi));
+  const x1 = Math.min(W, Math.round(r * ppi)), y1 = Math.min(H, Math.round(Math.min(b, (bd[3] - bd[1]) / 72) * ppi));
+  return sharp(Buffer.from(pm.asPNG())).flatten({ background: '#fff' }).extract({ left: x0, top: y0, width: x1 - x0, height: y1 - y0 });
 }
+await save(await framed('SAVANNAH/SAV - AXO SITEPLAN.ai', [3.799, 2.953, 18.093, 17.219], 2600), '222-reverie-site-sav-framed.jpg', 2400, 2400, 86);
 await save(trimmed(renderAi('SAVANNAH/SAV - EXPLODED AXO.ai', 0, 3200)), '223-reverie-exploded-sav.jpg', 2400, 2400, 86);
-await save(trimmed(renderAi('ATLANTA/ATL - AXO SITEPLAN.ai', 0, 3200)), '224-reverie-site-atl.jpg', 2400, 2400, 86);
+await save(await framed('ATLANTA/ATL - AXO SITEPLAN.ai', [4.061, 1.815, 20.895, 17.754], 2600), '224-reverie-site-atl-framed.jpg', 2400, 2400, 86);
 await save(trimmed(renderAi('ATLANTA/ATL - EXPLODED AXO.ai', 0, 3200)), '225-reverie-exploded-atl.jpg', 2400, 2400, 86);
 // light sections: SAV lattice walk, water room, court; ATL open walls, dark walk, canopy
 const sec = [[0, '226-reverie-section-lattice-walk.jpg'], [1, '227-reverie-section-water-room.jpg'], [2, '228-reverie-section-court.jpg'],

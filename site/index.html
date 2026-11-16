@@ -554,6 +554,15 @@ img[data-slug]:not([src]){opacity:0}
 .rv-figure{position:relative;max-width:1100px;margin:0 auto}
 .rv-figure img{width:100%;display:block}
 #page-jasper-boardroom .rv-room,#page-jasper-boardroom .rv-figure{max-width:860px}
+.rv-quote{padding:150px 60px 110px;text-align:center}
+.rv-quote p{font-family:var(--title);font-weight:300;font-size:clamp(26px,3.2vw,44px);line-height:1.3;letter-spacing:-0.3px;color:var(--text);max-width:900px;margin:0 auto}
+.rv-quote span{display:block;margin-top:22px;font-family:var(--title);font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--text-light)}
+.rv-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:14px}
+.rv-steps span{font-size:11px;color:var(--text-light);letter-spacing:0.3px;line-height:1.5;text-align:center}
+/* model photos: columns sized to each photo's proportions so a row shares one height, no cropping */
+.img-row.three.rv-ma{grid-template-columns:0.75fr 1.333fr 1.333fr}
+.img-row.three.rv-mb{grid-template-columns:1.333fr 0.75fr 1.333fr}
+@media(max-width:768px){.rv-quote{padding:110px 24px 72px}.rv-steps{grid-template-columns:1fr 1fr}.rv-steps span{text-align:left}.img-row.three.rv-ma,.img-row.three.rv-mb{grid-template-columns:1fr}}
 #page-jasper-boardroom .edit-full{padding-top:32px!important;padding-bottom:32px!important}
 .rv-num{position:absolute;font-family:var(--title);font-size:11px;font-weight:600;letter-spacing:1.5px;color:var(--text);margin-top:6px;background:var(--bg);padding:1px 4px;line-height:1.2}
 .rv-key{max-width:1100px;margin:20px auto 0;display:flex;justify-content:flex-end}
@@ -790,6 +799,13 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
   <div class="section-divider"></div>
   <div class="group-label">graduate work</div>
   <div class="project-grid">
+    <div class="project-card" onclick="openProject('reverie')">
+      <img class="card-img" loading="lazy" data-slug="reverie" alt="Reverie">
+      <div class="card-body">
+        <div class="card-title-row"><div class="card-title">Reverie</div><div class="card-year">2026</div></div>
+        <div class="card-sub">Artist retreat at Back40 and Atlanta</div>
+      </div>
+    </div>
     <div class="project-card" onclick="openProject('the-pause')">
       <img class="card-img" loading="lazy" data-slug="the-pause" alt="Caesura">
       <div class="card-body">
@@ -1063,6 +1079,215 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
 <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 
 <!-- THE PAUSE -->
+<div class="project-page" id="page-reverie">
+  <button class="pp-back" onclick="exitProject()">&#10229;Back</button>
+
+  <div class="rv-quote">
+    <p>&ldquo;Design the Story. Before it&rsquo;s built, it&rsquo;s believed.&rdquo;</p>
+    <span>&mdash; Sandra Baggerman</span>
+  </div>
+
+  <img width="2400" height="924" class="pp-hero" loading="lazy" src="images/208-reverie-retreat.jpg" alt="The retreat at Back40, tabby walls and lattice drums among loblolly pines">
+
+  <div class="pp-header" style="position:relative;max-width:none">
+    <div class="pp-aside"><a class="we-boards-btn" style="position:static" onclick="openFlipbook('reverie')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>View Final Boards</a></div>
+    <div style="max-width:900px">
+    <h2 class="pp-title">Reverie</h2>
+    <div class="pp-word-def">
+      <span class="pp-word-def-phon">/REV&mdash;ə&mdash;ree/</span>
+      <span class="pp-word-def-text">a <mark>waking daydream</mark>, a loose and wandering train of thought.</span>
+    </div>
+    <div class="pp-meta-list">
+      <div class="pp-meta-row"><div class="pp-meta-label">Project Type</div><div class="pp-meta-value">Artist Retreat</div></div>
+      <div class="pp-meta-row"><div class="pp-meta-label">Location</div><div class="pp-meta-value">Back40, Hardeeville, SC &middot; Atlanta, GA</div></div>
+      <div class="pp-meta-row"><div class="pp-meta-label">Studio</div><div class="pp-meta-value">ARCH 747 | Professor Wilner | Fall 2026</div></div>
+      <div class="pp-meta-row"><div class="pp-meta-label">Completion Time</div><div class="pp-meta-value">10 weeks</div></div>
+      <div class="pp-meta-row"><div class="pp-meta-label">Software</div><div class="pp-meta-value">Rhino, Illustrator, Photoshop, InDesign, ChatGPT</div></div>
+    </div>
+    <div class="cote-links" style="margin-top:24px">
+      <a class="cote-link" onclick="weNav('reverie-back40')">Back40</a>
+      <a class="cote-link" onclick="weNav('reverie-atlanta')">Atlanta</a>
+      <a class="cote-link" onclick="weNav('reverie-models')">Models</a>
+    </div>
+    </div>
+  </div>
+
+  <div class="pp-description">This retreat for SCAD artists is built around the moment your mind finally lets go and wanders, the way it does in a daydream. It&rsquo;s an escape from the stresses of everyday life, a moment of euphoria that lets you leave feeling enlightened.<br><br>Where Atlanta holds the light back and hands you the city all at once, Back40 keeps building the light, from color to water to just the sky, and gives you back to nature.</div>
+
+  <!-- BACK40 -->
+  <div class="edit-full-narrow" style="padding-top:56px"><img width="2448" height="473" loading="lazy" src="images/218-reverie-concept-sav.jpg" alt="Ink concept drawing for Back40, a drop and the ripples spreading from it" style="max-width:760px;width:100%"></div>
+
+  <div class="edit-row" id="reverie-back40">
+    <div class="edit-text">
+      <div class="ds-title">Savannah &middot; Back40</div>
+      <div class="ds-text">Back40 sits out in Hardeeville, beyond the farm garden, the apiary and the athletic field, at the edge of a forest of loblolly pines. You come in off Route 17 the same way everyone comes to the farm, up the entrance drive, past the parking and around the apiary, and it feels just like a normal day, with people working in the garden and everything running on schedule.<br><br>Then the path keeps going, carried straight in from the farm garden toward the pines, and it&rsquo;s the last bit of the everyday you get. The village is tucked so far into the trees that you don&rsquo;t really see it until you&rsquo;re right at the walls, and from the drive all you can see are the pines. With every step in, the farm sounds a little farther away, until all you can hear is the wind.<br><br>The farm is where people come to work, so the retreat stays hidden from it, close enough to walk to whenever you need a break, and far enough into the trees that the everyday can&rsquo;t follow you in.</div>
+      <img width="1648" height="804" loading="lazy" src="images/220-reverie-parti-sav.jpg" alt="Parti diagram for Back40" style="width:100%;margin-top:24px">
+    </div>
+    <div class="edit-images">
+      <img width="2400" height="2122" loading="lazy" src="images/222-reverie-site-sav-cropped.jpg" alt="Back40 site and approach axonometric">
+    </div>
+  </div>
+
+  <div class="edit-row">
+    <div class="edit-text">
+      <div class="ds-title">The Arrival</div>
+      <div class="ds-text">The retreat hides in the pines beyond the existing farm. You arrive on one long straight path, the only straight line on the site, carried in from the farm&rsquo;s own grid. At the walls it breaks into a meander, and your thoughts start to wander with it. Each layer you pass takes a little more of the everyday away. The pines hide the village from the farm, the walls hide the rooms from the path, and the rings hide each heart from the walls, until it&rsquo;s just you.</div>
+    </div>
+    <div class="edit-images">
+      <div><img width="2400" height="1349" loading="lazy" src="images/209-reverie-arrival.jpg" alt="The arrival, the path breaking into the walls"><div class="img-caption">the arrival</div></div>
+      <div><img width="2400" height="1800" loading="lazy" src="images/210-reverie-walk.jpg" alt="The walk between the curved tabby walls"><div class="img-caption">the walk</div></div>
+    </div>
+  </div>
+
+  <div class="edit-row">
+    <div class="edit-text">
+      <div class="ds-title">The Light</div>
+      <div class="ds-text">Everything ripples out from a fountain at the center, and every room asks you to hone in on one thing. The light starts as color, falling through the glass in the lattice walls as you walk. In the water room it becomes water, bouncing off the pool and rippling up the walls. In the sky room it&rsquo;s just the sky, coming down through an opening in the roof. Then the spiral climbs as the walls fall away, until you step out among the pines and see the whole village at once.</div>
+    </div>
+    <div class="edit-images">
+      <div><img width="2400" height="1601" loading="lazy" src="images/211-reverie-water-room.jpg" alt="The water room, light rippling up the walls from the pool"><div class="img-caption">the water room</div></div>
+      <div style="max-width:560px"><img width="1600" height="2400" loading="lazy" src="images/212-reverie-lattice.jpg" alt="The lattice walls, colored glass set in the tabby lattice"><div class="img-caption">the lattice walls</div></div>
+    </div>
+  </div>
+
+  <div class="edit-row">
+    <div class="edit-text">
+      <div class="ds-title">The Court and the Hub</div>
+      <div class="ds-text">The court and the hub are where the artists come together. By day, everyone sits lower than the walls around the court&rsquo;s water, with the pool holding the canopy above it. At night, artists staying over pass the fire pit on the way to their pods, raised on the same lattice as the walls they walked through, each turned toward its own slice of pines. They share the hub at the back, close to their pods, while each pod keeps its own quiet.</div>
+    </div>
+    <div class="edit-images">
+      <img width="1932" height="2448" loading="lazy" src="images/223-reverie-exploded-sav.jpg" alt="Back40 exploded axonometric, program and circulation" style="width:100%;max-width:760px">
+    </div>
+  </div>
+
+  <div class="edit-row">
+    <div class="edit-text">
+      <div class="ds-title">The Tabby Walls</div>
+      <div class="ds-text">The tabby walls sit right on the ground, and over time they show a beautiful evolution as they&rsquo;re weathered by the wind, the water and the people who visit. Under loblollies so tall, you feel really small next to something way bigger, and that ends up being a relief.</div>
+    </div>
+    <div class="edit-images">
+      <div class="img-row three" style="padding:0;width:100%">
+        <div class="img-row-item"><img width="1400" height="1227" loading="lazy" src="images/226-reverie-section-lattice-walk.jpg" alt="Light section through the lattice walk"><div class="img-caption">the lattice walk</div></div>
+        <div class="img-row-item"><img width="1400" height="1227" loading="lazy" src="images/227-reverie-section-water-room.jpg" alt="Light section through the water room"><div class="img-caption">the water room</div></div>
+        <div class="img-row-item"><img width="1400" height="1227" loading="lazy" src="images/228-reverie-section-court.jpg" alt="Light section through the court"><div class="img-caption">the court</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="edit-full">
+    <img width="2400" height="293" loading="lazy" src="images/232-reverie-massing-sav.jpg" alt="Back40 massing in 5 steps">
+    <div class="rv-steps"><span>01 one experience</span><span>02 variations</span><span>03 spread out</span><span>04 wrap and hide</span><span>05 unified</span></div>
+  </div>
+
+  <!-- ATLANTA -->
+  <div class="edit-full-narrow" style="padding-top:72px"><img width="2448" height="766" loading="lazy" src="images/219-reverie-concept-atl.jpg" alt="Ink concept drawing for Atlanta, light cutting between offset walls" style="max-width:760px;width:100%"></div>
+
+  <div class="edit-row" id="reverie-atlanta">
+    <div class="edit-text">
+      <div class="ds-title">Atlanta &middot; The Plinth</div>
+      <div class="ds-text">The retreat sits on top of the parking garage next to SCAD FASH, high above the Downtown Connector, where I-75 and I-85 run together right past it. It&rsquo;s one of the loudest spots in Midtown, with traffic going all day and night, and the escape has to start from right in the middle of it.<br><br>There are 2 ways in. Coming from SCAD, you come up through FASH, and coming from the street, you walk through the tunnel under the Connector and climb the stair tower. Either way, you&rsquo;re surrounded by traffic and noise and everything you&rsquo;re trying to get away from, right up until you reach the top and the garden opens up.<br><br>Once you&rsquo;re up there, the city is still with you. You can hear it and see the skyline past the garden, and that&rsquo;s on purpose, because the whole sequence is about taking it away before giving it back. From the waterfall on, the walls take it away one piece at a time.</div>
+      <img width="1648" height="788" loading="lazy" src="images/221-reverie-parti-atl.jpg" alt="Parti diagram for Atlanta" style="width:100%;margin-top:24px">
+    </div>
+    <div class="edit-images">
+      <img width="2448" height="2121" loading="lazy" src="images/224-reverie-site-atl.jpg" alt="Atlanta site and approach axonometric">
+    </div>
+  </div>
+
+  <div class="edit-row">
+    <div class="edit-text">
+      <div class="ds-title">The Garden</div>
+      <div class="ds-text">In Atlanta, that moment comes from taking the city away one sense at a time, and then giving it all back. High above the Downtown Connector, you start off in the open garden, sitting and reading with the city all around you and the sound of water leading you toward the walls. Right where the walls begin, water falls off the wall into the garden, and from the seat in the niche behind it you get one last look at the garden and the city, blurred through the water, before the walls take it all away.</div>
+    </div>
+    <div class="edit-images">
+      <div><img width="2400" height="1396" loading="lazy" src="images/213-reverie-open-walls.jpg" alt="The open walls, the rooftop garden above the Connector"><div class="img-caption">the open walls</div></div>
+      <div style="max-width:560px"><img width="1600" height="2000" loading="lazy" src="images/214-reverie-waterfall.jpg" alt="The waterfall where the walls begin"><div class="img-caption">the waterfall</div></div>
+    </div>
+  </div>
+
+  <div class="edit-row">
+    <div class="edit-text">
+      <div class="ds-title">The Dark Walk</div>
+      <div class="ds-text">As you go further in, the space compresses into something darker and heavier that takes away every stimulus and sense, one step at a time. The subtle rose color comes from a source you never see. It starts faint in the garden and grows stronger inside the walls, giving you a slot of light to read in or a pocket to sit alone in, always somewhere near other people. With nothing left to look at, your mind is finally free to wander.</div>
+    </div>
+    <div class="edit-images">
+      <div><img width="2400" height="1351" loading="lazy" src="images/215-reverie-threshold.jpg" alt="The threshold into the walls"><div class="img-caption">the threshold</div></div>
+      <div style="max-width:560px"><img width="1600" height="1999" loading="lazy" src="images/216-reverie-dark-walk.jpg" alt="The dark walk, rose light and arched niches"><div class="img-caption">the dark walk</div></div>
+    </div>
+  </div>
+
+  <div class="edit-row">
+    <div class="edit-text">
+      <div class="ds-title">The Tower</div>
+      <div class="ds-text">If you come up from the street, the stair tower is its own way in. Its walls stay solid the whole climb, with only a thin slit toward the garden, blocking out the city until you reach the very top, turn that corner and set off on the same journey as everyone else. Artists staying the night have pods of their own off the facade, so the escape is there whenever they need it.</div>
+    </div>
+    <div class="edit-images">
+      <img width="2448" height="1502" loading="lazy" src="images/225-reverie-exploded-atl.jpg" alt="Atlanta exploded axonometric, program and circulation">
+    </div>
+  </div>
+
+  <div class="edit-row">
+    <div class="edit-text">
+      <div class="ds-title">The Release</div>
+      <div class="ds-text">At the end of the dark walk, the city you were hiding from comes back to you all at once, and that&rsquo;s the release. Even if it&rsquo;s only for a minute, the world gets bigger and the thing that was bugging you gets smaller, and you walk away enlightened.</div>
+    </div>
+    <div class="edit-images">
+      <div><img width="2400" height="1308" loading="lazy" src="images/217-reverie-overlook.jpg" alt="The overlook and release, the skyline over the Connector at dusk"><div class="img-caption">the overlook &amp; release</div></div>
+      <div class="img-row three" style="padding:0;width:100%">
+        <div class="img-row-item"><img width="1400" height="1223" loading="lazy" src="images/229-reverie-section-open-walls.jpg" alt="Light section through the open walls"><div class="img-caption">the open walls</div></div>
+        <div class="img-row-item"><img width="1400" height="1223" loading="lazy" src="images/230-reverie-section-dark-walk.jpg" alt="Light section through the dark walk"><div class="img-caption">the dark walk</div></div>
+        <div class="img-row-item"><img width="1400" height="1223" loading="lazy" src="images/231-reverie-section-canopy.jpg" alt="Light section through the canopy"><div class="img-caption">the canopy</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="edit-full">
+    <img width="2400" height="370" loading="lazy" src="images/233-reverie-massing-atl.jpg" alt="Atlanta massing in 5 steps">
+    <div class="rv-steps"><span>01 the rough massing</span><span>02 the walls</span><span>03 enclosure</span><span>04 the walk and its pauses</span><span>05 the view out</span></div>
+  </div>
+
+  <!-- MODELS -->
+  <div class="edit-full" id="reverie-models" style="padding-top:72px">
+    <div class="rv-room" style="max-width:none">Models &middot; 1/8&Prime; = 1&prime;&minus;0&Prime;</div>
+    <div class="img-row three rv-ma" style="padding:0">
+      <div class="img-row-item"><img width="1350" height="1800" loading="lazy" src="images/234-reverie-model-sav-plan.jpg" alt="Back40 model from above"><div class="img-caption">Back40, from above</div></div>
+      <div class="img-row-item"><img width="1800" height="1350" loading="lazy" src="images/235-reverie-model-sav-lattice.jpg" alt="Back40 model, the lattice and a drum"><div class="img-caption">Back40, the lattice and a drum</div></div>
+      <div class="img-row-item"><img width="1800" height="1350" loading="lazy" src="images/236-reverie-model-sav-side.jpg" alt="Back40 model from the side"><div class="img-caption">Back40, from the side</div></div>
+    </div>
+    <div class="img-row three rv-mb" style="padding:24px 0 0">
+      <div class="img-row-item"><img width="1800" height="1350" loading="lazy" src="images/237-reverie-model-atl-front.jpg" alt="Atlanta model, the front with the stair tower"><div class="img-caption">Atlanta, the front with the tower</div></div>
+      <div class="img-row-item"><img width="1350" height="1800" loading="lazy" src="images/238-reverie-model-atl-walk.jpg" alt="Atlanta model, inside the walk"><div class="img-caption">Atlanta, inside the walk</div></div>
+      <div class="img-row-item"><img width="1800" height="1350" loading="lazy" src="images/239-reverie-model-atl-plan.jpg" alt="Atlanta model from above"><div class="img-caption">Atlanta, from above</div></div>
+    </div>
+  </div>
+
+  <div id="boards-reverie" style="display:none">
+    <img width="1600" height="2400" loading="lazy" src="images/240-reverie-board-1.jpg" alt="Reverie, board 1 of 4">
+    <img width="1600" height="2400" loading="lazy" src="images/241-reverie-board-2.jpg" alt="Reverie, board 2 of 4">
+    <img width="1600" height="2400" loading="lazy" src="images/242-reverie-board-3.jpg" alt="Reverie, board 3 of 4">
+    <img width="1600" height="2400" loading="lazy" src="images/243-reverie-board-4.jpg" alt="Reverie, board 4 of 4">
+  </div>
+  <div style="padding:8px 60px 60px;text-align:center">
+    <a class="we-boards-btn" style="position:static" onclick="openFlipbook('reverie')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>View Final Boards</a>
+  </div>
+
+  <div class="project-nav" style="display:flex;justify-content:space-between;padding:40px 60px 0">
+    <span></span>
+    <a onclick="closeProject();setTimeout(function(){openProject('the-pause');},100)" class="pnav-link"><span class="pnav-eyebrow">Next Project</span><span class="pnav-name">Caesura</span></a>
+  </div>
+  <footer class="footer" style="position:relative">
+    <div class="footer-backtotop-wrap">
+      <a href="#" class="footer-backtotop" onclick="this.closest('.project-page').scrollTo({top:0,behavior:'smooth'});return false;">back to top</a>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-contact-row">
+      <a href="mailto:kbp.khushi@gmail.com">kbp.khushi@gmail.com</a>
+      <a href="https://www.linkedin.com/in/kbp-khushi" target="_blank" rel="noopener">linkedin.com/in/kbp-khushi</a>
+      <span>Savannah, GA / Atlanta, GA</span>
+    </div>
+    <div class="footer-copyright">&copy; 2026 Khushi Patel. All Rights Reserved.</div>
+  </footer>
+</div>
+
 <div class="project-page" id="page-the-pause">
   <button class="pp-back" onclick="exitProject()">&#10229;Back</button>
 
@@ -1305,7 +1530,7 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
   </div>
 
   <div class="project-nav" style="display:flex;justify-content:space-between;padding:40px 60px 0">
-    <span></span>
+    <a onclick="closeProject();setTimeout(function(){openProject('reverie');},100)" class="pnav-link pnav-prev"><span class="pnav-eyebrow">Previous Project</span><span class="pnav-name">Reverie</span></a>
     <a onclick="closeProject();setTimeout(function(){openProject('woven-edge');},100)" class="pnav-link"><span class="pnav-eyebrow">Next Project</span><span class="pnav-name">The Woven Edge</span></a>
   </div>
   <footer class="footer" style="position:relative">

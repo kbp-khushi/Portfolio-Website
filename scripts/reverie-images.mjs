@@ -127,17 +127,7 @@ for (const [p, n] of sec) await save(sharp(renderAi('LIGHT SECTIONAL DIAGRAMS.ai
 await save(sharp(await strip(await splitBands(renderAi('SAVANNAH/SAV - MASSING.ai', 3, 4200)), 40)), '232-reverie-massing-sav.jpg', 2400, 1200, 88);
 await save(sharp(await strip(await splitBands(renderAi('ATLANTA/ATL - MASSING.ai', 2, 4200)), 40)), '233-reverie-massing-atl.jpg', 2400, 1200, 88);
 
-// --- model photos
-const M = A8 + 'Model-Photos/edited/';
-const models = [
-  ['SAV model 03 - plan from above.jpg', '234-reverie-model-sav-plan.jpg'],
-  ['SAV model 06 - lattice and drum.jpg', '235-reverie-model-sav-lattice.jpg'],
-  ['SAV model 02 - side.jpg', '236-reverie-model-sav-side.jpg'],
-  ['ATL model 01 - front with tower.jpg', '237-reverie-model-atl-front.jpg'],
-  ['ATL model 05 - inside the walk.jpg', '238-reverie-model-atl-walk.jpg'],
-  ['ATL model 07 - plan from above.jpg', '239-reverie-model-atl-plan.jpg'],
-];
-for (const [src, n] of models) await save(sharp(M + src), n, 1800, 1800);
+// --- model photos (234 to 239): removed from the page 2026-11-16, her call; no longer built
 
 // --- boards for the flipbook
 for (let i = 1; i <= 4; i++) await save(sharp(A8 + `Submission/Board ${i}.jpg`), `${239 + i}-reverie-board-${i}.jpg`, 1600, 2400, 82);

@@ -570,10 +570,7 @@ img[data-slug]:not([src]){opacity:0}
 .rv-axo-text .ds-text{margin-bottom:0}
 .rv-parti{width:100%;height:auto;display:block}
 @media(max-width:900px){.rv-axo-text{grid-template-columns:1fr;gap:28px}.rv-parti{max-width:440px}}
-/* model photos: columns sized to each photo's proportions so a row shares one height, no cropping */
-.img-row.three.rv-ma{grid-template-columns:0.75fr 1.333fr 1.333fr}
-.img-row.three.rv-mb{grid-template-columns:1.333fr 0.75fr 1.333fr}
-@media(max-width:768px){.rv-quote{padding:64px 24px 24px}.rv-steps{grid-template-columns:1fr 1fr}.rv-steps span{text-align:left}.img-row.three.rv-ma,.img-row.three.rv-mb{grid-template-columns:1fr}}
+@media(max-width:768px){.rv-quote{padding:64px 24px 24px}.rv-steps{grid-template-columns:1fr 1fr}.rv-steps span{text-align:left}}
 #page-jasper-boardroom .edit-full{padding-top:32px!important;padding-bottom:32px!important}
 .rv-num{position:absolute;font-family:var(--title);font-size:11px;font-weight:600;letter-spacing:1.5px;color:var(--text);margin-top:6px;background:var(--bg);padding:1px 4px;line-height:1.2}
 .rv-key{max-width:1100px;margin:20px auto 0;display:flex;justify-content:flex-end}
@@ -1120,7 +1117,6 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
     <div class="cote-links" style="margin-top:16px">
       <a class="cote-link" onclick="weNav('reverie-back40')">Back40</a>
       <a class="cote-link" onclick="weNav('reverie-atlanta')">Atlanta</a>
-      <a class="cote-link" onclick="weNav('reverie-models')">Models</a>
     </div>
     </div>
   </div>
@@ -1264,20 +1260,6 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
   </div>
 
 
-  <!-- MODELS -->
-  <div class="edit-full" id="reverie-models" style="padding-top:72px">
-    <div class="rv-room" style="max-width:none">Models &middot; 1/8&Prime; = 1&prime;&minus;0&Prime;</div>
-    <div class="img-row three rv-ma" style="padding:0">
-      <div class="img-row-item"><img width="1350" height="1800" loading="lazy" src="images/234-reverie-model-sav-plan.jpg" alt="Back40 model from above"><div class="img-caption">Back40, from above</div></div>
-      <div class="img-row-item"><img width="1800" height="1350" loading="lazy" src="images/235-reverie-model-sav-lattice.jpg" alt="Back40 model, the lattice and a drum"><div class="img-caption">Back40, the lattice and a drum</div></div>
-      <div class="img-row-item"><img width="1800" height="1350" loading="lazy" src="images/236-reverie-model-sav-side.jpg" alt="Back40 model from the side"><div class="img-caption">Back40, from the side</div></div>
-    </div>
-    <div class="img-row three rv-mb" style="padding:24px 0 0">
-      <div class="img-row-item"><img width="1800" height="1350" loading="lazy" src="images/237-reverie-model-atl-front.jpg" alt="Atlanta model, the front with the stair tower"><div class="img-caption">Atlanta, the front with the tower</div></div>
-      <div class="img-row-item"><img width="1350" height="1800" loading="lazy" src="images/238-reverie-model-atl-walk.jpg" alt="Atlanta model, inside the walk"><div class="img-caption">Atlanta, inside the walk</div></div>
-      <div class="img-row-item"><img width="1800" height="1350" loading="lazy" src="images/239-reverie-model-atl-plan.jpg" alt="Atlanta model from above"><div class="img-caption">Atlanta, from above</div></div>
-    </div>
-  </div>
 
   <div id="boards-reverie" style="display:none">
     <img width="1600" height="2400" loading="lazy" src="images/240-reverie-board-1.jpg" alt="Reverie, board 1 of 4">

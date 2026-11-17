@@ -566,6 +566,19 @@ img[data-slug]:not([src]){opacity:0}
 .rv-site-l{grid-template-columns:200px minmax(0,860px)}
 .rv-site-l .rv-mass{order:-1}
 .rv-site>img{width:100%;height:auto;display:block}
+/* numbered key discs over the axos, like the boards; sized off the drawing's width so they scale with it */
+.rv-pins{position:relative;container-type:inline-size}
+.rv-pins>img{width:100%;height:auto;display:block}
+.rv-pin{position:absolute;transform:translate(-50%,-50%);width:2.3cqw;height:2.3cqw;min-width:15px;min-height:15px;max-width:26px;max-height:26px;border-radius:50%;background:#fff;border:1px solid #000;color:#000;font-family:var(--title);font-size:clamp(7px,1.05cqw,11px);font-weight:600;display:flex;align-items:center;justify-content:center;line-height:1;box-sizing:border-box;pointer-events:none}
+.rv-axo{max-width:1200px;margin:0 auto}
+.rv-legend{margin-top:18px}
+.rv-legend ol{list-style:none;margin:0;padding:0;columns:4 180px;column-gap:28px;font-size:12px;line-height:1.9;color:var(--text-light)}
+.rv-legend li{break-inside:avoid}
+.rv-legend .rv-key-num{display:inline-block;width:26px;color:var(--text)}
+.rv-site{row-gap:0}
+.rv-site>.rv-pins{grid-row:1;grid-column:1}.rv-site>.rv-mass{grid-row:1;grid-column:2}.rv-site>.rv-legend{grid-row:2;grid-column:1}
+.rv-site-l>.rv-mass{grid-column:1}.rv-site-l>.rv-pins,.rv-site-l>.rv-legend{grid-column:2}
+@media(max-width:900px){.rv-site>.rv-pins,.rv-site>.rv-mass,.rv-site>.rv-legend{grid-row:auto;grid-column:auto}.rv-site>.rv-legend{margin-top:-10px}.rv-legend ol{columns:2 140px;column-gap:20px}}
 /* the step column takes the axo's height exactly (contain:size keeps it from growing the row),
    and the 5 steps share that height, so the column's top and bottom line up with the axo at any width */
 .rv-mass{contain:size;display:flex;flex-direction:column;gap:10px}
@@ -1161,7 +1174,8 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
     <img width="1648" height="804" loading="lazy" src="images/220-reverie-parti-sav.jpg" alt="Parti diagram for Back40" class="rv-parti">
   </div>
   <div class="rv-site">
-    <img width="2400" height="2395" loading="lazy" src="images/222-reverie-site-sav-framed.jpg" alt="Back40 site and approach axonometric">
+    <div class="rv-pins"><img width="2400" height="2395" loading="lazy" src="images/222-reverie-site-sav-framed.jpg" alt="Back40 site and approach axonometric"><span class="rv-pin" style="left:20.52%;top:80.76%">01</span><span class="rv-pin" style="left:41.92%;top:67.53%">02</span><span class="rv-pin" style="left:52.14%;top:58.05%">03</span><span class="rv-pin" style="left:50.77%;top:50.1%">04</span><span class="rv-pin" style="left:85.83%;top:85.68%">05</span><span class="rv-pin" style="left:29.72%;top:32.61%">06</span><span class="rv-pin" style="left:69.59%;top:29.42%">07</span></div>
+    <div class="rv-legend"><div class="rv-key-title">Back40 Site</div><ol><li><span class="rv-key-num">01</span>entrance from Route 17</li><li><span class="rv-key-num">02</span>parking</li><li><span class="rv-key-num">03</span>farm garden</li><li><span class="rv-key-num">04</span>apiary pavilion</li><li><span class="rv-key-num">05</span>athletic field</li><li><span class="rv-key-num">06</span>utility compound</li><li><span class="rv-key-num">07</span>the retreat</li></ol></div>
     <div class="rv-mass">
       <figure><img width="916" height="575" loading="lazy" src="images/250-reverie-massing-sav-1.jpg" alt="Back40 massing step 1"><figcaption><b>01 one experience</b>escape in the pine forest</figcaption></figure>
       <figure><img width="916" height="575" loading="lazy" src="images/251-reverie-massing-sav-2.jpg" alt="Back40 massing step 2"><figcaption><b>02 variations</b>open air, semi enclosed, enclosed</figcaption></figure>
@@ -1200,7 +1214,8 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
     </div>
   </div>
   <div class="edit-full">
-    <img width="1932" height="2448" loading="lazy" src="images/223-reverie-exploded-sav.jpg" alt="Back40 exploded axonometric, program and circulation" style="max-width:1200px;margin:0 auto">
+    <div class="rv-axo"><div class="rv-pins"><img width="1932" height="2448" loading="lazy" src="images/223-reverie-exploded-sav.jpg" alt="Back40 exploded axonometric, program and circulation"><span class="rv-pin" style="left:62.66%;top:66.2%">10</span><span class="rv-pin" style="left:52.31%;top:10.69%">11</span><span class="rv-pin" style="left:47.44%;top:16%">12</span><span class="rv-pin" style="left:64.05%;top:9.08%">13</span><span class="rv-pin" style="left:72.58%;top:17.94%">14</span><span class="rv-pin" style="left:41.4%;top:31.75%">01</span><span class="rv-pin" style="left:33.69%;top:42.56%">02</span><span class="rv-pin" style="left:50.67%;top:47.06%">03</span><span class="rv-pin" style="left:59.77%;top:91.93%">04</span><span class="rv-pin" style="left:62.55%;top:79.46%">05</span><span class="rv-pin" style="left:72.15%;top:47.54%">06</span><span class="rv-pin" style="left:46.63%;top:34.92%">07</span><span class="rv-pin" style="left:71.52%;top:34.9%">08</span><span class="rv-pin" style="left:75.45%;top:28.44%">09</span></div>
+    <div class="rv-legend"><div class="rv-key-title">The Retreat</div><ol><li><span class="rv-key-num">01</span>the lattice walk</li><li><span class="rv-key-num">02</span>the waterfall</li><li><span class="rv-key-num">03</span>the court</li><li><span class="rv-key-num">04</span>the curved bench</li><li><span class="rv-key-num">05</span>the fountain</li><li><span class="rv-key-num">06</span>the water room</li><li><span class="rv-key-num">07</span>the sky room</li><li><span class="rv-key-num">08</span>the tower</li><li><span class="rv-key-num">09</span>the viewing platform</li><li><span class="rv-key-num">10</span>the fire pit</li><li><span class="rv-key-num">11</span>pod 1</li><li><span class="rv-key-num">12</span>pod 2</li><li><span class="rv-key-num">13</span>pod 3</li><li><span class="rv-key-num">14</span>the hub</li></ol></div></div>
   </div>
 
   <div class="edit-row">
@@ -1230,7 +1245,8 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
     <img width="1648" height="788" loading="lazy" src="images/221-reverie-parti-atl.jpg" alt="Parti diagram for Atlanta" class="rv-parti">
   </div>
   <div class="rv-site rv-site-l">
-    <img width="2400" height="2273" loading="lazy" src="images/224-reverie-site-atl-framed.jpg" alt="Atlanta site and approach axonometric">
+    <div class="rv-pins"><img width="2400" height="2273" loading="lazy" src="images/224-reverie-site-atl-framed.jpg" alt="Atlanta site and approach axonometric"><span class="rv-pin" style="left:28.79%;top:71.54%">01</span><span class="rv-pin" style="left:58.02%;top:66.17%">02</span><span class="rv-pin" style="left:56.73%;top:73.01%">03</span><span class="rv-pin" style="left:53.88%;top:40.11%">04</span><span class="rv-pin" style="left:64.57%;top:26.08%">05</span><span class="rv-pin" style="left:26.62%;top:20.55%">06</span><span class="rv-pin" style="left:78.82%;top:79.02%">07</span><span class="rv-pin" style="left:87.7%;top:55.39%">08</span><span class="rv-pin" style="left:47.54%;top:44.69%">09</span></div>
+    <div class="rv-legend"><div class="rv-key-title">Atlanta Site</div><ol><li><span class="rv-key-num">01</span>I-75 + I-85</li><li><span class="rv-key-num">02</span>Buford-Spring Connector</li><li><span class="rv-key-num">03</span>SCAD Way underpass</li><li><span class="rv-key-num">04</span>FASH entrance</li><li><span class="rv-key-num">05</span>SCAD Atlanta</li><li><span class="rv-key-num">06</span>1660 Peachtree</li><li><span class="rv-key-num">07</span>FORTY, SCAD housing</li><li><span class="rv-key-num">08</span>parking</li><li><span class="rv-key-num">09</span>the retreat</li></ol></div>
     <div class="rv-mass">
       <figure><img width="916" height="752" loading="lazy" src="images/255-reverie-massing-atl-1.jpg" alt="Atlanta massing step 1"><figcaption><b>01 the rough massing</b>the 2 stacked boxes</figcaption></figure>
       <figure><img width="916" height="752" loading="lazy" src="images/256-reverie-massing-atl-2.jpg" alt="Atlanta massing step 2"><figcaption><b>02 the walls</b>laying out transition from spaces</figcaption></figure>
@@ -1273,7 +1289,8 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
     </div>
   </div>
   <div class="edit-full">
-    <img width="1932" height="2448" loading="lazy" src="images/225-reverie-exploded-atl-cropped.jpg" alt="Atlanta exploded axonometric, program and circulation" style="max-width:1200px;margin:0 auto">
+    <div class="rv-axo"><div class="rv-pins"><img width="1932" height="2448" loading="lazy" src="images/225-reverie-exploded-atl-cropped.jpg" alt="Atlanta exploded axonometric, program and circulation"><span class="rv-pin" style="left:66.14%;top:65.26%">10</span><span class="rv-pin" style="left:12.78%;top:50.81%">11</span><span class="rv-pin" style="left:17.19%;top:56.32%">12</span><span class="rv-pin" style="left:17.19%;top:60.29%">13</span><span class="rv-pin" style="left:17.19%;top:64.5%">14</span><span class="rv-pin" style="left:21.44%;top:33.31%">15</span><span class="rv-pin" style="left:19.99%;top:38.6%">16</span><span class="rv-pin" style="left:23.2%;top:9.93%">17</span><span class="rv-pin" style="left:56.12%;top:53.95%">01</span><span class="rv-pin" style="left:56.54%;top:57.48%">02</span><span class="rv-pin" style="left:44.7%;top:53.37%">03</span><span class="rv-pin" style="left:33.41%;top:45.45%">04</span><span class="rv-pin" style="left:41.37%;top:47.65%">05</span><span class="rv-pin" style="left:20.76%;top:44.65%">06</span><span class="rv-pin" style="left:34.96%;top:52.19%">07</span><span class="rv-pin" style="left:39.12%;top:59.71%">08</span><span class="rv-pin" style="left:50.27%;top:64.79%">09</span></div>
+    <div class="rv-legend"><div class="rv-key-title">The Retreat</div><ol><li><span class="rv-key-num">01</span>the arrival</li><li><span class="rv-key-num">02</span>the FASH steps</li><li><span class="rv-key-num">03</span>the slot benches</li><li><span class="rv-key-num">04</span>the dark walk</li><li><span class="rv-key-num">05</span>the bench in the gap</li><li><span class="rv-key-num">06</span>the niches</li><li><span class="rv-key-num">07</span>the waterfall nook</li><li><span class="rv-key-num">08</span>canopy 1 seating, the pool</li><li><span class="rv-key-num">09</span>canopy 2 seating</li><li><span class="rv-key-num">10</span>canopy 3 reading spot</li><li><span class="rv-key-num">11</span>the tower</li><li><span class="rv-key-num">12</span>pod 1</li><li><span class="rv-key-num">13</span>pod 2</li><li><span class="rv-key-num">14</span>pod 3</li><li><span class="rv-key-num">15</span>the overlook</li><li><span class="rv-key-num">16</span>the glass room</li><li><span class="rv-key-num">17</span>community space</li></ol></div></div>
   </div>
 
   <div class="edit-row">

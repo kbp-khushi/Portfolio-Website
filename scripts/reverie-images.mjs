@@ -129,9 +129,15 @@ const sec = [[0, '226-reverie-section-lattice-walk.jpg'], [1, '227-reverie-secti
   [3, '229-reverie-section-open-walls.jpg'], [4, '230-reverie-section-dark-walk.jpg'], [5, '231-reverie-section-canopy.jpg']];
 for (const [p, n] of sec) await save(sharp(renderAi('LIGHT SECTIONAL DIAGRAMS.ai', p, 1400)), n, 1400, 1400, 88);
 
-// --- massing steps, board versions, side by side
-await save(sharp(await strip(await splitBands(renderAi('SAVANNAH/SAV - MASSING.ai', 3, 4200)), 40)), '232-reverie-massing-sav.jpg', 2400, 1200, 88);
-await save(sharp(await strip(await splitBands(renderAi('ATLANTA/ATL - MASSING.ai', 2, 4200)), 40)), '233-reverie-massing-atl.jpg', 2400, 1200, 88);
+// --- massing steps, board versions, one image per step so each carries its caption.
+// 2026-11-17 her ask: they run down the side of the (smaller) site axo, like the boards.
+// (232/233, the horizontal strips, are retired.)
+{
+  const sav = await splitBands(renderAi('SAVANNAH/SAV - MASSING.ai', 3, 4200));
+  for (let i = 0; i < sav.length; i++) await save(sharp(sav[i]).extend({ top: 8, bottom: 8, left: 8, right: 8, background: '#ffffff' }), `${250 + i}-reverie-massing-sav-${i + 1}.jpg`, 900, 900, 88);
+  const atl = await splitBands(renderAi('ATLANTA/ATL - MASSING.ai', 2, 4200));
+  for (let i = 0; i < atl.length; i++) await save(sharp(atl[i]).extend({ top: 8, bottom: 8, left: 8, right: 8, background: '#ffffff' }), `${255 + i}-reverie-massing-atl-${i + 1}.jpg`, 900, 900, 88);
+}
 
 // --- model photos (234 to 239): removed from the page 2026-11-16, her call; no longer built
 

@@ -558,8 +558,16 @@ img[data-slug]:not([src]){opacity:0}
 .rv-quote{padding:96px 60px 40px;text-align:center}
 .rv-quote p{font-family:var(--title);font-weight:300;font-size:clamp(26px,3.2vw,44px);line-height:1.3;letter-spacing:-0.3px;color:var(--text);max-width:900px;margin:0 auto}
 .rv-quote span{display:block;margin-top:22px;font-family:var(--title);font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--text-light)}
-.rv-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:14px}
-.rv-steps span{font-size:11px;color:var(--text-light);letter-spacing:0.3px;line-height:1.5;text-align:center}
+/* site axo with the massing steps down its side, like the boards (SAV steps right, ATL left) */
+.rv-site{display:grid;grid-template-columns:minmax(0,860px) 200px;gap:56px;align-items:center;justify-content:center;padding:40px 60px}
+.rv-site-l{grid-template-columns:165px minmax(0,860px)}
+.rv-site-l .rv-mass{order:-1}
+.rv-site>img{width:100%;height:auto;display:block}
+.rv-mass{display:flex;flex-direction:column;gap:12px}
+.rv-mass figure{margin:0}
+.rv-mass img{width:100%;height:auto;display:block}
+.rv-mass figcaption{font-size:11px;color:var(--text-light);letter-spacing:0.3px;line-height:1.45;margin-top:4px}
+.rv-mass figcaption b{display:block;font-weight:600;color:var(--text)}
 /* full bleed render mid page, edge to edge like the hero but uncropped; caption back on the frame */
 .rv-bleed{padding:32px 0}
 .rv-bleed img{width:100%;height:auto;display:block}
@@ -570,7 +578,8 @@ img[data-slug]:not([src]){opacity:0}
 .rv-axo-text .ds-text{margin-bottom:0}
 .rv-parti{width:100%;height:auto;display:block}
 @media(max-width:900px){.rv-axo-text{grid-template-columns:1fr;gap:28px}.rv-parti{max-width:440px}}
-@media(max-width:768px){.rv-quote{padding:64px 24px 24px}.rv-steps{grid-template-columns:1fr 1fr}.rv-steps span{text-align:left}}
+@media(max-width:900px){.rv-site,.rv-site-l{grid-template-columns:1fr;gap:28px}.rv-site-l .rv-mass{order:0}.rv-mass{display:grid;grid-template-columns:1fr 1fr;gap:20px}}
+@media(max-width:768px){.rv-quote{padding:64px 24px 24px}.rv-site{padding:24px}}
 #page-jasper-boardroom .edit-full{padding-top:32px!important;padding-bottom:32px!important}
 .rv-num{position:absolute;font-family:var(--title);font-size:11px;font-weight:600;letter-spacing:1.5px;color:var(--text);margin-top:6px;background:var(--bg);padding:1px 4px;line-height:1.2}
 .rv-key{max-width:1100px;margin:20px auto 0;display:flex;justify-content:flex-end}
@@ -1145,13 +1154,15 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
     </div>
     <img width="1648" height="804" loading="lazy" src="images/220-reverie-parti-sav.jpg" alt="Parti diagram for Back40" class="rv-parti">
   </div>
-  <div class="rv-bleed">
+  <div class="rv-site">
     <img width="2400" height="2395" loading="lazy" src="images/222-reverie-site-sav-framed.jpg" alt="Back40 site and approach axonometric">
-  </div>
-
-  <div class="edit-full">
-    <img width="2400" height="293" loading="lazy" src="images/232-reverie-massing-sav.jpg" alt="Back40 massing in 5 steps">
-    <div class="rv-steps"><span>01 one experience</span><span>02 variations</span><span>03 spread out</span><span>04 wrap and hide</span><span>05 unified</span></div>
+    <div class="rv-mass">
+      <figure><img width="916" height="575" loading="lazy" src="images/250-reverie-massing-sav-1.jpg" alt="Back40 massing step 1"><figcaption><b>01 one experience</b>escape in the pine forest</figcaption></figure>
+      <figure><img width="916" height="575" loading="lazy" src="images/251-reverie-massing-sav-2.jpg" alt="Back40 massing step 2"><figcaption><b>02 variations</b>open air, semi enclosed, enclosed</figcaption></figure>
+      <figure><img width="916" height="565" loading="lazy" src="images/252-reverie-massing-sav-3.jpg" alt="Back40 massing step 3"><figcaption><b>03 spread out</b>every space on the site</figcaption></figure>
+      <figure><img width="916" height="564" loading="lazy" src="images/253-reverie-massing-sav-4.jpg" alt="Back40 massing step 4"><figcaption><b>04 wrap &amp; hide</b>the walls hide the spaces</figcaption></figure>
+      <figure><img width="916" height="563" loading="lazy" src="images/254-reverie-massing-sav-5.jpg" alt="Back40 massing step 5"><figcaption><b>05 unified</b>the walls merge with the forms</figcaption></figure>
+    </div>
   </div>
 
   <div class="edit-row">
@@ -1211,13 +1222,15 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
     </div>
     <img width="1648" height="788" loading="lazy" src="images/221-reverie-parti-atl.jpg" alt="Parti diagram for Atlanta" class="rv-parti">
   </div>
-  <div class="rv-bleed">
+  <div class="rv-site rv-site-l">
     <img width="2400" height="2273" loading="lazy" src="images/224-reverie-site-atl-framed.jpg" alt="Atlanta site and approach axonometric">
-  </div>
-
-  <div class="edit-full">
-    <img width="2400" height="370" loading="lazy" src="images/233-reverie-massing-atl.jpg" alt="Atlanta massing in 5 steps">
-    <div class="rv-steps"><span>01 the rough massing</span><span>02 the walls</span><span>03 enclosure</span><span>04 the walk and its pauses</span><span>05 the view out</span></div>
+    <div class="rv-mass">
+      <figure><img width="916" height="752" loading="lazy" src="images/255-reverie-massing-atl-1.jpg" alt="Atlanta massing step 1"><figcaption><b>01 the rough massing</b>the 2 stacked boxes</figcaption></figure>
+      <figure><img width="916" height="752" loading="lazy" src="images/256-reverie-massing-atl-2.jpg" alt="Atlanta massing step 2"><figcaption><b>02 the walls</b>laying out transition from spaces</figcaption></figure>
+      <figure><img width="916" height="720" loading="lazy" src="images/257-reverie-massing-atl-3.jpg" alt="Atlanta massing step 3"><figcaption><b>03 enclosure</b>the roofs, the tower &amp; the 3 pods</figcaption></figure>
+      <figure><img width="916" height="720" loading="lazy" src="images/258-reverie-massing-atl-4.jpg" alt="Atlanta massing step 4"><figcaption><b>04 the walk &amp; its pauses</b>from the entry into the walls</figcaption></figure>
+      <figure><img width="916" height="720" loading="lazy" src="images/259-reverie-massing-atl-5.jpg" alt="Atlanta massing step 5"><figcaption><b>05 the view out</b>one strong view out at the end</figcaption></figure>
+    </div>
   </div>
 
   <div class="rv-bleed">

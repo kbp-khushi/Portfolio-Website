@@ -570,15 +570,18 @@ img[data-slug]:not([src]){opacity:0}
 .rv-pins{position:relative;container-type:inline-size}
 .rv-pins>img{width:100%;height:auto;display:block}
 .rv-pin{position:absolute;transform:translate(-50%,-50%);width:2.3cqw;height:2.3cqw;min-width:15px;min-height:15px;max-width:26px;max-height:26px;border-radius:50%;background:#fff;border:1px solid #000;color:#000;font-family:var(--title);font-size:clamp(7px,1.05cqw,11px);font-weight:600;display:flex;align-items:center;justify-content:center;line-height:1;box-sizing:border-box;pointer-events:none}
-.rv-axo{max-width:1200px;margin:0 auto}
-.rv-legend{margin-top:18px}
-.rv-legend ol{list-style:none;margin:0;padding:0;columns:4 180px;column-gap:28px;font-size:12px;line-height:1.9;color:var(--text-light)}
-.rv-legend li{break-inside:avoid}
+/* legends run down vertically on the right of each axo, like the boards */
+.rv-legend ol{list-style:none;margin:0;padding:0;font-size:12px;line-height:1.9;color:var(--text-light)}
+.rv-legend li{break-inside:avoid;white-space:nowrap}
 .rv-legend .rv-key-num{display:inline-block;width:26px;color:var(--text)}
-.rv-site{row-gap:0}
-.rv-site>.rv-pins{grid-row:1;grid-column:1}.rv-site>.rv-mass{grid-row:1;grid-column:2}.rv-site>.rv-legend{grid-row:2;grid-column:1}
-.rv-site-l>.rv-mass{grid-column:1}.rv-site-l>.rv-pins,.rv-site-l>.rv-legend{grid-column:2}
-@media(max-width:900px){.rv-site>.rv-pins,.rv-site>.rv-mass,.rv-site>.rv-legend{grid-row:auto;grid-column:auto}.rv-site>.rv-legend{margin-top:-10px}.rv-legend ol{columns:2 140px;column-gap:20px}}
+.rv-axo{max-width:1360px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) 190px;gap:40px;align-items:start}
+.rv-site>.rv-pins{grid-row:1;grid-column:1}
+.rv-side{grid-row:1;grid-column:2;contain:size;display:flex;flex-direction:column;gap:32px}
+.rv-side>.rv-mass{flex:1 1 0;min-height:0}
+.rv-site-l{grid-template-columns:200px minmax(0,860px) 190px}
+.rv-site-l>.rv-mass{grid-row:1;grid-column:1}.rv-site-l>.rv-pins{grid-row:1;grid-column:2}.rv-site-l>.rv-legend{grid-row:1;grid-column:3;align-self:end}
+@media(max-width:1280px){.rv-site-l{grid-template-columns:200px minmax(0,860px)}.rv-site-l>.rv-legend{grid-row:2;grid-column:2;align-self:start;margin-top:-30px}}
+@media(max-width:900px){.rv-axo{grid-template-columns:1fr;gap:18px}.rv-side{display:contents}.rv-side>.rv-mass{order:1}.rv-site>.rv-pins,.rv-site-l>.rv-mass,.rv-site-l>.rv-pins,.rv-site-l>.rv-legend{grid-row:auto;grid-column:auto}.rv-site .rv-legend{margin-top:-10px}.rv-legend ol{columns:2 140px;column-gap:20px}}
 /* the step column takes the axo's height exactly (contain:size keeps it from growing the row),
    and the 5 steps share that height, so the column's top and bottom line up with the axo at any width */
 .rv-mass{contain:size;display:flex;flex-direction:column;gap:10px}
@@ -1175,13 +1178,15 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
   </div>
   <div class="rv-site">
     <div class="rv-pins"><img width="2400" height="2395" loading="lazy" src="images/222-reverie-site-sav-framed.jpg" alt="Back40 site and approach axonometric"><span class="rv-pin" style="left:20.52%;top:80.76%">01</span><span class="rv-pin" style="left:41.92%;top:67.53%">02</span><span class="rv-pin" style="left:52.14%;top:58.05%">03</span><span class="rv-pin" style="left:50.77%;top:50.1%">04</span><span class="rv-pin" style="left:85.83%;top:85.68%">05</span><span class="rv-pin" style="left:29.72%;top:32.61%">06</span><span class="rv-pin" style="left:69.59%;top:29.42%">07</span></div>
-    <div class="rv-legend"><div class="rv-key-title">Back40 Site</div><ol><li><span class="rv-key-num">01</span>entrance from Route 17</li><li><span class="rv-key-num">02</span>parking</li><li><span class="rv-key-num">03</span>farm garden</li><li><span class="rv-key-num">04</span>apiary pavilion</li><li><span class="rv-key-num">05</span>athletic field</li><li><span class="rv-key-num">06</span>utility compound</li><li><span class="rv-key-num">07</span>the retreat</li></ol></div>
+    <div class="rv-side">
     <div class="rv-mass">
       <figure><img width="916" height="575" loading="lazy" src="images/250-reverie-massing-sav-1.jpg" alt="Back40 massing step 1"><figcaption><b>01 one experience</b>escape in the pine forest</figcaption></figure>
       <figure><img width="916" height="575" loading="lazy" src="images/251-reverie-massing-sav-2.jpg" alt="Back40 massing step 2"><figcaption><b>02 variations</b>open air, semi enclosed, enclosed</figcaption></figure>
       <figure><img width="916" height="565" loading="lazy" src="images/252-reverie-massing-sav-3.jpg" alt="Back40 massing step 3"><figcaption><b>03 spread out</b>every space on the site</figcaption></figure>
       <figure><img width="916" height="564" loading="lazy" src="images/253-reverie-massing-sav-4.jpg" alt="Back40 massing step 4"><figcaption><b>04 wrap &amp; hide</b>the walls hide the spaces</figcaption></figure>
       <figure><img width="916" height="563" loading="lazy" src="images/254-reverie-massing-sav-5.jpg" alt="Back40 massing step 5"><figcaption><b>05 unified</b>the walls merge with the forms</figcaption></figure>
+    </div>
+    <div class="rv-legend"><div class="rv-key-title">Back40 Site</div><ol><li><span class="rv-key-num">01</span>entrance from Route 17</li><li><span class="rv-key-num">02</span>parking</li><li><span class="rv-key-num">03</span>farm garden</li><li><span class="rv-key-num">04</span>apiary pavilion</li><li><span class="rv-key-num">05</span>athletic field</li><li><span class="rv-key-num">06</span>utility compound</li><li><span class="rv-key-num">07</span>the retreat</li></ol></div>
     </div>
   </div>
 

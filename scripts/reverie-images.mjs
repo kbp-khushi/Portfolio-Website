@@ -117,7 +117,13 @@ async function framed(file, [l, t, r, b], widthPx) {
 await save(await framed('SAVANNAH/SAV - AXO SITEPLAN.ai', [3.799, 2.953, 18.093, 17.219], 2600), '222-reverie-site-sav-framed.jpg', 2400, 2400, 86);
 await save(trimmed(renderAi('SAVANNAH/SAV - EXPLODED AXO.ai', 0, 3200)), '223-reverie-exploded-sav.jpg', 2400, 2400, 86);
 await save(await framed('ATLANTA/ATL - AXO SITEPLAN.ai', [4.061, 1.815, 20.895, 17.754], 2600), '224-reverie-site-atl-framed.jpg', 2400, 2400, 86);
-await save(trimmed(renderAi('ATLANTA/ATL - EXPLODED AXO.ai', 0, 3200)), '225-reverie-exploded-atl.jpg', 2400, 2400, 86);
+{ // cropped around the retreat stack at Back40's exploded axo proportions (1932:2448), her ask 2026-11-17
+  const full = await sharp(renderAi('ATLANTA/ATL - EXPLODED AXO.ai', 0, 4500)).flatten({ background: '#fff' }).trim({ background: '#ffffff', threshold: 4 }).png().toBuffer();
+  const m = await sharp(full).metadata();
+  const x0 = Math.round(m.width * 0.293), w = Math.round(m.width * 0.731) - x0, y0 = Math.round(m.height * 0.05);
+  const h = Math.min(Math.round(w * 2448 / 1932), m.height - y0);
+  await save(sharp(full).extract({ left: x0, top: y0, width: w, height: h }), '225-reverie-exploded-atl-cropped.jpg', 2400, 2448, 86);
+}
 // light sections: SAV lattice walk, water room, court; ATL open walls, dark walk, canopy
 const sec = [[0, '226-reverie-section-lattice-walk.jpg'], [1, '227-reverie-section-water-room.jpg'], [2, '228-reverie-section-court.jpg'],
   [3, '229-reverie-section-open-walls.jpg'], [4, '230-reverie-section-dark-walk.jpg'], [5, '231-reverie-section-canopy.jpg']];

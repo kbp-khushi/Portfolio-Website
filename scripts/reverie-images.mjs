@@ -91,6 +91,8 @@ await save(R('sav-lattice'), '212-reverie-lattice.jpg', 1600, 2400);
 await save(R('atl-open-walls'), '213-reverie-open-walls.jpg', 2400);
 await save(R('atl-waterfall'), '214-reverie-waterfall.jpg', 1600, 2400);
 await save(R('atl-threshold'), '215-reverie-threshold.jpg', 2400);
+// 3:2 crop for the side by side pair with the dark walk (her ask 2026-11-18): most off the left wall, a sliver off the right, building kept
+{ const m = await R('atl-threshold').metadata(); const left = Math.round(m.width * 260 / 2400); await save(R('atl-threshold').extract({ left, top: 0, width: Math.round(m.height * 1.5), height: m.height }), '215-reverie-threshold-cropped.jpg', 2400); }
 await save(R('atl-dark-walk'), '216-reverie-dark-walk.jpg', 1600, 2400);
 await save(R('atl-overlook'), '217-reverie-overlook.jpg', 2400);
 

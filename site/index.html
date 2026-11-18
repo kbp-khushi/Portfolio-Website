@@ -582,9 +582,12 @@ img[data-slug]:not([src]){opacity:0}
 @media(max-width:600px){.rv-bar-mid{display:none}}
 /* legends run down vertically on the right of each axo, like the boards */
 .rv-legend ol{list-style:none;margin:0;padding:0;font-size:12px;line-height:1.9;color:var(--text-light)}
-.rv-legend li{break-inside:avoid;white-space:nowrap}
-.rv-legend .rv-key-num{display:inline-block;width:26px;color:var(--text)}
-.rv-axo{max-width:1360px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) 190px;gap:40px;align-items:start}
+.rv-legend li{break-inside:avoid;white-space:nowrap;display:flex;justify-content:space-between;gap:24px}
+.rv-legend .rv-key-num{order:2;color:var(--text)}
+.rv-axo{max-width:1200px;margin:0 auto;position:relative}
+/* exploded axo legends inside the drawing on the same white panel as the site ones: SAV top left, ATL top right */
+.rv-axo>.rv-legend{position:absolute;top:20px;left:20px;z-index:2;padding:14px 18px 12px;background:#fff}
+.rv-axo-r>.rv-legend{left:auto;right:20px}
 .rv-site>.rv-pins{grid-row:1;grid-column:1}
 .rv-side{grid-row:1;grid-column:2;contain:size;display:flex;flex-direction:column;gap:32px}
 .rv-side>.rv-mass{flex:1 1 0;min-height:0}
@@ -592,7 +595,7 @@ img[data-slug]:not([src]){opacity:0}
 .rv-site>.rv-legend{grid-row:1;grid-column:1;justify-self:start;align-self:start;z-index:1;margin:20px;padding:14px 18px 12px;background:#fff}
 .rv-site-l>.rv-legend{grid-column:2;align-self:end}
 .rv-site-l>.rv-mass{grid-row:1;grid-column:1}.rv-site-l>.rv-pins{grid-row:1;grid-column:2}
-@media(max-width:900px){.rv-axo{grid-template-columns:1fr;gap:18px}.rv-side{display:contents}.rv-side>.rv-mass{order:1}.rv-site>.rv-pins,.rv-site-l>.rv-mass,.rv-site-l>.rv-pins,.rv-site-l>.rv-legend{grid-row:auto;grid-column:auto}.rv-site>.rv-legend{grid-row:auto;grid-column:auto;margin:-10px 0 0;padding:0;background:none}.rv-legend ol{columns:2 140px;column-gap:20px}}
+@media(max-width:900px){.rv-axo>.rv-legend{position:static;margin-top:18px;padding:0;background:none}.rv-side{display:contents}.rv-side>.rv-mass{order:1}.rv-site>.rv-pins,.rv-site-l>.rv-mass,.rv-site-l>.rv-pins,.rv-site-l>.rv-legend{grid-row:auto;grid-column:auto}.rv-site>.rv-legend{grid-row:auto;grid-column:auto;margin:-10px 0 0;padding:0;background:none}.rv-legend ol{columns:2 140px;column-gap:20px}}
 /* the step column takes the axo's height exactly (contain:size keeps it from growing the row),
    and the 5 steps share that height, so the column's top and bottom line up with the axo at any width */
 .rv-mass{contain:size;display:flex;flex-direction:column;gap:10px}
@@ -1226,8 +1229,7 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
       <div class="ds-text">Everything ripples out from a fountain at the center, and every room asks you to hone in on one thing. The light starts as color, falling through the glass in the lattice walls as you walk. In the water room it becomes water, bouncing off the pool and rippling up the walls. In the sky room it&rsquo;s just the sky, coming down through an opening in the roof. Then the spiral climbs as the walls fall away, until you step out among the pines and see the whole village at once.</div>
     </div>
     <div class="edit-images">
-      <div><img width="2400" height="1601" loading="lazy" src="images/211-reverie-water-room.jpg" alt="The water room, light rippling up the walls from the pool"><div class="img-caption">the water room</div></div>
-      <div style="max-width:560px"><img width="1600" height="2400" loading="lazy" src="images/212-reverie-lattice.jpg" alt="The lattice walls, colored glass set in the tabby lattice"><div class="img-caption">the lattice walls</div></div>
+      <div class="rv-pair"><div style="--a:1.4991"><img width="2400" height="1601" loading="lazy" src="images/211-reverie-water-room.jpg" alt="The water room, light rippling up the walls from the pool"><div class="img-caption">the water room</div></div><div style="--a:0.6667"><img width="1600" height="2400" loading="lazy" src="images/212-reverie-lattice.jpg" alt="The lattice walls, colored glass set in the tabby lattice"><div class="img-caption">the lattice walls</div></div></div>
     </div>
   </div>
 
@@ -1289,7 +1291,7 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
       <div class="ds-text">In Atlanta, that moment comes from taking the city away one sense at a time, and then giving it all back. High above the Downtown Connector, you start off in the open garden, sitting and reading with the city all around you and the sound of water leading you toward the walls. Right where the walls begin, water falls off the wall into the garden, and from the seat in the niche behind it you get one last look at the garden and the city, blurred through the water, before the walls take it all away.</div>
     </div>
     <div class="edit-images">
-      <div style="max-width:560px"><img width="1600" height="2000" loading="lazy" src="images/214-reverie-waterfall.jpg" alt="The waterfall where the walls begin"><div class="img-caption">the waterfall</div></div>
+      <div><img width="1600" height="2000" loading="lazy" src="images/214-reverie-waterfall.jpg" alt="The waterfall where the walls begin"><div class="img-caption">the waterfall</div></div>
     </div>
   </div>
 
@@ -1310,7 +1312,7 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
     </div>
   </div>
   <div class="edit-full">
-    <div class="rv-axo"><div class="rv-pins"><img width="1932" height="2448" loading="lazy" src="images/225-reverie-exploded-atl-cropped.jpg" alt="Atlanta exploded axonometric, program and circulation"><span class="rv-pin" style="left:66.14%;top:65.26%">10</span><span class="rv-pin" style="left:12.78%;top:50.81%">11</span><span class="rv-pin" style="left:17.19%;top:56.32%">12</span><span class="rv-pin" style="left:17.19%;top:60.29%">13</span><span class="rv-pin" style="left:17.19%;top:64.5%">14</span><span class="rv-pin" style="left:21.44%;top:33.31%">15</span><span class="rv-pin" style="left:19.99%;top:38.6%">16</span><span class="rv-pin" style="left:23.2%;top:9.93%">17</span><span class="rv-pin" style="left:56.12%;top:53.95%">01</span><span class="rv-pin" style="left:56.54%;top:57.48%">02</span><span class="rv-pin" style="left:44.7%;top:53.37%">03</span><span class="rv-pin" style="left:33.41%;top:45.45%">04</span><span class="rv-pin" style="left:41.37%;top:47.65%">05</span><span class="rv-pin" style="left:20.76%;top:44.65%">06</span><span class="rv-pin" style="left:34.96%;top:52.19%">07</span><span class="rv-pin" style="left:39.12%;top:59.71%">08</span><span class="rv-pin" style="left:50.27%;top:64.79%">09</span><div class="rv-scale" style="--pt:0.0947cqw;--bar:15.71cqw;--split:19.99%"><div class="rv-scale-t">Program &amp; Circulation</div><svg class="rv-north" viewBox="-9.5 -9.5 19 19" aria-hidden="true"><circle r="6" fill="none" stroke="#000" stroke-width=".5"/><line x1="0.634" y1="-2.748" x2="1.97" y2="-8.535" stroke="#000" stroke-width="1"/></svg><div class="rv-bar"><i></i></div><div class="rv-bar-ls"><span>0’</span><span class="rv-bar-mid">10’</span><span class="rv-bar-end">50’</span></div></div><!--/rv-scale--></div>
+    <div class="rv-axo rv-axo-r"><div class="rv-pins"><img width="1932" height="2448" loading="lazy" src="images/225-reverie-exploded-atl-cropped.jpg" alt="Atlanta exploded axonometric, program and circulation"><span class="rv-pin" style="left:66.14%;top:65.26%">10</span><span class="rv-pin" style="left:12.78%;top:50.81%">11</span><span class="rv-pin" style="left:17.19%;top:56.32%">12</span><span class="rv-pin" style="left:17.19%;top:60.29%">13</span><span class="rv-pin" style="left:17.19%;top:64.5%">14</span><span class="rv-pin" style="left:21.44%;top:33.31%">15</span><span class="rv-pin" style="left:19.99%;top:38.6%">16</span><span class="rv-pin" style="left:23.2%;top:9.93%">17</span><span class="rv-pin" style="left:56.12%;top:53.95%">01</span><span class="rv-pin" style="left:56.54%;top:57.48%">02</span><span class="rv-pin" style="left:44.7%;top:53.37%">03</span><span class="rv-pin" style="left:33.41%;top:45.45%">04</span><span class="rv-pin" style="left:41.37%;top:47.65%">05</span><span class="rv-pin" style="left:20.76%;top:44.65%">06</span><span class="rv-pin" style="left:34.96%;top:52.19%">07</span><span class="rv-pin" style="left:39.12%;top:59.71%">08</span><span class="rv-pin" style="left:50.27%;top:64.79%">09</span><div class="rv-scale" style="--pt:0.0947cqw;--bar:15.71cqw;--split:19.99%"><div class="rv-scale-t">Program &amp; Circulation</div><svg class="rv-north" viewBox="-9.5 -9.5 19 19" aria-hidden="true"><circle r="6" fill="none" stroke="#000" stroke-width=".5"/><line x1="0.634" y1="-2.748" x2="1.97" y2="-8.535" stroke="#000" stroke-width="1"/></svg><div class="rv-bar"><i></i></div><div class="rv-bar-ls"><span>0’</span><span class="rv-bar-mid">10’</span><span class="rv-bar-end">50’</span></div></div><!--/rv-scale--></div>
     <div class="rv-legend"><div class="rv-key-title">The Retreat</div><ol><li><span class="rv-key-num">01</span>the arrival</li><li><span class="rv-key-num">02</span>the FASH steps</li><li><span class="rv-key-num">03</span>the slot benches</li><li><span class="rv-key-num">04</span>the dark walk</li><li><span class="rv-key-num">05</span>the bench in the gap</li><li><span class="rv-key-num">06</span>the niches</li><li><span class="rv-key-num">07</span>the waterfall nook</li><li><span class="rv-key-num">08</span>canopy 1 seating, the pool</li><li><span class="rv-key-num">09</span>canopy 2 seating</li><li><span class="rv-key-num">10</span>canopy 3 reading spot</li><li><span class="rv-key-num">11</span>the tower</li><li><span class="rv-key-num">12</span>pod 1</li><li><span class="rv-key-num">13</span>pod 2</li><li><span class="rv-key-num">14</span>pod 3</li><li><span class="rv-key-num">15</span>the overlook</li><li><span class="rv-key-num">16</span>the glass room</li><li><span class="rv-key-num">17</span>community space</li></ol></div></div>
   </div>
 

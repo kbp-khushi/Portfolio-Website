@@ -1,60 +1,59 @@
-// Reverie: her drawing titles, north arrows and bar scales back on the 4 axos (2026-11-18).
+// Reverie: her drawing titles, north arrows and bar scales on the 4 axos (2026-11-18).
 // Geometry is her LABELS AND SCALES layer in BOARDS.indd (read from a copy): 12 pt circle at 0.5 pt,
-// 1 pt north line from 0.47r in to 1.46r out, 3.2 pt bar (black then white, 0.4 pt edge), 8 pt labels,
-// 10 pt title right aligned to the bar end. Positions are the bar ends / north centre / title corner
-// run through scripts/reverie-keys.mjs, so the bar keeps its true length against the drawing.
-// --pt is one board point in cqw of the drawing, so the type and arrow scale with it.
+// 1 pt north line from 0.47r in to 1.46r out, 3.2 pt bar (black then white), 8 pt labels, 10 pt title.
+// Bar length and split come from the board bar ends run through scripts/reverie-keys.mjs, so the bar
+// keeps its true length against the drawing (--bar, in cqw of the drawing).
+// Layout (her ask "make them all cleanly aligned"): one block, identical on all 4, tucked into the
+// drawing's bottom right corner at the same inset. Title right aligned to the bar end, north arrow
+// left of the bar and centred on it, 0' flush with the bar start, end label flush with the bar end,
+// middle label centred on the split. --pt is one board point in cqw so type and arrow scale too.
+// Re-runnable: replaces any earlier scale blocks and their CSS.
 import fs from 'node:fs';
 
 const F = new URL('../site/index.html', import.meta.url);
 let html = fs.readFileSync(F, 'utf8');
-if (html.includes('class="rv-scale"')) throw new Error('scales already in');
 
+// bar ends (S0, S1 split, S2) as % of each web image's width, from reverie-keys.mjs
 const S = {
-  'site-sav': { img: '222-reverie-site-sav-framed.jpg', title: 'Back40 Site &amp; Approach', barPt: 1318.22 - 1208.856, labels: ['0’', '50’', '100’'], north: [[-2.226, -1.732], [-6.913, -5.381]],
-    p: { S0: [87.11, 97.18], S1: [92.81, 97.18], S2: [98.52, 97.18], N: [84.63, 97.18] } },
-  'site-atl': { img: '224-reverie-site-atl-framed.jpg', title: 'Atlanta Site &amp; Approach', barPt: 6936.2 - 6829.709, labels: ['0’', '50’', '100’'], north: [[0.635, -2.748], [1.971, -8.535]],
-    p: { S0: [86.77, 97.69], S1: [92.04, 97.69], S2: [97.32, 97.69], N: [84.42, 97.69] } },
-  'exploded-sav': { img: '223-reverie-exploded-sav.jpg', title: 'Program &amp; Circulation', barPt: 1290.1 - 1162.204, labels: ['0’', '10’', '50’'], north: [[-2.225, -1.732], [-6.913, -5.381]], tight: true,
-    p: { S0: [80.15, 97.08], S1: [82.66, 97.08], S2: [92.73, 97.08], N: [77.81, 97.08] } },
-  'exploded-atl': { img: '225-reverie-exploded-atl-cropped.jpg', title: 'Program &amp; Circulation', barPt: 6927.7 - 6761.792, labels: ['0’', '10’', '50’'], north: [[0.634, -2.748], [1.97, -8.535]], tight: true,
-    p: { S0: [80.65, 90.4], S1: [83.79, 90.4], S2: [96.36, 90.4], N: [78.4, 90.4] } },
+  'site-sav': { img: '222-reverie-site-sav-framed.jpg', title: 'Back40 Site &amp; Approach', barPt: 1318.22 - 1208.856, labels: ['0’', '50’', '100’'], north: [[-2.226, -1.732], [-6.913, -5.381]], x: [87.11, 92.81, 98.52] },
+  'site-atl': { img: '224-reverie-site-atl-framed.jpg', title: 'Atlanta Site &amp; Approach', barPt: 6936.2 - 6829.709, labels: ['0’', '50’', '100’'], north: [[0.635, -2.748], [1.971, -8.535]], x: [86.77, 92.04, 97.32] },
+  'exploded-sav': { img: '223-reverie-exploded-sav.jpg', title: 'Program &amp; Circulation', barPt: 1290.1 - 1162.204, labels: ['0’', '10’', '50’'], north: [[-2.225, -1.732], [-6.913, -5.381]], x: [80.15, 82.66, 92.73] },
+  'exploded-atl': { img: '225-reverie-exploded-atl-cropped.jpg', title: 'Program &amp; Circulation', barPt: 6927.7 - 6761.792, labels: ['0’', '10’', '50’'], north: [[0.634, -2.748], [1.97, -8.535]], x: [80.65, 83.79, 96.36] },
 };
-const r2 = (n) => +n.toFixed(2);
+const r = (n, d = 2) => +n.toFixed(d);
+
+// clear earlier versions
+html = html.replace(/<div class="rv-scale"[\s\S]*?(?:<\/span><\/div>(?=<\/div>)|<!--\/rv-scale-->)/g, '');
 
 for (const [id, s] of Object.entries(S)) {
-  const { S0, S1, S2, N } = s.p;
-  const w = S2[0] - S0[0], y = S0[1];
-  const pt = (w / s.barPt).toFixed(4);
-  const right = r2(100 - S2[0]), bottom = r2(100 - y);
-  const [[x1, y1], [x2, y2]] = s.north;
-  const block = `<div class="rv-scale" style="--pt:${pt}cqw">` +
-    `<div class="rv-scale-t" style="right:${right}%;bottom:${bottom}%">${s.title}</div>` +
-    `<svg class="rv-north" style="left:${N[0]}%;top:${N[1]}%" viewBox="-9.5 -9.5 19 19" aria-hidden="true"><circle r="6" fill="none" stroke="#000" stroke-width=".5"/><line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#000" stroke-width="1"/></svg>` +
-    `<div class="rv-bar" style="left:${S0[0]}%;top:${y}%;width:${r2(w)}%"><i style="width:${r2(100 * (S1[0] - S0[0]) / w)}%"></i></div>` +
-    `<span class="rv-bar-l" style="left:${S0[0]}%;top:${y}%">${s.labels[0]}</span>` +
-    `<span class="rv-bar-l rv-bar-mid" style="left:${S1[0]}%;top:${y}%">${s.labels[1]}</span>` +
-    `<span class="rv-bar-l rv-bar-end" style="right:${right}%;top:${y}%">${s.labels[2]}</span>` +
-    `</div>`;
-  // the scale goes inside the axo's .rv-pins wrapper, after its numbered discs
+  const [x0, x1, x2] = s.x, w = x2 - x0;
+  const [[a, b], [c, d]] = s.north;
+  const block = `<div class="rv-scale" style="--pt:${r(w / s.barPt, 4)}cqw;--bar:${r(w)}cqw;--split:${r(100 * (x1 - x0) / w)}%">` +
+    `<div class="rv-scale-t">${s.title}</div>` +
+    `<svg class="rv-north" viewBox="-9.5 -9.5 19 19" aria-hidden="true"><circle r="6" fill="none" stroke="#000" stroke-width=".5"/><line x1="${a}" y1="${b}" x2="${c}" y2="${d}" stroke="#000" stroke-width="1"/></svg>` +
+    `<div class="rv-bar"><i></i></div>` +
+    `<div class="rv-bar-ls"><span>${s.labels[0]}</span><span class="rv-bar-mid">${s.labels[1]}</span><span class="rv-bar-end">${s.labels[2]}</span></div>` +
+    `</div><!--/rv-scale-->`;
   const re = new RegExp(`(<div class="rv-pins"><img [^>]*src="images/${s.img.replace(/\./g, '\\.')}"[^>]*>(?:<span class="rv-pin"[^>]*>\\d\\d</span>)+)</div>`);
   if (!re.test(html)) throw new Error('axo not found: ' + id);
-  html = html.replace(re, (_, a) => `${a}${block}</div>`);
+  html = html.replace(re, (_, m) => `${m}${block}</div>`);
 }
 
-const CSS = `/* her drawing title, north arrow and bar scale, sized in board points (--pt) so the bar stays true to the drawing */
-.rv-scale{position:absolute;inset:0;pointer-events:none;font-family:var(--title);color:var(--text-light);letter-spacing:.02em}
-.rv-scale-t{position:absolute;margin-bottom:max(7px,calc(10*var(--pt)));font-size:max(8px,calc(10*var(--pt)));font-weight:500;line-height:1;white-space:nowrap}
-.rv-north{position:absolute;width:max(11px,calc(19*var(--pt)));height:max(11px,calc(19*var(--pt)));transform:translate(-50%,-50%);overflow:visible}
-.rv-bar{position:absolute;height:max(4px,calc(3.2*var(--pt)));transform:translateY(-50%);background:#fff;border:.5px solid #000;box-sizing:border-box}
-.rv-bar i{position:absolute;left:0;top:0;bottom:0;background:#000}
-.rv-bar-l{position:absolute;margin-top:max(4px,calc(4*var(--pt)));transform:translateX(-50%);font-size:max(7px,calc(8*var(--pt)));line-height:1;white-space:nowrap}
-.rv-bar-l.rv-bar-end{transform:none}
+const CSS = `/* her drawing title, north arrow and bar scale: one block, same on all 4, in the drawing's bottom right corner.
+   --bar is the true bar length (cqw of the drawing); --pt is one board point, so type and arrow scale with it */
+.rv-scale{position:absolute;right:max(12px,2.4cqw);bottom:max(10px,2.4cqw);display:grid;grid-template-columns:auto var(--bar);column-gap:max(6px,calc(8*var(--pt)));row-gap:0;align-items:center;pointer-events:none;font-family:var(--title);color:var(--text-light);letter-spacing:.02em;line-height:1}
+.rv-scale-t{grid-column:1/-1;justify-self:end;font-size:max(10px,calc(10*var(--pt)));font-weight:500;white-space:nowrap;margin-bottom:max(7px,calc(9*var(--pt)))}
+.rv-north{grid-column:1;grid-row:2;justify-self:end;width:max(11px,calc(19*var(--pt)));height:max(11px,calc(19*var(--pt)));overflow:visible;margin:min(-2px,calc(-3*var(--pt))) 0}
+.rv-bar{grid-column:2;grid-row:2;position:relative;height:max(4px,calc(3.2*var(--pt)));background:#fff;border:.5px solid #000;box-sizing:border-box}
+.rv-bar i{position:absolute;left:0;top:0;bottom:0;width:var(--split);background:#000}
+.rv-bar-ls{grid-column:2;grid-row:3;position:relative;margin-top:max(4px,calc(4*var(--pt)));display:flex;justify-content:space-between;font-size:max(8.5px,calc(8*var(--pt)))}
+.rv-bar-mid{position:absolute;left:var(--split);transform:translateX(-50%)}
 @media(max-width:600px){.rv-bar-mid{display:none}}`;
+html = html.replace(/\/\* her drawing title, north arrow and bar scale[\s\S]*?@media\(max-width:600px\)\{\.rv-bar-mid\{display:none\}\}\r?\n?/, '');
 const anchor = '/* legends run down vertically on the right of each axo, like the boards */';
 if (!html.includes(anchor)) throw new Error('css anchor missing');
-html = html.replace(anchor, CSS.replace(/\n/g, '\r\n') + '\r\n' + anchor);
+html = html.replace(anchor, CSS.replace(/\r?\n/g, '\r\n') + '\r\n' + anchor);
 
 fs.writeFileSync(F, html);
 const n = (s) => html.split(s).length - 1;
-console.log('ends html:', html.trimEnd().endsWith('</html>'), 'boards-popup', n('boards-popup'), 'flipbook-popup', n('flipbook-popup'), 'scales', n('class="rv-scale"'), 'pins', n('class="rv-pin"'));
+console.log('ends html:', html.trimEnd().endsWith('</html>'), 'boards-popup', n('boards-popup'), 'flipbook-popup', n('flipbook-popup'), 'scales', n('class="rv-scale"'), 'pins', n('class="rv-pin"'), 'old bits', n('class="rv-scale-t" style'));

@@ -24,7 +24,7 @@ const r = html.match(release);
 if (!r) throw new Error('release row not found');
 html = html.replace(release, () => `${r[1]}${N}    </div>${N}  </div>${N}  <div class="img-row three rv-sections">${N}${items(r[2])}${N}  </div>`);
 
-const CSS = `/* the 3 light sections run the whole way across under their section */${N}.img-row.rv-sections{padding:8px 60px 48px}${N}@media(max-width:768px){.img-row.rv-sections{padding:0 24px 32px}}${N}`;
+const CSS = `/* the 3 light sections run the whole way across under their section */${N}.img-row.rv-sections{padding:8px 60px 48px}${N}.rv-sections .img-row-item{padding:0 6.5%}${N}@media(max-width:768px){.img-row.rv-sections{padding:0 24px 32px}.rv-sections .img-row-item{padding:0 10%}}${N}`;
 const anchor = '/* full bleed render mid page';
 if (!html.includes(anchor)) throw new Error('css anchor');
 html = html.replace(anchor, CSS + anchor);

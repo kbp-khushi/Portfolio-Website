@@ -610,7 +610,9 @@ img[data-slug]:not([src]){opacity:0}
 @media(max-width:600px){.rv-pair{flex-direction:column;gap:20px}}
 /* the 3 light sections run the whole way across under their section */
 .img-row.rv-sections{padding:8px 60px 48px}
-@media(max-width:768px){.img-row.rv-sections{padding:0 24px 32px}}
+/* each drawing sits smaller inside its column, centred: columns keep their places, more white space around them */
+.rv-sections .img-row-item{padding:0 6.5%}
+@media(max-width:768px){.img-row.rv-sections{padding:0 24px 32px}.rv-sections .img-row-item{padding:0 10%}}
 /* full bleed render mid page, edge to edge like the hero but uncropped; caption back on the frame */
 .rv-bleed{padding:32px 0}
 .rv-bleed img{width:100%;height:auto;display:block}

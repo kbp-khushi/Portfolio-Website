@@ -452,7 +452,7 @@ img[data-slug]:not([src]){opacity:0}
 /* FLIPBOOK POPUP */
 .flipbook-popup{position:fixed;top:0;left:0;right:0;bottom:0;z-index:300;background:rgba(42,42,42,0);backdrop-filter:blur(0px);display:flex;justify-content:center;align-items:center;opacity:0;visibility:hidden;transition:all .5s ease,visibility 0s .5s}
 .flipbook-popup.open{opacity:1;visibility:visible;background:rgba(42,42,42,0.7);backdrop-filter:blur(8px);transition:all .5s ease,visibility 0s 0s}
-.flipbook-inner{position:relative;max-width:1200px;width:95%;max-height:95vh;display:flex;flex-direction:column;align-items:center;transform:scale(0.98);transition:transform .5s ease}
+.flipbook-inner{position:relative;max-width:1200px;width:calc(100% - 150px);max-height:95vh;display:flex;flex-direction:column;align-items:center;transform:scale(0.98);transition:transform .5s ease}
 .flipbook-popup.open .flipbook-inner{transform:scale(1)}
 .flipbook-img{max-width:100%;max-height:78vh;object-fit:contain;display:block;transition:opacity .2s ease}
 .flipbook-nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border:none;background:transparent;color:rgba(255,255,255,0.8);font-size:20px;font-weight:300;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;border-radius:50%}
@@ -600,6 +600,14 @@ img[data-slug]:not([src]){opacity:0}
 .rv-mass img{flex:1 1 0;min-height:0;width:100%;height:auto;object-fit:contain;object-position:left center;display:block}
 .rv-mass figcaption{font-size:11px;color:var(--text-light);letter-spacing:0.3px;line-height:1.45;margin-top:4px}
 .rv-mass figcaption b{display:block;font-weight:600;color:var(--text)}
+/* two renders side by side at one height: each flexes by its aspect ratio */
+.rv-pair{display:flex;gap:20px;width:100%;align-items:flex-start}
+.rv-pair>div{flex:var(--a) 1 0;min-width:0}
+.rv-pair img{width:100%;height:auto;display:block}
+@media(max-width:600px){.rv-pair{flex-direction:column;gap:20px}}
+/* the 3 light sections run the whole way across under their section */
+.img-row.rv-sections{padding:8px 60px 48px}
+@media(max-width:768px){.img-row.rv-sections{padding:0 24px 32px}}
 /* full bleed render mid page, edge to edge like the hero but uncropped; caption back on the frame */
 .rv-bleed{padding:32px 0}
 .rv-bleed img{width:100%;height:auto;display:block}
@@ -1234,18 +1242,16 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
     <div class="rv-legend"><div class="rv-key-title">The Retreat</div><ol><li><span class="rv-key-num">01</span>the lattice walk</li><li><span class="rv-key-num">02</span>the waterfall</li><li><span class="rv-key-num">03</span>the court</li><li><span class="rv-key-num">04</span>the curved bench</li><li><span class="rv-key-num">05</span>the fountain</li><li><span class="rv-key-num">06</span>the water room</li><li><span class="rv-key-num">07</span>the sky room</li><li><span class="rv-key-num">08</span>the tower</li><li><span class="rv-key-num">09</span>the viewing platform</li><li><span class="rv-key-num">10</span>the fire pit</li><li><span class="rv-key-num">11</span>pod 1</li><li><span class="rv-key-num">12</span>pod 2</li><li><span class="rv-key-num">13</span>pod 3</li><li><span class="rv-key-num">14</span>the hub</li></ol></div></div>
   </div>
 
-  <div class="edit-row">
-    <div class="edit-text">
+  <div class="ds-section rv-axo-text">
+    <div>
       <div class="ds-title">The Tabby Walls</div>
       <div class="ds-text">The tabby walls sit right on the ground, and over time they show a beautiful evolution as they&rsquo;re weathered by the wind, the water and the people who visit. Under loblollies so tall, you feel really small next to something way bigger, and that ends up being a relief.</div>
     </div>
-    <div class="edit-images">
-      <div class="img-row three" style="padding:0;width:100%">
-        <div class="img-row-item"><img width="1400" height="1227" loading="lazy" src="images/226-reverie-section-lattice-walk.jpg" alt="Light section through the lattice walk"><div class="img-caption">the lattice walk</div></div>
-        <div class="img-row-item"><img width="1400" height="1227" loading="lazy" src="images/227-reverie-section-water-room.jpg" alt="Light section through the water room"><div class="img-caption">the water room</div></div>
-        <div class="img-row-item"><img width="1400" height="1227" loading="lazy" src="images/228-reverie-section-court.jpg" alt="Light section through the court"><div class="img-caption">the court</div></div>
-      </div>
-    </div>
+  </div>
+  <div class="img-row three rv-sections">
+    <div class="img-row-item"><img width="1400" height="1227" loading="lazy" src="images/226-reverie-section-lattice-walk.jpg" alt="Light section through the lattice walk"><div class="img-caption">the lattice walk</div></div>
+    <div class="img-row-item"><img width="1400" height="1227" loading="lazy" src="images/227-reverie-section-water-room.jpg" alt="Light section through the water room"><div class="img-caption">the water room</div></div>
+    <div class="img-row-item"><img width="1400" height="1227" loading="lazy" src="images/228-reverie-section-court.jpg" alt="Light section through the court"><div class="img-caption">the court</div></div>
   </div>
 
 
@@ -1293,8 +1299,7 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
       <div class="ds-text">As you go further in, the space compresses into something darker and heavier that takes away every stimulus and sense, one step at a time. The subtle rose color comes from a source you never see. It starts faint in the garden and grows stronger inside the walls, giving you a slot of light to read in or a pocket to sit alone in, always somewhere near other people. With nothing left to look at, your mind is finally free to wander.</div>
     </div>
     <div class="edit-images">
-      <div><img width="2400" height="1351" loading="lazy" src="images/215-reverie-threshold.jpg" alt="The threshold into the walls"><div class="img-caption">the threshold</div></div>
-      <div style="max-width:560px"><img width="1600" height="1999" loading="lazy" src="images/216-reverie-dark-walk.jpg" alt="The dark walk, rose light and arched niches"><div class="img-caption">the dark walk</div></div>
+      <div class="rv-pair"><div style="--a:1.7765"><img width="2400" height="1351" loading="lazy" src="images/215-reverie-threshold.jpg" alt="The threshold into the walls"><div class="img-caption">the threshold</div></div><div style="--a:0.8004"><img width="1600" height="1999" loading="lazy" src="images/216-reverie-dark-walk.jpg" alt="The dark walk, rose light and arched niches"><div class="img-caption">the dark walk</div></div></div>
     </div>
   </div>
 
@@ -1316,12 +1321,12 @@ function weNav(id){var el=document.getElementById(id);if(!el)return;var page=el.
     </div>
     <div class="edit-images">
       <div><img width="2400" height="1308" loading="lazy" src="images/217-reverie-overlook.jpg" alt="The overlook and release, the skyline over the Connector at dusk"><div class="img-caption">the overlook &amp; release</div></div>
-      <div class="img-row three" style="padding:0;width:100%">
-        <div class="img-row-item"><img width="1400" height="1223" loading="lazy" src="images/229-reverie-section-open-walls.jpg" alt="Light section through the open walls"><div class="img-caption">the open walls</div></div>
-        <div class="img-row-item"><img width="1400" height="1223" loading="lazy" src="images/230-reverie-section-dark-walk.jpg" alt="Light section through the dark walk"><div class="img-caption">the dark walk</div></div>
-        <div class="img-row-item"><img width="1400" height="1223" loading="lazy" src="images/231-reverie-section-canopy.jpg" alt="Light section through the canopy"><div class="img-caption">the canopy</div></div>
-      </div>
     </div>
+  </div>
+  <div class="img-row three rv-sections">
+    <div class="img-row-item"><img width="1400" height="1223" loading="lazy" src="images/229-reverie-section-open-walls.jpg" alt="Light section through the open walls"><div class="img-caption">the open walls</div></div>
+    <div class="img-row-item"><img width="1400" height="1223" loading="lazy" src="images/230-reverie-section-dark-walk.jpg" alt="Light section through the dark walk"><div class="img-caption">the dark walk</div></div>
+    <div class="img-row-item"><img width="1400" height="1223" loading="lazy" src="images/231-reverie-section-canopy.jpg" alt="Light section through the canopy"><div class="img-caption">the canopy</div></div>
   </div>
 
 

@@ -16,7 +16,7 @@ html = html.replace(beacon, '');
 // add Reverie first
 const reverie = [
   `    <div class="stack-item" onclick="openProject('reverie')">`,
-  `      <div style="position:relative"><span class="wip-badge">In Progress</span><img width="2400" height="1308" class="stack-img" data-slug="reverie" src="images/217-reverie-overlook.jpg" alt="Reverie, the overlook and release over the Downtown Connector at dusk"></div>`,
+  `      <img width="2400" height="1308" class="stack-img" data-slug="reverie" src="images/217-reverie-overlook.jpg" alt="Reverie, the overlook and release over the Downtown Connector at dusk">`,
   `      <div class="stack-info">`,
   `        <div class="stack-title">Reverie</div>`,
   `        <div class="stack-facts">`,
